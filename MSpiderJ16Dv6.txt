@@ -1,0 +1,3573 @@
+{$CLEO .cs}
+{$USE ini}
+
+0000: NOP 
+Actor.EmulateFromPlayer(0@, 0)
+9@ = 2 
+cleo_call @NONAME_27081 1 9@ 
+10@ = 1 
+cleo_call @NONAME_27268 1 10@ 
+set_cleo_shared_var 112 10@ 
+cleo_call @NONAME_27325 1 10@ 
+set_cleo_shared_var 113 10@ 
+cleo_call @NONAME_27382 1 10@ 
+set_cleo_shared_var 114 10@ 
+10@ = 0 
+cleo_call @NONAME_27439 1 10@ 
+set_cleo_shared_var 110 10@ 
+cleo_call @NONAME_27211 1 10@ 
+set_cleo_shared_var 111 10@ 
+set_cleo_shared_var 116 10@ 
+set_cleo_shared_var 119 10@ 
+set_cleo_shared_var 121 10@ 
+
+:NONAME_164
+if and
+is_key_pressed 17 
+is_key_pressed 79 
+jf @NONAME_628 
+
+:NONAME_183
+if 
+is_key_pressed 79 
+jf @NONAME_209 
+wait 0 
+jump @NONAME_183 
+
+:NONAME_209
+0812: AS_actor 0@ perform_animation "NULL" IFP "NULL" framedelta 1.0 loopA 0 lockX 0 lockY 0 lockF 0 time -1 // versionB 
+0169: set_fade_color_RGB 0 0 0 
+fade 0 500 
+
+:NONAME_256
+if 
+fading 
+jf @NONAME_280 
+wait 0 
+jump @NONAME_256 
+
+:NONAME_280
+read_memory 10@ 13112096 2 0 
+cleo_call @NONAME_20016 1 10@ 
+read_int_from_ini_file 10@ "CLEO\SpiderJ16D\config.ini" "config" "setA" 
+set_cleo_shared_var 117 10@ 
+read_float_from_ini_file 18@ "CLEO\SpiderJ16D\config.ini" "config" "setB" 
+gosub @NONAME_18047 
+gosub @NONAME_17504 
+cleo_call @NONAME_22724 0 
+cleo_call @NONAME_27496 2 0@ 0 
+gosub @NONAME_19896 
+cleo_call @NONAME_21895 0 
+cleo_call @NONAME_26033 0 
+wait 0 
+get_cleo_shared_var 10@ 121 
+if 
+  10@ == 1 
+jf @NONAME_599 
+10@ = 0 
+set_cleo_shared_var 121 10@ 
+wait 100 
+10@ = 1 
+set_cleo_shared_var 121 10@ 
+wait 0 
+if 
+does_file_exist "SpiderJ16D\sp_msc.cs" 
+jf @NONAME_599 
+stream_custom_script "SpiderJ16D\sp_msc.cs" 
+
+:NONAME_599
+set_weather 5 
+fade 1 500 
+wait 500 
+set_cleo_shared_var 120 1 
+jump @NONAME_639 
+
+:NONAME_628
+wait 0 
+jump @NONAME_164 
+
+:NONAME_639
+gosub @NONAME_3129 
+0871: init_jump_table 2@ total_jumps 6 default_jump 0 @NONAME_2210 jumps 1 @NONAME_709 2 @NONAME_1179 3 @NONAME_1186 4 @NONAME_2137 5 @NONAME_2174 6 @NONAME_2203 -1 @NONAME_2210 
+
+:NONAME_709
+cleo_call @NONAME_20387 3 112 110 5@ 5@ 
+0871: init_jump_table 5@ total_jumps 3 default_jump 0 @NONAME_1172 jumps 110 @NONAME_792 111 @NONAME_932 112 @NONAME_1052 -1 @NONAME_1172 -1 @NONAME_1172 -1 @NONAME_1172 -1 @NONAME_1172 
+
+:NONAME_792
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_925 
+cleo_call @NONAME_27466 0 10@ 
+if 
+  10@ == 1 
+jf @NONAME_854 
+10@ = 0 
+jump @NONAME_861 
+
+:NONAME_854
+10@ = 1 
+
+:NONAME_861
+cleo_call @NONAME_27439 1 10@ 
+0085: 1@ = 10@ // (int) 
+cleo_call @NONAME_25998 1 8 
+
+:NONAME_894
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_925 
+gosub @NONAME_3129 
+jump @NONAME_894 
+
+:NONAME_925
+jump @NONAME_1172 
+
+:NONAME_932
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1045 
+get_cleo_shared_var 10@ 116 
+if 
+  10@ == 1 
+jf @NONAME_988 
+10@ = 0 
+jump @NONAME_995 
+
+:NONAME_988
+10@ = 1 
+
+:NONAME_995
+set_cleo_shared_var 116 10@ 
+cleo_call @NONAME_25998 1 8 
+
+:NONAME_1014
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1045 
+gosub @NONAME_3129 
+jump @NONAME_1014 
+
+:NONAME_1045
+jump @NONAME_1172 
+
+:NONAME_1052
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1165 
+get_cleo_shared_var 10@ 121 
+if 
+  10@ == 1 
+jf @NONAME_1108 
+10@ = 0 
+jump @NONAME_1115 
+
+:NONAME_1108
+10@ = 1 
+
+:NONAME_1115
+set_cleo_shared_var 121 10@ 
+cleo_call @NONAME_25998 1 8 
+
+:NONAME_1134
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1165 
+gosub @NONAME_3129 
+jump @NONAME_1134 
+
+:NONAME_1165
+jump @NONAME_1172 
+
+:NONAME_1172
+jump @NONAME_2210 
+
+:NONAME_1179
+jump @NONAME_2210 
+
+:NONAME_1186
+0871: init_jump_table 4@ total_jumps 4 default_jump 0 @NONAME_2063 jumps 0 @NONAME_1249 1 @NONAME_1484 2 @NONAME_1595 3 @NONAME_1602 -1 @NONAME_2063 -1 @NONAME_2063 -1 @NONAME_2063 
+
+:NONAME_1249
+cleo_call @NONAME_20387 3 3 1 3@ 3@ 
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1441 
+0871: init_jump_table 3@ total_jumps 3 default_jump 0 @NONAME_1391 jumps 1 @NONAME_1349 2 @NONAME_1363 3 @NONAME_1377 -1 @NONAME_1391 -1 @NONAME_1391 -1 @NONAME_1391 -1 @NONAME_1391 
+
+:NONAME_1349
+4@ = 1 
+jump @NONAME_1391 
+
+:NONAME_1363
+4@ = 2 
+jump @NONAME_1391 
+
+:NONAME_1377
+4@ = 3 
+jump @NONAME_1391 
+
+:NONAME_1391
+cleo_call @NONAME_25998 1 0 
+
+:NONAME_1403
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1434 
+gosub @NONAME_3129 
+jump @NONAME_1403 
+
+:NONAME_1434
+19@ = 1 
+
+:NONAME_1441
+if 
+00E1:   player 0 pressed_key 17 
+jf @NONAME_1477 
+cleo_call @NONAME_25998 1 0 
+jump @NONAME_2629 
+
+:NONAME_1477
+jump @NONAME_2063 
+
+:NONAME_1484
+cleo_call @NONAME_20546 6 5 1 6@ 5 1 5@ 6@ 5@ 
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1588 
+cleo_call @NONAME_25998 1 12 
+gosub @NONAME_18638 
+
+:NONAME_1550
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_1581 
+gosub @NONAME_3129 
+jump @NONAME_1550 
+
+:NONAME_1581
+19@ = 1 
+
+:NONAME_1588
+jump @NONAME_2063 
+
+:NONAME_1595
+jump @NONAME_2063 
+
+:NONAME_1602
+cleo_call @NONAME_20387 3 103 100 5@ 5@ 
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_2056 
+0871: init_jump_table 5@ total_jumps 4 default_jump 0 @NONAME_2018 jumps 100 @NONAME_1702 101 @NONAME_1781 102 @NONAME_1860 103 @NONAME_1939 -1 @NONAME_2018 -1 @NONAME_2018 -1 @NONAME_2018 
+
+:NONAME_1702
+cleo_call @NONAME_27238 0 10@ 
+if 
+  10@ == 1 
+jf @NONAME_1747 
+10@ = 0 
+jump @NONAME_1754 
+
+:NONAME_1747
+10@ = 1 
+
+:NONAME_1754
+cleo_call @NONAME_27211 1 10@ 
+set_cleo_shared_var 111 10@ 
+jump @NONAME_2018 
+
+:NONAME_1781
+cleo_call @NONAME_27295 0 10@ 
+if 
+  10@ == 1 
+jf @NONAME_1826 
+10@ = 0 
+jump @NONAME_1833 
+
+:NONAME_1826
+10@ = 1 
+
+:NONAME_1833
+cleo_call @NONAME_27268 1 10@ 
+set_cleo_shared_var 112 10@ 
+jump @NONAME_2018 
+
+:NONAME_1860
+cleo_call @NONAME_27352 0 10@ 
+if 
+  10@ == 1 
+jf @NONAME_1905 
+10@ = 0 
+jump @NONAME_1912 
+
+:NONAME_1905
+10@ = 1 
+
+:NONAME_1912
+cleo_call @NONAME_27325 1 10@ 
+set_cleo_shared_var 113 10@ 
+jump @NONAME_2018 
+
+:NONAME_1939
+cleo_call @NONAME_27409 0 10@ 
+if 
+  10@ == 1 
+jf @NONAME_1984 
+10@ = 0 
+jump @NONAME_1991 
+
+:NONAME_1984
+10@ = 1 
+
+:NONAME_1991
+cleo_call @NONAME_27382 1 10@ 
+set_cleo_shared_var 114 10@ 
+jump @NONAME_2018 
+
+:NONAME_2018
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_2049 
+gosub @NONAME_3129 
+jump @NONAME_2018 
+
+:NONAME_2049
+19@ = 1 
+
+:NONAME_2056
+jump @NONAME_2063 
+
+:NONAME_2063
+if 
+00E1:   player 0 pressed_key 17 
+jf @NONAME_2130 
+
+:NONAME_2080
+if 
+00E1:   player 0 pressed_key 17 
+jf @NONAME_2111 
+gosub @NONAME_3129 
+jump @NONAME_2080 
+
+:NONAME_2111
+gosub @NONAME_18091 
+cleo_call @NONAME_25998 1 0 
+
+:NONAME_2130
+jump @NONAME_2210 
+
+:NONAME_2137
+cleo_call @NONAME_20546 6 2 1 6@ 1 1 5@ 6@ 5@ 
+jump @NONAME_2210 
+
+:NONAME_2174
+cleo_call @NONAME_20387 3 225 210 5@ 5@ 
+jump @NONAME_2210 
+
+:NONAME_2203
+jump @NONAME_2210 
+
+:NONAME_2210
+if 
+00E1:   player 0 pressed_key 5 
+jf @NONAME_2265 
+2@ -= 1 
+cleo_call @NONAME_25392 1 1 
+gosub @NONAME_18091 
+cleo_call @NONAME_25998 1 4 
+
+:NONAME_2265
+if 
+00E1:   player 0 pressed_key 7 
+jf @NONAME_2320 
+2@ += 1 
+cleo_call @NONAME_25392 1 1 
+gosub @NONAME_18091 
+cleo_call @NONAME_25998 1 4 
+
+:NONAME_2320
+cleo_call @NONAME_25817 3 2@ 6 1 2@ 
+cleo_call @NONAME_27054 1 2@ 
+TIMERA = 0 
+
+:NONAME_2360
+if 
+0485:   return_true 
+jf @NONAME_2468 
+if or
+00E1:   player 0 pressed_key 5 
+00E1:   player 0 pressed_key 7 
+00E1:   player 0 pressed_key 0 
+00E1:   player 0 pressed_key 1 
+jf @NONAME_2454 
+if 
+  70 > TIMERA 
+jf @NONAME_2440 
+gosub @NONAME_3129 
+jump @NONAME_2447 
+
+:NONAME_2440
+jump @NONAME_2468 
+
+:NONAME_2447
+jump @NONAME_2461 
+
+:NONAME_2454
+jump @NONAME_2468 
+
+:NONAME_2461
+jump @NONAME_2360 
+
+:NONAME_2468
+if 
+00E1:   player 0 pressed_key 4 
+jf @NONAME_2527 
+if 
+056D:   actor 21@ defined 
+jf @NONAME_2527 
+22@ = Actor.Angle(21@)
+0079: 22@ += frame_delta_time * 5.0 // (float) 
+Actor.Angle(21@) = 22@
+
+:NONAME_2527
+if 
+00E1:   player 0 pressed_key 6 
+jf @NONAME_2586 
+if 
+056D:   actor 21@ defined 
+jf @NONAME_2586 
+22@ = Actor.Angle(21@)
+007F: 22@ -= frame_delta_time * 5.0 // (float) 
+Actor.Angle(21@) = 22@
+
+:NONAME_2586
+if 
+00E1:   player 0 pressed_key 17 
+jf @NONAME_2622 
+cleo_call @NONAME_25998 1 0 
+jump @NONAME_2629 
+
+:NONAME_2622
+jump @NONAME_639 
+
+:NONAME_2629
+0169: set_fade_color_RGB 0 0 0 
+fade 0 600 
+
+:NONAME_2644
+if 
+fading 
+jf @NONAME_2671 
+gosub @NONAME_3129 
+jump @NONAME_2644 
+
+:NONAME_2671
+cleo_call @NONAME_20050 0 10@ 
+set_weather 10@ 
+wait 0 
+01B7: release_weather 
+cleo_call @NONAME_27466 0 1@ 
+if 
+  1@ == 1 
+jf @NONAME_2941 
+1@ = 0 
+set_cleo_shared_var 110 1@ 
+wait 50 
+1@ = 1 
+set_cleo_shared_var 110 1@ 
+wait 0 
+stream_custom_script "SpiderJ16D\sp_main.cs" 
+if 
+   Actor.Model(0@) == 0
+jf @NONAME_2813 
+gosub @NONAME_18638 
+
+:NONAME_2813
+get_cleo_shared_var 10@ 121 
+if 
+  10@ == 1 
+jf @NONAME_2934 
+10@ = 0 
+set_cleo_shared_var 121 10@ 
+wait 100 
+10@ = 1 
+set_cleo_shared_var 121 10@ 
+wait 0 
+if 
+does_file_exist "SpiderJ16D\sp_msc.cs" 
+jf @NONAME_2934 
+stream_custom_script "SpiderJ16D\sp_msc.cs" 
+
+:NONAME_2934
+jump @NONAME_2969 
+
+:NONAME_2941
+1@ = 0 
+set_cleo_shared_var 110 1@ 
+09C7: change_player 0 model_to 0 
+Player.Build(0)
+wait 0 
+
+:NONAME_2969
+03F0: enable_text_draw 1 
+03F0: enable_text_draw 0 
+wait 0 
+03F0: enable_text_draw 1 
+03F0: enable_text_draw 0 
+wait 50 
+Camera.Restore
+Camera.Restore_WithJumpCut
+cleo_call @NONAME_22811 0 
+cleo_call @NONAME_27496 2 0@ 1 
+if 
+03CA:   object 20@ exists 
+jf @NONAME_3043 
+Object.Destroy(20@)
+
+:NONAME_3043
+gosub @NONAME_19683 
+0391: release_textures 
+04EF: release_animation "SPIDER" 
+cleo_call @NONAME_26542 0 
+wait 0 
+
+:NONAME_3076
+if 
+00E1:   player 0 pressed_key 17 
+jf @NONAME_3104 
+wait 0 
+jump @NONAME_3076 
+
+:NONAME_3104
+fade 1 500 
+wait 500 
+set_cleo_shared_var 120 0 
+jump @NONAME_164 
+
+:NONAME_3129
+gosub @NONAME_3418 
+gosub @NONAME_4361 
+0871: init_jump_table 2@ total_jumps 6 default_jump 0 @NONAME_3412 jumps 1 @NONAME_3206 2 @NONAME_3220 3 @NONAME_3255 4 @NONAME_3328 5 @NONAME_3370 6 @NONAME_3398 -1 @NONAME_3412 
+
+:NONAME_3206
+gosub @NONAME_5813 
+jump @NONAME_3412 
+
+:NONAME_3220
+gosub @NONAME_19683 
+gosub @NONAME_18148 
+gosub @NONAME_6444 
+gosub @NONAME_6542 
+jump @NONAME_3412 
+
+:NONAME_3255
+cleo_call @NONAME_27466 0 10@ 
+if 
+  10@ == 0 
+jf @NONAME_3300 
+gosub @NONAME_8762 
+jump @NONAME_3321 
+
+:NONAME_3300
+gosub @NONAME_19355 
+gosub @NONAME_19713 
+gosub @NONAME_7481 
+
+:NONAME_3321
+jump @NONAME_3412 
+
+:NONAME_3328
+gosub @NONAME_19683 
+gosub @NONAME_18148 
+gosub @NONAME_14280 
+gosub @NONAME_14656 
+gosub @NONAME_15345 
+jump @NONAME_3412 
+
+:NONAME_3370
+gosub @NONAME_15870 
+gosub @NONAME_16393 
+gosub @NONAME_16614 
+jump @NONAME_3412 
+
+:NONAME_3398
+gosub @NONAME_17183 
+jump @NONAME_3412 
+
+:NONAME_3412
+wait 0 
+return 
+
+:NONAME_3418
+8@ = 1 
+11@ = 92.0 
+12@ = 15.0 
+13@ = 64.0 
+14@ = 30.0 
+
+:NONAME_3465
+if 
+  6 >= 8@ 
+jf @NONAME_3661 
+if 
+003B:   8@ == 2@ // (int) 
+jf @NONAME_3573 
+cleo_call @NONAME_22901 20 11@ 12@ 13@ 14@ 29 38 53 255 1.8 1 0 0 0 0 125 180 200 8@ 7 0.0 
+jump @NONAME_3637 
+
+:NONAME_3573
+cleo_call @NONAME_22901 20 11@ 12@ 13@ 14@ 165 6 22 255 0.5 0 1 0 1 0 0 0 200 8@ 7 0.0 
+
+:NONAME_3637
+8@ += 1 
+11@ += 64.0 
+jump @NONAME_3465 
+
+:NONAME_3661
+8@ = 65 
+cleo_call @NONAME_22901 20 30.0 15.0 60.0 14@ 165 6 22 255 0.5 0 1 0 1 0 0 0 200 8@ 5 0.0 
+8@ = 66 
+cleo_call @NONAME_22901 20 474.0 15.0 60.0 14@ 165 6 22 255 0.5 0 1 0 1 0 0 0 200 8@ 5 0.0 
+cleo_call @NONAME_22901 20 572.0 12@ 136.0 14@ 14 20 32 255 0.5 0 0 1 0 0 0 0 240 -1 -1 0.0 
+cleo_call @NONAME_22901 20 519.0 12@ 14@ 14@ 43 56 75 255 1.8 1 0 0 0 28 50 71 255 -1 1 0.0 
+10@ = 120 
+cleo_call @NONAME_22901 20 519.0 5.0 14@ 10.0 44 77 96 255 1.8 1 0 0 0 28 50 71 255 10@ 11 0.0 
+get_cleo_shared_var 10@ 117 
+cleo_call @NONAME_23522 12 519.0 12@ 14@ 14@ 0 0 0 0 121 10 0.0 10@ 
+cleo_call @NONAME_20087 1 18@ 
+cleo_call @NONAME_22901 20 587.0 9.0 82.5 6.0 0 0 0 0 0.25 1 1 1 1 19 247 232 200 -1 -1 0.0 
+0092: 10@ = float 18@ to_integer 
+cleo_call @NONAME_23522 12 553.0 19.0 15.0 5.0 29 38 53 0 121 14 0.0 10@ 
+10@ = 1000 
+cleo_call @NONAME_23522 12 572.0 19.0 15.0 5.0 29 38 53 0 125 15 0.0 10@ 
+cleo_call @NONAME_22901 20 587.0 19.0 83.0 11.0 0 0 0 0 0.25 0 0 1 0 19 247 232 200 -1 -1 0.0 
+cleo_call @NONAME_25392 1 0 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_4361
+cleo_call @NONAME_22901 20 415.0 438.0 450.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 -1 -1 0.0 
+cleo_call @NONAME_22901 20 95.0 438.0 190.0 20.0 14 20 32 255 0.5 0 1 0 1 0 125 180 150 -1 -1 0.0 
+0871: init_jump_table 2@ total_jumps 6 default_jump 0 @NONAME_5805 jumps 1 @NONAME_4566 2 @NONAME_4731 3 @NONAME_4817 4 @NONAME_5547 5 @NONAME_5633 6 @NONAME_5719 -1 @NONAME_5805 
+
+:NONAME_4566
+10@ = 67 
+cleo_call @NONAME_22901 20 565.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+10@ = 10 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5805 
+
+:NONAME_4731
+10@ = 10 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5805 
+
+:NONAME_4817
+0871: init_jump_table 4@ total_jumps 3 default_jump 1 @NONAME_5296 jumps 1 @NONAME_4880 2 @NONAME_5045 3 @NONAME_5131 -1 @NONAME_5540 -1 @NONAME_5540 -1 @NONAME_5540 -1 @NONAME_5540 
+
+:NONAME_4880
+10@ = 9 
+cleo_call @NONAME_22901 20 565.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+10@ = 12 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5540 
+
+:NONAME_5045
+10@ = 12 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5540 
+
+:NONAME_5131
+10@ = 67 
+cleo_call @NONAME_22901 20 565.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+10@ = 12 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5540 
+
+:NONAME_5296
+10@ = 8 
+cleo_call @NONAME_22901 20 515.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+10@ = 67 
+cleo_call @NONAME_22901 20 565.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+10@ = 10 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5540 
+
+:NONAME_5540
+jump @NONAME_5805 
+
+:NONAME_5547
+10@ = 10 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5805 
+
+:NONAME_5633
+10@ = 10 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5805 
+
+:NONAME_5719
+10@ = 10 
+cleo_call @NONAME_22901 20 615.0 438.0 50.0 20.0 165 6 22 255 0.5 0 1 0 1 0 0 0 200 10@ 7 0.0 
+jump @NONAME_5805 
+
+:NONAME_5805
+03F0: enable_text_draw 0 
+return 
+return 
+
+:NONAME_5813
+12@ = 77.5 
+7@ = 110 
+
+:NONAME_5830
+if 
+  112 >= 7@ 
+jf @NONAME_6438 
+if 
+003B:   7@ == 5@ // (int) 
+jf @NONAME_5947 
+cleo_call @NONAME_22901 20 307.5 12@ 150.0 25.0 225 225 225 190 0.5 1 1 1 1 0 125 180 200 7@ 5 0.0 
+jump @NONAME_6018 
+
+:NONAME_5947
+cleo_call @NONAME_22901 20 307.5 12@ 150.0 25.0 0 0 0 190 0.5 1 0 1 0 225 225 225 30 7@ 5 0.0 
+
+:NONAME_6018
+0871: init_jump_table 7@ total_jumps 3 default_jump 0 @NONAME_6129 jumps 110 @NONAME_6081 111 @NONAME_6101 112 @NONAME_6115 -1 @NONAME_6129 -1 @NONAME_6129 -1 @NONAME_6129 -1 @NONAME_6129 
+
+:NONAME_6081
+cleo_call @NONAME_27466 0 10@ 
+jump @NONAME_6129 
+
+:NONAME_6101
+get_cleo_shared_var 10@ 116 
+jump @NONAME_6129 
+
+:NONAME_6115
+get_cleo_shared_var 10@ 121 
+jump @NONAME_6129 
+
+:NONAME_6129
+0871: init_jump_table 10@ total_jumps 2 default_jump 0 @NONAME_6414 jumps 0 @NONAME_6303 1 @NONAME_6192 -1 @NONAME_6414 -1 @NONAME_6414 -1 @NONAME_6414 -1 @NONAME_6414 -1 @NONAME_6414 
+
+:NONAME_6192
+cleo_call @NONAME_22901 20 395.0 12@ 25.0 25.0 0 0 0 190 0.5 1 1 1 1 225 225 225 30 -1 -1 0.0 
+038D: draw_texture 30 position 395.0 12@ size 20.0 9.0 RGBA 255 255 255 255 
+jump @NONAME_6414 
+
+:NONAME_6303
+cleo_call @NONAME_22901 20 395.0 12@ 25.0 25.0 0 0 0 190 0.5 1 1 1 1 225 225 225 30 -1 -1 0.0 
+038D: draw_texture 31 position 395.0 12@ size 20.0 9.0 RGBA 255 255 255 255 
+jump @NONAME_6414 
+
+:NONAME_6414
+7@ += 1 
+12@ += 30.0 
+jump @NONAME_5830 
+
+:NONAME_6438
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_6444
+cleo_call @NONAME_20843 3 399.0 229.0 426.43 
+cleo_call @NONAME_22265 1 426.43 
+cleo_call @NONAME_21521 1 426.43 
+cleo_call @NONAME_26975 0 11@ 12@ 
+cleo_call @NONAME_20906 3 11@ 12@ 426.43 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_6542
+cleo_call @NONAME_22901 20 75.0 60.0 100.0 20.0 1 206 251 200 0.5 0 0 0 0 0 125 180 150 -1 -1 0.0 
+cleo_call @NONAME_22901 20 75.0 60.0 100.0 20.0 0 0 0 0 0.5 0 0 0 0 0 125 180 150 167 7 -40.0 
+cleo_call @NONAME_22901 20 100.0 220.0 150.0 300.0 14 20 32 255 0.5 1 1 1 1 0 125 180 150 -1 -1 0.0 
+cleo_call @NONAME_22901 20 100.0 82.5 150.0 25.0 19 77 88 50 0.25 0 0 1 0 25 255 251 200 -1 1 0.0 
+cleo_call @NONAME_25636 2 25.0 25.0 15@ 16@ 
+12@ = 107.5 
+038D: draw_texture 36 position 40.0 12@ size 15@ 16@ RGBA 255 255 255 210 
+cleo_call @NONAME_22901 20 100.0 12@ 150.0 25.0 19 77 88 50 0.25 0 0 1 0 25 255 251 200 173 17 -45.0 
+12@ += 25.0 
+038D: draw_texture 34 position 40.0 12@ size 15@ 16@ RGBA 255 255 255 210 
+cleo_call @NONAME_22901 20 100.0 12@ 150.0 25.0 19 77 88 50 0.25 0 0 1 0 25 255 251 200 172 17 -45.0 
+12@ += 25.0 
+038D: draw_texture 39 position 40.0 12@ size 15@ 16@ RGBA 255 255 255 210 
+cleo_call @NONAME_22901 20 100.0 12@ 150.0 25.0 19 77 88 50 0.25 0 0 1 0 25 255 251 200 171 17 -45.0 
+12@ += 25.0 
+038D: draw_texture 37 position 40.0 12@ size 15@ 16@ RGBA 255 255 255 210 
+cleo_call @NONAME_22901 20 100.0 12@ 150.0 25.0 19 77 88 50 0.25 0 0 1 0 25 255 251 200 170 17 -45.0 
+12@ += 25.0 
+038D: draw_texture 38 position 40.0 12@ size 15@ 16@ RGBA 255 255 255 210 
+cleo_call @NONAME_22901 20 100.0 12@ 150.0 25.0 19 77 88 50 0.25 0 0 1 0 25 255 251 200 174 17 -45.0 
+cleo_call @NONAME_22901 20 100.0 390.0 150.0 20.0 16 43 52 200 0.5 0 0 0 0 0 125 180 150 -1 -1 0.0 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_7481
+get_label_pointer 10@ -27714 
+read_memory 9@ 10@ 4 0 
+if 
+  9@ == 0 
+jf @NONAME_7564 
+038D: draw_texture 29 position 40.0 80.0 size 60.0 55.0 RGBA 255 255 255 255 
+jump @NONAME_7601 
+
+:NONAME_7564
+038D: draw_texture 9@ position 40.0 80.0 size 60.0 55.0 RGBA 255 255 255 255 
+
+:NONAME_7601
+10@ = 22 
+cleo_call @NONAME_22901 20 40.0 46.0 60.0 10.0 6 253 244 0 1.0 0 0 1 0 6 253 244 200 10@ 1 -30.0 
+038D: draw_texture 27 position 40.0 155.0 size 60.0 55.0 RGBA 255 255 255 255 
+10@ = 23 
+cleo_call @NONAME_22901 20 40.0 121.0 60.0 10.0 6 253 244 0 1.0 0 0 1 0 6 253 244 200 10@ 1 -30.0 
+038D: draw_texture 27 position 40.0 230.0 size 60.0 55.0 RGBA 255 255 255 255 
+10@ = 24 
+cleo_call @NONAME_22901 20 40.0 196.0 60.0 10.0 6 253 244 0 1.0 0 0 1 0 6 253 244 200 10@ 1 -30.0 
+0871: init_jump_table 4@ total_jumps 4 default_jump 0 @NONAME_8310 jumps 0 @NONAME_7979 1 @NONAME_8192 2 @NONAME_8234 3 @NONAME_8282 -1 @NONAME_8310 -1 @NONAME_8310 -1 @NONAME_8310 
+
+:NONAME_7979
+gosub @NONAME_18272 
+0871: init_jump_table 3@ total_jumps 3 default_jump 0 @NONAME_8178 jumps 1 @NONAME_8049 2 @NONAME_8092 3 @NONAME_8135 -1 @NONAME_8178 -1 @NONAME_8178 -1 @NONAME_8178 -1 @NONAME_8178 
+
+:NONAME_8049
+038D: draw_texture 26 position 40.0 75.5 size 65.0 74.0 RGBA 255 255 255 255 
+jump @NONAME_8178 
+
+:NONAME_8092
+038D: draw_texture 26 position 40.0 150.5 size 65.0 74.0 RGBA 255 255 255 255 
+jump @NONAME_8178 
+
+:NONAME_8135
+038D: draw_texture 26 position 40.0 225.5 size 65.0 74.0 RGBA 255 255 255 255 
+jump @NONAME_8178 
+
+:NONAME_8178
+gosub @NONAME_8312 
+jump @NONAME_8310 
+
+:NONAME_8192
+gosub @NONAME_18455 
+gosub @NONAME_9664 
+gosub @NONAME_11149 
+gosub @NONAME_10798 
+gosub @NONAME_8312 
+jump @NONAME_8310 
+
+:NONAME_8234
+gosub @NONAME_18148 
+gosub @NONAME_19683 
+print_formatted_now "~r~UNDER DEVELOPMENT" 1 
+jump @NONAME_8310 
+
+:NONAME_8282
+gosub @NONAME_18148 
+gosub @NONAME_19683 
+gosub @NONAME_9001 
+jump @NONAME_8310 
+
+:NONAME_8310
+return 
+
+:NONAME_8312
+cleo_call @NONAME_22901 20 572.0 229.0 136.0 398.0 14 20 32 255 0.5 0 1 0 1 0 125 180 150 -1 -1 0.0 
+cleo_call @NONAME_22901 20 572.0 398.0 120.0 40.0 16 43 52 200 0.5 1 1 1 1 6 253 244 200 -1 -1 0.0 
+cleo_call @NONAME_22901 20 535.75 105.0 63.5 15.0 16 43 52 0 0.5 1 0 0 0 31 181 240 200 -1 -1 0.0 
+cleo_call @NONAME_22901 20 633.75 105.0 12.5 15.0 16 43 52 0 0.5 1 0 0 0 31 181 240 200 -1 -1 0.0 
+cleo_call @NONAME_22901 20 597.5 97.5 60.0 15.0 16 43 52 0 0.5 1 1 1 1 31 181 240 200 -1 -1 0.0 
+10@ = 20 
+cleo_call @NONAME_22901 20 572.5 122.5 136.0 15.0 16 43 52 0 0.5 0 0 0 0 31 181 240 200 10@ 2 -60.0 
+gosub @NONAME_12814 
+03F0: enable_text_draw 0 
+return 
+return 
+
+:NONAME_8762
+cleo_call @NONAME_22901 20 320.0 224.0 320.0 224.0 14 20 32 255 0.5 1 1 1 1 0 125 180 150 -1 -1 0.0 
+10@ = 60 
+cleo_call @NONAME_22901 20 320.0 168.0 320.0 112.0 164 13 20 0 0.5 0 0 0 0 31 181 240 200 10@ 10 0.0 
+10@ = 61 
+cleo_call @NONAME_22901 20 320.0 280.0 320.0 112.0 255 255 255 0 0.5 0 0 0 0 31 181 240 200 10@ 7 0.0 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_9001
+12@ = 77.5 
+7@ = 100 
+
+:NONAME_9018
+if 
+  103 >= 7@ 
+jf @NONAME_9658 
+if 
+003B:   7@ == 5@ // (int) 
+jf @NONAME_9135 
+cleo_call @NONAME_22901 20 215.0 12@ 150.0 25.0 225 225 225 190 0.5 1 1 1 1 0 125 180 200 7@ 5 0.0 
+jump @NONAME_9206 
+
+:NONAME_9135
+cleo_call @NONAME_22901 20 215.0 12@ 150.0 25.0 0 0 0 190 0.5 1 0 1 0 225 225 225 30 7@ 5 0.0 
+
+:NONAME_9206
+0871: init_jump_table 7@ total_jumps 4 default_jump 0 @NONAME_9349 jumps 100 @NONAME_9269 101 @NONAME_9289 102 @NONAME_9309 103 @NONAME_9329 -1 @NONAME_9349 -1 @NONAME_9349 -1 @NONAME_9349 
+
+:NONAME_9269
+cleo_call @NONAME_27238 0 10@ 
+jump @NONAME_9349 
+
+:NONAME_9289
+cleo_call @NONAME_27295 0 10@ 
+jump @NONAME_9349 
+
+:NONAME_9309
+cleo_call @NONAME_27352 0 10@ 
+jump @NONAME_9349 
+
+:NONAME_9329
+cleo_call @NONAME_27409 0 10@ 
+jump @NONAME_9349 
+
+:NONAME_9349
+0871: init_jump_table 10@ total_jumps 2 default_jump 0 @NONAME_9634 jumps 0 @NONAME_9523 1 @NONAME_9412 -1 @NONAME_9634 -1 @NONAME_9634 -1 @NONAME_9634 -1 @NONAME_9634 -1 @NONAME_9634 
+
+:NONAME_9412
+cleo_call @NONAME_22901 20 302.5 12@ 25.0 25.0 0 0 0 190 0.5 1 1 1 1 225 225 225 30 -1 -1 0.0 
+038D: draw_texture 30 position 302.5 12@ size 20.0 9.0 RGBA 255 255 255 255 
+jump @NONAME_9634 
+
+:NONAME_9523
+cleo_call @NONAME_22901 20 302.5 12@ 25.0 25.0 0 0 0 190 0.5 1 1 1 1 225 225 225 30 -1 -1 0.0 
+038D: draw_texture 31 position 302.5 12@ size 20.0 9.0 RGBA 255 255 255 255 
+jump @NONAME_9634 
+
+:NONAME_9634
+7@ += 1 
+12@ += 25.0 
+jump @NONAME_9018 
+
+:NONAME_9658
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_9664
+23@ = 40.0 
+24@ = 35.0 
+cleo_call @NONAME_22901 20 215.0 215.0 260.0 300.0 2 40 49 220 0.5 1 1 1 1 0 125 180 255 -1 -1 0.0 
+10@ = 22 
+cleo_call @NONAME_22901 20 215.0 80.0 250.0 15.0 6 253 244 0 0.5 0 0 1 0 6 253 244 200 10@ 2 -110.0 
+25@ = 5 
+26@ = 1 
+11@ = 115.0 
+12@ = 120.0 
+
+:NONAME_9870
+if 
+002D:   25@ >= 26@ // (int) 
+jf @NONAME_10206 
+03E3: set_texture_to_be_drawn_antialiased 1 
+gosub @NONAME_10212 
+if 
+003B:   30@ == 10@ // (int) 
+jf @NONAME_9955 
+038D: draw_texture 26@ position 11@ 12@ size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_9983 
+
+:NONAME_9955
+038D: draw_texture 29 position 11@ 12@ size 23@ 24@ RGBA 255 255 255 255 
+
+:NONAME_9983
+26@ += 1 
+11@ += 50.0 
+0871: init_jump_table 26@ total_jumps 4 default_jump 0 @NONAME_10199 jumps 6 @NONAME_10063 11 @NONAME_10097 16 @NONAME_10131 21 @NONAME_10165 -1 @NONAME_10199 -1 @NONAME_10199 -1 @NONAME_10199 
+
+:NONAME_10063
+25@ = 10 
+11@ = 115.0 
+12@ += 55.0 
+jump @NONAME_10199 
+
+:NONAME_10097
+25@ = 15 
+11@ = 115.0 
+12@ += 55.0 
+jump @NONAME_10199 
+
+:NONAME_10131
+25@ = 20 
+11@ = 115.0 
+12@ += 55.0 
+jump @NONAME_10199 
+
+:NONAME_10165
+25@ = 25 
+11@ = 115.0 
+12@ += 55.0 
+jump @NONAME_10199 
+
+:NONAME_10199
+jump @NONAME_9870 
+
+:NONAME_10206
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_10212
+0871: init_jump_table 26@ total_jumps 25 default_jump 0 @NONAME_10780 jumps 1 @NONAME_10405 2 @NONAME_10420 3 @NONAME_10435 4 @NONAME_10450 5 @NONAME_10465 6 @NONAME_10480 7 @NONAME_10495 
+0872: jump_table_jumps 8 @NONAME_10510 9 @NONAME_10525 10 @NONAME_10540 11 @NONAME_10555 12 @NONAME_10570 13 @NONAME_10585 14 @NONAME_10600 15 @NONAME_10615 16 @NONAME_10630 
+0872: jump_table_jumps 17 @NONAME_10645 18 @NONAME_10660 19 @NONAME_10675 20 @NONAME_10690 21 @NONAME_10705 22 @NONAME_10720 23 @NONAME_10735 24 @NONAME_10750 25 @NONAME_10765 
+
+:NONAME_10405
+10@ = 9999 
+jump @NONAME_10780 
+
+:NONAME_10420
+10@ = 1985 
+jump @NONAME_10780 
+
+:NONAME_10435
+10@ = 3564 
+jump @NONAME_10780 
+
+:NONAME_10450
+10@ = 4465 
+jump @NONAME_10780 
+
+:NONAME_10465
+10@ = 7952 
+jump @NONAME_10780 
+
+:NONAME_10480
+10@ = 8431 
+jump @NONAME_10780 
+
+:NONAME_10495
+10@ = 5761 
+jump @NONAME_10780 
+
+:NONAME_10510
+10@ = 9999 
+jump @NONAME_10780 
+
+:NONAME_10525
+10@ = 6784 
+jump @NONAME_10780 
+
+:NONAME_10540
+10@ = 3897 
+jump @NONAME_10780 
+
+:NONAME_10555
+10@ = 4837 
+jump @NONAME_10780 
+
+:NONAME_10570
+10@ = 7913 
+jump @NONAME_10780 
+
+:NONAME_10585
+10@ = 1937 
+jump @NONAME_10780 
+
+:NONAME_10600
+10@ = 8319 
+jump @NONAME_10780 
+
+:NONAME_10615
+10@ = 6743 
+jump @NONAME_10780 
+
+:NONAME_10630
+10@ = 4627 
+jump @NONAME_10780 
+
+:NONAME_10645
+10@ = 9999 
+jump @NONAME_10780 
+
+:NONAME_10660
+10@ = 7147 
+jump @NONAME_10780 
+
+:NONAME_10675
+10@ = 9636 
+jump @NONAME_10780 
+
+:NONAME_10690
+10@ = 9999 
+jump @NONAME_10780 
+
+:NONAME_10705
+10@ = 8525 
+jump @NONAME_10780 
+
+:NONAME_10720
+10@ = 7898 
+jump @NONAME_10780 
+
+:NONAME_10735
+10@ = 1232 
+jump @NONAME_10780 
+
+:NONAME_10750
+10@ = 7319 
+jump @NONAME_10780 
+
+:NONAME_10765
+10@ = 9999 
+jump @NONAME_10780 
+
+:NONAME_10780
+cleo_call @NONAME_27108 1 26@ 30@ 
+return 
+
+:NONAME_10798
+get_label_pointer 10@ -27714 
+read_memory 10@ 10@ 4 0 
+25@ = 5 
+11@ = 134.0 
+12@ = 134.5 
+29@ = 1 
+
+:NONAME_10854
+if 
+002D:   25@ >= 29@ // (int) 
+jf @NONAME_11147 
+if 
+003B:   10@ == 29@ // (int) 
+jf @NONAME_10924 
+038D: draw_texture 28 position 11@ 12@ size 10.0 12.0 RGBA 255 255 255 255 
+
+:NONAME_10924
+29@ += 1 
+11@ += 50.0 
+0871: init_jump_table 29@ total_jumps 4 default_jump 0 @NONAME_11140 jumps 6 @NONAME_11004 11 @NONAME_11038 16 @NONAME_11072 21 @NONAME_11106 -1 @NONAME_11140 -1 @NONAME_11140 -1 @NONAME_11140 
+
+:NONAME_11004
+25@ = 10 
+11@ = 134.0 
+12@ += 55.0 
+jump @NONAME_11140 
+
+:NONAME_11038
+25@ = 15 
+11@ = 134.0 
+12@ += 55.0 
+jump @NONAME_11140 
+
+:NONAME_11072
+25@ = 20 
+11@ = 134.0 
+12@ += 55.0 
+jump @NONAME_11140 
+
+:NONAME_11106
+25@ = 25 
+11@ = 134.0 
+12@ += 55.0 
+jump @NONAME_11140 
+
+:NONAME_11140
+jump @NONAME_10854 
+
+:NONAME_11147
+return 
+
+:NONAME_11149
+0871: init_jump_table 5@ total_jumps 5 default_jump 0 @NONAME_12812 jumps 1 @NONAME_11212 2 @NONAME_11532 3 @NONAME_11852 4 @NONAME_12172 5 @NONAME_12492 -1 @NONAME_12812 -1 @NONAME_12812 
+
+:NONAME_11212
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_11525 jumps 1 @NONAME_11275 2 @NONAME_11325 3 @NONAME_11375 4 @NONAME_11425 5 @NONAME_11475 -1 @NONAME_11525 -1 @NONAME_11525 
+
+:NONAME_11275
+9@ = 1 
+038D: draw_texture 26 position 115.0 120.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11525 
+
+:NONAME_11325
+9@ = 2 
+038D: draw_texture 26 position 165.0 120.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11525 
+
+:NONAME_11375
+9@ = 3 
+038D: draw_texture 26 position 215.0 120.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11525 
+
+:NONAME_11425
+9@ = 4 
+038D: draw_texture 26 position 265.0 120.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11525 
+
+:NONAME_11475
+9@ = 5 
+038D: draw_texture 26 position 315.0 120.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11525 
+
+:NONAME_11525
+jump @NONAME_12812 
+
+:NONAME_11532
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_11845 jumps 1 @NONAME_11595 2 @NONAME_11645 3 @NONAME_11695 4 @NONAME_11745 5 @NONAME_11795 -1 @NONAME_11845 -1 @NONAME_11845 
+
+:NONAME_11595
+9@ = 6 
+038D: draw_texture 26 position 115.0 175.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11845 
+
+:NONAME_11645
+9@ = 7 
+038D: draw_texture 26 position 165.0 175.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11845 
+
+:NONAME_11695
+9@ = 8 
+038D: draw_texture 26 position 215.0 175.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11845 
+
+:NONAME_11745
+9@ = 9 
+038D: draw_texture 26 position 265.0 175.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11845 
+
+:NONAME_11795
+9@ = 10 
+038D: draw_texture 26 position 315.0 175.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_11845 
+
+:NONAME_11845
+jump @NONAME_12812 
+
+:NONAME_11852
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_12165 jumps 1 @NONAME_11915 2 @NONAME_11965 3 @NONAME_12015 4 @NONAME_12065 5 @NONAME_12115 -1 @NONAME_12165 -1 @NONAME_12165 
+
+:NONAME_11915
+9@ = 11 
+038D: draw_texture 26 position 115.0 230.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12165 
+
+:NONAME_11965
+9@ = 12 
+038D: draw_texture 26 position 165.0 230.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12165 
+
+:NONAME_12015
+9@ = 13 
+038D: draw_texture 26 position 215.0 230.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12165 
+
+:NONAME_12065
+9@ = 14 
+038D: draw_texture 26 position 265.0 230.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12165 
+
+:NONAME_12115
+9@ = 15 
+038D: draw_texture 26 position 315.0 230.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12165 
+
+:NONAME_12165
+jump @NONAME_12812 
+
+:NONAME_12172
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_12485 jumps 1 @NONAME_12235 2 @NONAME_12285 3 @NONAME_12335 4 @NONAME_12385 5 @NONAME_12435 -1 @NONAME_12485 -1 @NONAME_12485 
+
+:NONAME_12235
+9@ = 16 
+038D: draw_texture 26 position 115.0 285.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12485 
+
+:NONAME_12285
+9@ = 17 
+038D: draw_texture 26 position 165.0 285.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12485 
+
+:NONAME_12335
+9@ = 18 
+038D: draw_texture 26 position 215.0 285.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12485 
+
+:NONAME_12385
+9@ = 19 
+038D: draw_texture 26 position 265.0 285.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12485 
+
+:NONAME_12435
+9@ = 20 
+038D: draw_texture 26 position 315.0 285.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12485 
+
+:NONAME_12485
+jump @NONAME_12812 
+
+:NONAME_12492
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_12805 jumps 1 @NONAME_12555 2 @NONAME_12605 3 @NONAME_12655 4 @NONAME_12705 5 @NONAME_12755 -1 @NONAME_12805 -1 @NONAME_12805 
+
+:NONAME_12555
+9@ = 21 
+038D: draw_texture 26 position 115.0 340.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12805 
+
+:NONAME_12605
+9@ = 22 
+038D: draw_texture 26 position 165.0 340.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12805 
+
+:NONAME_12655
+9@ = 23 
+038D: draw_texture 26 position 215.0 340.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12805 
+
+:NONAME_12705
+9@ = 24 
+038D: draw_texture 26 position 265.0 340.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12805 
+
+:NONAME_12755
+9@ = 25 
+038D: draw_texture 26 position 315.0 340.0 size 50.0 45.0 RGBA 255 255 255 255 
+jump @NONAME_12805 
+
+:NONAME_12805
+jump @NONAME_12812 
+
+:NONAME_12812
+return 
+
+:NONAME_12814
+29@ = 1 
+
+:NONAME_12821
+if 
+  25 >= 29@ 
+jf @NONAME_14278 
+if 
+003B:   9@ == 29@ // (int) 
+jf @NONAME_14264 
+0871: init_jump_table 9@ total_jumps 25 default_jump 0 @NONAME_13601 jumps 1 @NONAME_13051 2 @NONAME_13073 3 @NONAME_13095 4 @NONAME_13117 5 @NONAME_13139 6 @NONAME_13161 7 @NONAME_13183 
+0872: jump_table_jumps 8 @NONAME_13205 9 @NONAME_13227 10 @NONAME_13249 11 @NONAME_13271 12 @NONAME_13293 13 @NONAME_13315 14 @NONAME_13337 15 @NONAME_13359 16 @NONAME_13381 
+0872: jump_table_jumps 17 @NONAME_13403 18 @NONAME_13425 19 @NONAME_13447 20 @NONAME_13469 21 @NONAME_13491 22 @NONAME_13513 23 @NONAME_13535 24 @NONAME_13557 25 @NONAME_13579 
+
+:NONAME_13051
+10@ = 9999 
+26@ = 25 
+jump @NONAME_13601 
+
+:NONAME_13073
+10@ = 1985 
+26@ = 26 
+jump @NONAME_13601 
+
+:NONAME_13095
+10@ = 3564 
+26@ = 27 
+jump @NONAME_13601 
+
+:NONAME_13117
+10@ = 4465 
+26@ = 28 
+jump @NONAME_13601 
+
+:NONAME_13139
+10@ = 7952 
+26@ = 29 
+jump @NONAME_13601 
+
+:NONAME_13161
+10@ = 8431 
+26@ = 30 
+jump @NONAME_13601 
+
+:NONAME_13183
+10@ = 5761 
+26@ = 31 
+jump @NONAME_13601 
+
+:NONAME_13205
+10@ = 9999 
+26@ = 32 
+jump @NONAME_13601 
+
+:NONAME_13227
+10@ = 6784 
+26@ = 33 
+jump @NONAME_13601 
+
+:NONAME_13249
+10@ = 3897 
+26@ = 34 
+jump @NONAME_13601 
+
+:NONAME_13271
+10@ = 4837 
+26@ = 35 
+jump @NONAME_13601 
+
+:NONAME_13293
+10@ = 7913 
+26@ = 36 
+jump @NONAME_13601 
+
+:NONAME_13315
+10@ = 1937 
+26@ = 37 
+jump @NONAME_13601 
+
+:NONAME_13337
+10@ = 8319 
+26@ = 38 
+jump @NONAME_13601 
+
+:NONAME_13359
+10@ = 6743 
+26@ = 39 
+jump @NONAME_13601 
+
+:NONAME_13381
+10@ = 4627 
+26@ = 40 
+jump @NONAME_13601 
+
+:NONAME_13403
+10@ = 9999 
+26@ = 41 
+jump @NONAME_13601 
+
+:NONAME_13425
+10@ = 7147 
+26@ = 42 
+jump @NONAME_13601 
+
+:NONAME_13447
+10@ = 9636 
+26@ = 43 
+jump @NONAME_13601 
+
+:NONAME_13469
+10@ = 9999 
+26@ = 44 
+jump @NONAME_13601 
+
+:NONAME_13491
+10@ = 8525 
+26@ = 45 
+jump @NONAME_13601 
+
+:NONAME_13513
+10@ = 7898 
+26@ = 46 
+jump @NONAME_13601 
+
+:NONAME_13535
+10@ = 1232 
+26@ = 47 
+jump @NONAME_13601 
+
+:NONAME_13557
+10@ = 7319 
+26@ = 48 
+jump @NONAME_13601 
+
+:NONAME_13579
+10@ = 9999 
+26@ = 49 
+jump @NONAME_13601 
+
+:NONAME_13601
+cleo_call @NONAME_27108 1 29@ 30@ 
+if 
+003B:   30@ == 10@ // (int) 
+jf @NONAME_13969 
+cleo_call @NONAME_22901 20 597.5 63.75 85.0 17.5 31 181 240 0 0.5 0 0 1 0 0 125 180 150 26@ 6 -42.5 
+038D: draw_texture 9@ position 530.0 72.5 size 40.0 35.0 RGBA 255 255 255 255 
+get_label_pointer 10@ -27714 
+read_memory 10@ 10@ 4 0 
+if 
+003B:   10@ == 9@ // (int) 
+jf @NONAME_13801 
+10@ = 14 
+jump @NONAME_13808 
+
+:NONAME_13801
+10@ = 11 
+
+:NONAME_13808
+cleo_call @NONAME_22901 20 572.0 37.5 136.0 15.0 6 253 244 200 0.5 0 0 0 0 0 125 180 150 10@ 5 -60.0 
+cleo_call @NONAME_22901 20 597.5 97.5 55.0 10.0 16 43 52 200 0.5 0 0 0 0 31 181 240 200 10@ 6 0.0 
+gosub @NONAME_19355 
+jump @NONAME_14257 
+
+:NONAME_13969
+26@ = 50 
+cleo_call @NONAME_22901 20 597.5 63.75 85.0 17.5 31 181 240 0 0.5 0 0 1 0 0 125 180 150 26@ 6 -42.5 
+038D: draw_texture 29 position 530.0 72.5 size 40.0 35.0 RGBA 255 255 255 255 
+10@ = 13 
+cleo_call @NONAME_22901 20 572.0 37.5 136.0 15.0 6 253 244 200 0.5 0 0 0 0 0 125 180 150 10@ 5 -60.0 
+cleo_call @NONAME_22901 20 597.5 97.5 55.0 10.0 16 43 52 200 0.5 0 0 0 0 31 181 240 200 10@ 6 0.0 
+cleo_call @NONAME_20338 2 21@ 0.0 
+
+:NONAME_14257
+jump @NONAME_14278 
+
+:NONAME_14264
+29@ += 1 
+jump @NONAME_12821 
+
+:NONAME_14278
+return 
+
+:NONAME_14280
+cleo_call @NONAME_22901 20 542.0 229.0 196.0 398.0 14 20 32 255 0.5 0 1 0 1 0 125 180 150 -1 -1 -1.0 
+cleo_call @NONAME_22901 20 542.0 229.0 196.0 50.0 14 37 48 200 0.5 1 0 1 0 19 247 232 200 -1 -1 0.0 
+23@ = 28.0 
+24@ = 35.0 
+25@ = 44 
+26@ = 40 
+11@ = 478.0 
+12@ = 90.0 
+
+:NONAME_14477
+if 
+002D:   25@ >= 26@ // (int) 
+jf @NONAME_14650 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038D: draw_texture 26@ position 11@ 12@ size 23@ 24@ RGBA 255 255 255 255 
+26@ += 1 
+11@ += 34.0 
+0871: init_jump_table 26@ total_jumps 1 default_jump 0 @NONAME_14643 jumps 45 @NONAME_14609 -1 @NONAME_14643 -1 @NONAME_14643 -1 @NONAME_14643 -1 @NONAME_14643 -1 @NONAME_14643 -1 @NONAME_14643 
+
+:NONAME_14609
+25@ = 49 
+11@ = 478.0 
+12@ += 42.0 
+jump @NONAME_14643 
+
+:NONAME_14643
+jump @NONAME_14477 
+
+:NONAME_14650
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_14656
+23@ = 35.0 
+24@ = 42.0 
+0871: init_jump_table 5@ total_jumps 2 default_jump 0 @NONAME_15339 jumps 1 @NONAME_14739 2 @NONAME_15039 -1 @NONAME_15339 -1 @NONAME_15339 -1 @NONAME_15339 -1 @NONAME_15339 -1 @NONAME_15339 
+
+:NONAME_14739
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_15032 jumps 1 @NONAME_14802 2 @NONAME_14848 3 @NONAME_14894 4 @NONAME_14940 5 @NONAME_14986 -1 @NONAME_15032 -1 @NONAME_15032 
+
+:NONAME_14802
+9@ = 1 
+038D: draw_texture 26 position 478.0 90.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15032 
+
+:NONAME_14848
+9@ = 2 
+038D: draw_texture 26 position 512.0 90.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15032 
+
+:NONAME_14894
+9@ = 3 
+038D: draw_texture 26 position 546.0 90.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15032 
+
+:NONAME_14940
+9@ = 4 
+038D: draw_texture 26 position 580.0 90.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15032 
+
+:NONAME_14986
+9@ = 5 
+038D: draw_texture 26 position 614.0 90.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15032 
+
+:NONAME_15032
+jump @NONAME_15339 
+
+:NONAME_15039
+0871: init_jump_table 6@ total_jumps 5 default_jump 0 @NONAME_15332 jumps 1 @NONAME_15102 2 @NONAME_15148 3 @NONAME_15194 4 @NONAME_15240 5 @NONAME_15286 -1 @NONAME_15332 -1 @NONAME_15332 
+
+:NONAME_15102
+9@ = 6 
+038D: draw_texture 26 position 478.0 132.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15332 
+
+:NONAME_15148
+9@ = 7 
+038D: draw_texture 26 position 512.0 132.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15332 
+
+:NONAME_15194
+9@ = 8 
+038D: draw_texture 26 position 546.0 132.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15332 
+
+:NONAME_15240
+9@ = 9 
+038D: draw_texture 26 position 580.0 132.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15332 
+
+:NONAME_15286
+9@ = 10 
+038D: draw_texture 26 position 614.0 132.0 size 23@ 24@ RGBA 255 255 255 255 
+jump @NONAME_15332 
+
+:NONAME_15332
+jump @NONAME_15339 
+
+:NONAME_15339
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_15345
+0871: init_jump_table 9@ total_jumps 2 default_jump 0 @NONAME_15594 jumps 1 @NONAME_15408 2 @NONAME_15501 -1 @NONAME_15594 -1 @NONAME_15594 -1 @NONAME_15594 -1 @NONAME_15594 -1 @NONAME_15594 
+
+:NONAME_15408
+10@ = 181 
+26@ = 50 
+cleo_call @NONAME_22901 20 556.0 310.0 196.0 100.0 14 37 48 0 0.5 0 0 0 0 0 125 180 150 182 12 -98.0 
+jump @NONAME_15594 
+
+:NONAME_15501
+10@ = 183 
+26@ = 51 
+cleo_call @NONAME_22901 20 556.0 310.0 196.0 100.0 14 37 48 0 0.5 0 0 0 0 0 125 180 150 184 12 -98.0 
+jump @NONAME_15594 
+
+:NONAME_15594
+cleo_call @NONAME_22901 20 556.0 277.0 196.0 15.0 14 37 48 0 0.5 0 0 0 0 0 125 180 150 180 2 -98.0 
+cleo_call @NONAME_22901 20 566.5 285.0 143.0 15.0 14 37 48 0 0.5 1 0 0 0 19 247 232 200 -1 -1 0.0 
+cleo_call @NONAME_22901 20 542.0 221.5 196.0 50.0 14 37 48 0 0.5 0 0 0 0 0 125 180 150 10@ 13 0.0 
+03E3: set_texture_to_be_drawn_antialiased 1 
+23@ = 395.0 
+24@ = 397.0 
+038D: draw_texture 26@ position 222.0 230.0 size 23@ 24@ RGBA 255 255 255 245 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_15870
+cleo_call @NONAME_22901 20 200.0 53.0 170.0 31.0 0 0 1 0 0.25 0 0 1 0 0 125 180 200 209 13 0.0 
+cleo_call @NONAME_22901 20 200.0 227.0 170.0 31.0 0 0 1 0 0.25 0 0 1 0 0 125 180 200 208 13 0.0 
+8@ = 217 
+7@ = 210 
+12@ = 80.0 
+11@ = 127.5 
+
+:NONAME_16048
+if 
+002D:   8@ >= 7@ // (int) 
+jf @NONAME_16387 
+cleo_call @NONAME_22901 20 11@ 12@ 145.0 18.0 0 0 0 0 0.25 0 0 1 0 0 125 180 200 7@ 5 0.0 
+11@ += 145.0 
+7@ += 40 
+cleo_call @NONAME_22901 20 11@ 12@ 145.0 18.0 0 0 0 0 0.25 0 0 1 0 0 125 180 200 7@ 5 0.0 
+11@ -= 145.0 
+7@ -= 40 
+if 
+003B:   7@ == 5@ // (int) 
+jf @NONAME_16326 
+cleo_call @NONAME_22901 20 200.0 12@ 290.0 18.0 225 225 225 190 0.5 1 1 1 1 0 125 180 200 -1 5 0.0 
+
+:NONAME_16326
+7@ += 1 
+12@ += 18.0 
+if 
+  7@ == 218 
+jf @NONAME_16380 
+8@ = 225 
+12@ += 30.0 
+
+:NONAME_16380
+jump @NONAME_16048 
+
+:NONAME_16387
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_16393
+cleo_call @NONAME_22901 20 520.0 229.0 240.0 398.0 14 20 32 255 0.5 0 1 0 1 0 125 180 150 -1 -1 0.0 
+cleo_call @NONAME_22901 20 520.0 403.0 240.0 50.0 16 43 52 200 0.5 1 0 0 0 6 253 244 0 -1 -1 0.0 
+cleo_call @NONAME_22901 20 520.0 214.0 240.0 30.0 8 192 255 200 0.5 1 0 0 0 6 253 244 0 -1 -1 0.0 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_16614
+cleo_call @NONAME_22901 20 520.0 214.0 240.0 30.0 0 0 0 0 0.25 0 0 1 0 0 125 180 200 5@ 5 -105.0 
+0871: init_jump_table 5@ total_jumps 16 default_jump 0 @NONAME_17069 jumps 210 @NONAME_16829 211 @NONAME_16844 212 @NONAME_16859 213 @NONAME_16874 214 @NONAME_16889 215 @NONAME_16904 216 @NONAME_16919 
+0872: jump_table_jumps 217 @NONAME_16934 218 @NONAME_16949 219 @NONAME_16964 220 @NONAME_16979 221 @NONAME_16994 222 @NONAME_17009 223 @NONAME_17024 224 @NONAME_17039 225 @NONAME_17054 
+
+:NONAME_16829
+9@ = 300 
+jump @NONAME_17069 
+
+:NONAME_16844
+9@ = 301 
+jump @NONAME_17069 
+
+:NONAME_16859
+9@ = 302 
+jump @NONAME_17069 
+
+:NONAME_16874
+9@ = 303 
+jump @NONAME_17069 
+
+:NONAME_16889
+9@ = 304 
+jump @NONAME_17069 
+
+:NONAME_16904
+9@ = 305 
+jump @NONAME_17069 
+
+:NONAME_16919
+9@ = 306 
+jump @NONAME_17069 
+
+:NONAME_16934
+9@ = 307 
+jump @NONAME_17069 
+
+:NONAME_16949
+9@ = 308 
+jump @NONAME_17069 
+
+:NONAME_16964
+9@ = 309 
+jump @NONAME_17069 
+
+:NONAME_16979
+9@ = 310 
+jump @NONAME_17069 
+
+:NONAME_16994
+9@ = 311 
+jump @NONAME_17069 
+
+:NONAME_17009
+9@ = 312 
+jump @NONAME_17069 
+
+:NONAME_17024
+9@ = 313 
+jump @NONAME_17069 
+
+:NONAME_17039
+9@ = 314 
+jump @NONAME_17069 
+
+:NONAME_17054
+9@ = 315 
+jump @NONAME_17069 
+
+:NONAME_17069
+038D: draw_texture 9@ position 520.0 114.5 size 240.0 169.0 RGBA 255 255 255 255 
+cleo_call @NONAME_22901 20 520.0 278.0 200.0 30.0 0 0 0 0 0.25 0 0 0 0 0 125 180 200 9@ 12 0.0 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_17183
+cleo_call @NONAME_22901 20 320.0 224.0 320.0 224.0 14 20 32 255 0.5 1 1 1 1 0 125 180 150 -1 -1 -1.0 
+10@ = 62 
+cleo_call @NONAME_22901 20 320.0 168.0 320.0 112.0 164 13 20 0 0.5 0 0 0 0 31 181 240 200 10@ 10 0.0 
+10@ = 63 
+cleo_call @NONAME_22901 20 320.0 280.0 320.0 112.0 255 255 255 0 0.5 0 0 0 0 31 181 240 200 10@ 7 0.0 
+10@ = 64 
+cleo_call @NONAME_22901 20 320.0 316.0 320.0 40.0 255 255 255 0 0.5 0 0 0 0 31 181 240 200 10@ 7 0.0 
+03F0: enable_text_draw 0 
+return 
+
+:NONAME_17504
+if 
+does_directory_exist "CLEO\SpiderJ16D" 
+jf @NONAME_17954 
+0390: load_txd_dictionary 'SPMN' 
+29@ = 1 
+
+:NONAME_17552
+if 
+  25 >= 29@ 
+jf @NONAME_17609 
+string_format 27@s "suit%i" 29@ 
+038F: load_texture 27@s as 29@ // Load dictionary with 0390 first 
+29@ += 1 
+jump @NONAME_17552 
+
+:NONAME_17609
+038F: load_texture "SEL" as 26 // Load dictionary with 0390 first 
+038F: load_texture "CUSTOM" as 27 // Load dictionary with 0390 first 
+038F: load_texture "SUCCESS" as 28 // Load dictionary with 0390 first 
+038F: load_texture "UNKNOWN" as 29 // Load dictionary with 0390 first 
+038F: load_texture "TON" as 30 // Load dictionary with 0390 first 
+038F: load_texture "TOFF" as 31 // Load dictionary with 0390 first 
+038F: load_texture "SPMAP" as 32 // Load dictionary with 0390 first 
+038F: load_texture "MK0" as 33 // Load dictionary with 0390 first 
+038F: load_texture "MK1" as 34 // Load dictionary with 0390 first 
+038F: load_texture "MK2" as 35 // Load dictionary with 0390 first 
+038F: load_texture "MK3" as 36 // Load dictionary with 0390 first 
+038F: load_texture "MK4" as 37 // Load dictionary with 0390 first 
+038F: load_texture "MK5" as 38 // Load dictionary with 0390 first 
+038F: load_texture "MK6" as 39 // Load dictionary with 0390 first 
+038F: load_texture "CH1" as 40 // Load dictionary with 0390 first 
+038F: load_texture "CH2" as 41 // Load dictionary with 0390 first 
+038F: load_texture "CH3" as 42 // Load dictionary with 0390 first 
+038F: load_texture "CH4" as 43 // Load dictionary with 0390 first 
+038F: load_texture "CH5" as 44 // Load dictionary with 0390 first 
+038F: load_texture "CH6" as 45 // Load dictionary with 0390 first 
+038F: load_texture "CH7" as 46 // Load dictionary with 0390 first 
+038F: load_texture "CH8" as 47 // Load dictionary with 0390 first 
+038F: load_texture "CH9" as 48 // Load dictionary with 0390 first 
+038F: load_texture "CH10" as 49 // Load dictionary with 0390 first 
+038F: load_texture "BSP1" as 50 // Load dictionary with 0390 first 
+038F: load_texture "BSP2" as 51 // Load dictionary with 0390 first 
+29@ = 300 
+
+:NONAME_17868
+if 
+  315 >= 29@ 
+jf @NONAME_17925 
+string_format 27@s "bck%i" 29@ 
+038F: load_texture 27@s as 29@ // Load dictionary with 0390 first 
+29@ += 1 
+jump @NONAME_17868 
+
+:NONAME_17925
+cleo_call @NONAME_25879 0 
+04ED: load_animation "SPIDER" 
+038B: load_requested_models 
+jump @NONAME_18045 
+
+:NONAME_17954
+print_string_now "~r~ERROR: 'CLEO\SpiderJ16D' folder not found!" 6000 
+TIMERA = 0 
+
+:NONAME_18013
+if 
+  5500 > TIMERA 
+jf @NONAME_18043 
+wait 0 
+jump @NONAME_18013 
+
+:NONAME_18043
+terminate_this_custom_script 
+
+:NONAME_18045
+return 
+
+:NONAME_18047
+19@ = 1 
+4@ = 0 
+2@ = 0 
+5@ = 1 
+6@ = 1 
+3@ = 1 
+return 
+
+:NONAME_18091
+4@ = 0 
+19@ = 1 
+5@ = 1 
+6@ = 1 
+3@ = 1 
+cleo_call @NONAME_26929 2 399.0 229.0 
+return 
+
+:NONAME_18148
+if 
+  19@ == 1 
+jf @NONAME_18270 
+0400: store_coords_to 15@ 16@ 17@ from_object 20@ with_offset 0.0 3.0 1.0 
+Camera.SetPosition(15@, 16@, 17@, 0.0, 0.0, 0.0)
+0400: store_coords_to 15@ 16@ 17@ from_object 20@ with_offset 0.0 0.0 1.0 
+Camera.PointAt(15@, 16@, 17@, 2)
+19@ = 0 
+
+:NONAME_18270
+return 
+
+:NONAME_18272
+if 
+  19@ == 1 
+jf @NONAME_18453 
+if 
+056D:   actor 21@ defined 
+jf @NONAME_18446 
+0400: store_coords_to 15@ 16@ 17@ from_object 20@ with_offset 4.0969 0.1267 -2.9 
+Actor.PutAt(21@, 15@, 16@, 17@)
+04C4: store_coords_to 15@ 16@ 17@ from_actor 21@ with_offset -0.29 2.4 -0.5 
+Camera.SetPosition(15@, 16@, 17@, 0.0, 0.0, 0.0)
+04C4: store_coords_to 15@ 16@ 17@ from_actor 21@ with_offset -0.29 0.0 -0.5 
+Camera.PointAt(15@, 16@, 17@, 2)
+
+:NONAME_18446
+19@ = 0 
+
+:NONAME_18453
+return 
+
+:NONAME_18455
+if 
+  19@ == 1 
+jf @NONAME_18636 
+if 
+056D:   actor 21@ defined 
+jf @NONAME_18629 
+0400: store_coords_to 15@ 16@ 17@ from_object 20@ with_offset -6.8031 0.2412 -2.91 
+Actor.PutAt(21@, 15@, 16@, 17@)
+04C4: store_coords_to 15@ 16@ 17@ from_actor 21@ with_offset 0.79 2.9 0.1 
+Camera.SetPosition(15@, 16@, 17@, 0.0, 0.0, 0.0)
+04C4: store_coords_to 15@ 16@ 17@ from_actor 21@ with_offset 0.79 0.0 0.0 
+Camera.PointAt(15@, 16@, 17@, 2)
+
+:NONAME_18629
+19@ = 0 
+
+:NONAME_18636
+return 
+
+:NONAME_18638
+29@ = 1 
+
+:NONAME_18645
+if 
+  25 >= 29@ 
+jf @NONAME_19353 
+if 
+003B:   9@ == 29@ // (int) 
+jf @NONAME_19339 
+0871: init_jump_table 9@ total_jumps 25 default_jump 0 @NONAME_19250 jumps 1 @NONAME_18875 2 @NONAME_18890 3 @NONAME_18905 4 @NONAME_18920 5 @NONAME_18935 6 @NONAME_18950 7 @NONAME_18965 
+0872: jump_table_jumps 8 @NONAME_18980 9 @NONAME_18995 10 @NONAME_19010 11 @NONAME_19025 12 @NONAME_19040 13 @NONAME_19055 14 @NONAME_19070 15 @NONAME_19085 16 @NONAME_19100 
+0872: jump_table_jumps 17 @NONAME_19115 18 @NONAME_19130 19 @NONAME_19145 20 @NONAME_19160 21 @NONAME_19175 22 @NONAME_19190 23 @NONAME_19205 24 @NONAME_19220 25 @NONAME_19235 
+
+:NONAME_18875
+10@ = 9999 
+jump @NONAME_19250 
+
+:NONAME_18890
+10@ = 1985 
+jump @NONAME_19250 
+
+:NONAME_18905
+10@ = 3564 
+jump @NONAME_19250 
+
+:NONAME_18920
+10@ = 4465 
+jump @NONAME_19250 
+
+:NONAME_18935
+10@ = 7952 
+jump @NONAME_19250 
+
+:NONAME_18950
+10@ = 8431 
+jump @NONAME_19250 
+
+:NONAME_18965
+10@ = 5761 
+jump @NONAME_19250 
+
+:NONAME_18980
+10@ = 9999 
+jump @NONAME_19250 
+
+:NONAME_18995
+10@ = 6784 
+jump @NONAME_19250 
+
+:NONAME_19010
+10@ = 3897 
+jump @NONAME_19250 
+
+:NONAME_19025
+10@ = 4837 
+jump @NONAME_19250 
+
+:NONAME_19040
+10@ = 7913 
+jump @NONAME_19250 
+
+:NONAME_19055
+10@ = 1937 
+jump @NONAME_19250 
+
+:NONAME_19070
+10@ = 8319 
+jump @NONAME_19250 
+
+:NONAME_19085
+10@ = 6743 
+jump @NONAME_19250 
+
+:NONAME_19100
+10@ = 4627 
+jump @NONAME_19250 
+
+:NONAME_19115
+10@ = 9999 
+jump @NONAME_19250 
+
+:NONAME_19130
+10@ = 7147 
+jump @NONAME_19250 
+
+:NONAME_19145
+10@ = 9636 
+jump @NONAME_19250 
+
+:NONAME_19160
+10@ = 9999 
+jump @NONAME_19250 
+
+:NONAME_19175
+10@ = 8525 
+jump @NONAME_19250 
+
+:NONAME_19190
+10@ = 7898 
+jump @NONAME_19250 
+
+:NONAME_19205
+10@ = 1232 
+jump @NONAME_19250 
+
+:NONAME_19220
+10@ = 7319 
+jump @NONAME_19250 
+
+:NONAME_19235
+10@ = 9999 
+jump @NONAME_19250 
+
+:NONAME_19250
+cleo_call @NONAME_27108 1 29@ 30@ 
+if 
+003B:   30@ == 10@ // (int) 
+jf @NONAME_19332 
+string_format 27@s "s%i" 29@ 
+023C: load_special_actor 27@s as 1 // models 290-299 
+038B: load_requested_models 
+09C7: change_player 0 model_to 290 
+cleo_call @NONAME_27081 1 9@ 
+0296: unload_special_actor 1 
+
+:NONAME_19332
+jump @NONAME_19353 
+
+:NONAME_19339
+29@ += 1 
+jump @NONAME_18645 
+
+:NONAME_19353
+return 
+
+:NONAME_19355
+if 
+  4@ == 0 
+jf @NONAME_19403 
+get_label_pointer 10@ -27714 
+read_memory 10@ 10@ 4 0 
+0085: 9@ = 10@ // (int) 
+
+:NONAME_19403
+if 
+803B:   not  9@ == 31@ // (int) 
+jf @NONAME_19681 
+gosub @NONAME_19683 
+29@ = 1 
+
+:NONAME_19436
+if 
+  25 >= 29@ 
+jf @NONAME_19681 
+if 
+003B:   9@ == 29@ // (int) 
+jf @NONAME_19667 
+string_format 27@s "s%i" 29@ 
+023C: load_special_actor 27@s as 1 // models 290-299 
+038B: load_requested_models 
+22@ = Object.Angle(20@)
+if 
+  4@ == 0 
+jf @NONAME_19558 
+0400: store_coords_to 15@ 16@ 17@ from_object 20@ with_offset 4.0969 0.1267 -2.9 
+jump @NONAME_19587 
+
+:NONAME_19558
+0400: store_coords_to 15@ 16@ 17@ from_object 20@ with_offset -6.8031 0.2412 -2.91 
+
+:NONAME_19587
+Actor.Create(21@, PedType.CivMale, 290, 0.0, 0.0, -50.0)
+0619: enable_actor 21@ collision_detection 0 
+Actor.PutAt(21@, 15@, 16@, 17@)
+Actor.Angle(21@) = 22@
+0296: unload_special_actor 1 
+0085: 31@ = 9@ // (int) 
+gosub @NONAME_19713 
+jump @NONAME_19681 
+
+:NONAME_19667
+29@ += 1 
+jump @NONAME_19436 
+
+:NONAME_19681
+return 
+
+:NONAME_19683
+if 
+056D:   actor 21@ defined 
+jf @NONAME_19711 
+Actor.DestroyInstantly(21@)
+31@ = 0 
+
+:NONAME_19711
+return 
+
+:NONAME_19713
+if 
+056D:   actor 21@ defined 
+jf @NONAME_19894 
+if 
+  4@ == 0 
+jf @NONAME_19824 
+if 
+   not Actor.Animation(21@) == "FALL_LAND_D"
+jf @NONAME_19817 
+0812: AS_actor 21@ perform_animation "FALL_LAND_D" IFP "SPIDER" framedelta 51.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+
+:NONAME_19817
+jump @NONAME_19894 
+
+:NONAME_19824
+if 
+   not Actor.Animation(21@) == "MENU_IDLE_A"
+jf @NONAME_19894 
+0812: AS_actor 21@ perform_animation "MENU_IDLE_A" IFP "SPIDER" framedelta 46.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+
+:NONAME_19894
+return 
+
+:NONAME_19896
+04C4: store_coords_to 15@ 16@ 17@ from_actor 0@ with_offset 0.0 0.0 0.0 
+cleo_call @NONAME_26790 3 15@ 16@ 17@ 
+Model.Load(6012)
+038B: load_requested_models 
+Object.Create(20@, 6012, 0.0, 0.0, -1000.0)
+Object.CollisionDetection(20@, False)
+08D2: object 20@ scale_model 1.0 
+0750: set_object 20@ visibility 1 
+19@ = 1 
+gosub @NONAME_18148 
+return 
+terminate_this_custom_script 
+
+:NONAME_20016
+get_label_pointer 1@ -27838 
+1@ += 0 
+write_memory 1@ 2 0@ 0 
+cleo_return 0 
+
+:NONAME_20050
+get_label_pointer 1@ -27838 
+1@ += 0 
+read_memory 0@ 1@ 2 0 
+cleo_return 1 0@ 
+
+:NONAME_20087
+0087: 2@ = 0@ // (float) 
+2@ /= 1000.0 
+2@ *= 240.0 
+cleo_call @NONAME_25699 2 2@ 5.0 3@ 4@ 
+0087: 1@ = 3@ // (float) 
+1@ /= 2.0 
+1@ += 547.0 
+038E: draw_box_position 587.0 9.0 size 80.0 4@ RGBA 49 96 133 210 
+038E: draw_box_position 1@ 9.0 size 3@ 4@ RGBA 7 202 190 210 
+03F0: enable_text_draw 0 
+cleo_return 0 
+get_ped_pointer 4@ 0@ 
+0085: 5@ = 4@ // (int) 
+5@ += 20 
+read_memory 5@ 5@ 4 0 
+0085: 6@ = 5@ // (int) 
+6@ += 48 
+write_memory 6@ 4 1@ 0 
+6@ += 4 
+write_memory 6@ 4 2@ 0 
+6@ += 4 
+write_memory 6@ 4 3@ 0 
+cleo_return 0 
+
+:NONAME_20338
+if 
+056D:   actor 0@ defined 
+jf @NONAME_20382 
+get_ped_pointer 2@ 0@ 
+2@ += 300 
+write_memory 2@ 4 1@ 0 
+
+:NONAME_20382
+cleo_return 0 
+
+:NONAME_20387
+cleo_call @NONAME_27027 0 3@ 4@ 
+if 
+  0 > 4@ 
+jf @NONAME_20447 
+2@ -= 1 
+cleo_call @NONAME_25998 1 8 
+jump @NONAME_20484 
+
+:NONAME_20447
+if 
+  4@ > 0 
+jf @NONAME_20484 
+2@ += 1 
+cleo_call @NONAME_25998 1 8 
+
+:NONAME_20484
+if 
+001D:   1@ > 2@ // (int) 
+jf @NONAME_20511 
+0085: 2@ = 1@ // (int) 
+
+:NONAME_20511
+if 
+001D:   2@ > 0@ // (int) 
+jf @NONAME_20538 
+0085: 2@ = 0@ // (int) 
+
+:NONAME_20538
+cleo_return 1 2@ 
+
+:NONAME_20546
+cleo_call @NONAME_27027 0 6@ 7@ 
+if 
+  0 > 6@ 
+jf @NONAME_20606 
+2@ -= 1 
+cleo_call @NONAME_25998 1 8 
+jump @NONAME_20643 
+
+:NONAME_20606
+if 
+  6@ > 0 
+jf @NONAME_20643 
+2@ += 1 
+cleo_call @NONAME_25998 1 8 
+
+:NONAME_20643
+if 
+001D:   1@ > 2@ // (int) 
+jf @NONAME_20670 
+0085: 2@ = 1@ // (int) 
+
+:NONAME_20670
+if 
+001D:   2@ > 0@ // (int) 
+jf @NONAME_20697 
+0085: 2@ = 0@ // (int) 
+
+:NONAME_20697
+if 
+  0 > 7@ 
+jf @NONAME_20741 
+5@ -= 1 
+cleo_call @NONAME_25998 1 8 
+jump @NONAME_20778 
+
+:NONAME_20741
+if 
+  7@ > 0 
+jf @NONAME_20778 
+5@ += 1 
+cleo_call @NONAME_25998 1 8 
+
+:NONAME_20778
+if 
+001D:   4@ > 5@ // (int) 
+jf @NONAME_20805 
+0085: 5@ = 4@ // (int) 
+
+:NONAME_20805
+if 
+001D:   5@ > 3@ // (int) 
+jf @NONAME_20832 
+0085: 5@ = 3@ // (int) 
+
+:NONAME_20832
+cleo_return 2 2@ 5@ 
+
+:NONAME_20843
+03E3: set_texture_to_be_drawn_antialiased 1 
+cleo_call @NONAME_25636 2 2@ 2@ 3@ 4@ 
+038D: draw_texture 32 position 0@ 1@ size 3@ 4@ RGBA 255 255 255 210 
+03F0: enable_text_draw 0 
+cleo_return 0 
+
+:NONAME_20906
+12@ = 399.0 
+13@ = 229.0 
+cleo_call @NONAME_25636 2 2@ 2@ 14@ 15@ 
+0087: 16@ = 14@ // (float) 
+16@ /= 2.0 
+0087: 17@ = 15@ // (float) 
+17@ /= 2.0 
+0087: 8@ = 12@ // (float) 
+0087: 9@ = 13@ // (float) 
+0087: 10@ = 12@ // (float) 
+0087: 11@ = 13@ // (float) 
+005B: 8@ += 16@ // (float) 
+005B: 9@ += 17@ // (float) 
+0063: 10@ -= 16@ // (float) 
+0063: 11@ -= 17@ // (float) 
+cleo_call @NONAME_27027 0 3@ 4@ 
+0093: 5@ = integer 3@ to_float 
+5@ /= 100.0 
+0093: 6@ = integer 4@ to_float 
+6@ /= 100.0 
+if 
+0025:   8@ > 0@ // (float) 
+jf @NONAME_21134 
+007B: 0@ += frame_delta_time * 5@ // (float) 
+jump @NONAME_21142 
+
+:NONAME_21134
+0087: 0@ = 8@ // (float) 
+
+:NONAME_21142
+if 
+0025:   10@ > 0@ // (float) 
+jf @NONAME_21176 
+0087: 0@ = 10@ // (float) 
+jump @NONAME_21184 
+
+:NONAME_21176
+007B: 0@ += frame_delta_time * 5@ // (float) 
+
+:NONAME_21184
+if 
+0025:   9@ > 1@ // (float) 
+jf @NONAME_21218 
+007B: 1@ += frame_delta_time * 6@ // (float) 
+jump @NONAME_21226 
+
+:NONAME_21218
+0087: 1@ = 9@ // (float) 
+
+:NONAME_21226
+if 
+0025:   11@ > 1@ // (float) 
+jf @NONAME_21260 
+0087: 1@ = 11@ // (float) 
+jump @NONAME_21268 
+
+:NONAME_21260
+007B: 1@ += frame_delta_time * 6@ // (float) 
+
+:NONAME_21268
+cleo_call @NONAME_26929 2 0@ 1@ 
+03E3: set_texture_to_be_drawn_antialiased 1 
+cleo_call @NONAME_25636 2 10.0 10.0 18@ 19@ 
+038D: draw_texture 33 position 0@ 1@ size 18@ 19@ RGBA 255 255 255 210 
+03F0: enable_text_draw 0 
+20@ = 6000.0 
+21@ = 6000.0 
+if 
+00E1:   player 0 pressed_key 16 
+jf @NONAME_21516 
+0063: 0@ -= 10@ // (float) 
+0073: 0@ /= 14@ // (float) 
+006B: 0@ *= 20@ // (float) 
+0087: 22@ = 20@ // (float) 
+22@ /= 2.0 
+0063: 0@ -= 22@ // (float) 
+0063: 1@ -= 11@ // (float) 
+0073: 1@ /= 15@ // (float) 
+006B: 1@ *= 21@ // (float) 
+0087: 22@ = 21@ // (float) 
+22@ /= 2.0 
+0063: 1@ -= 22@ // (float) 
+1@ *= -1.0 
+print_formatted_now "x:%f y:%f" 2000 0@ 1@ 
+
+:NONAME_21516
+cleo_return 0 
+
+:NONAME_21521
+Actor.EmulateFromPlayer(9@, 0)
+1@ = 399.0 
+2@ = 229.0 
+cleo_call @NONAME_25636 2 0@ 0@ 12@ 13@ 
+0087: 14@ = 12@ // (float) 
+14@ /= 2.0 
+0087: 15@ = 13@ // (float) 
+15@ /= 2.0 
+0087: 10@ = 1@ // (float) 
+0087: 11@ = 2@ // (float) 
+0063: 10@ -= 14@ // (float) 
+0063: 11@ -= 15@ // (float) 
+4@ = 6000.0 
+5@ = 6000.0 
+04C4: store_coords_to 6@ 7@ 8@ from_actor 9@ with_offset 0.0 0.0 0.0 
+7@ *= -1.0 
+0087: 16@ = 4@ // (float) 
+16@ /= 2.0 
+005B: 6@ += 16@ // (float) 
+0073: 6@ /= 4@ // (float) 
+006B: 6@ *= 12@ // (float) 
+005B: 6@ += 10@ // (float) 
+0087: 16@ = 5@ // (float) 
+16@ /= 2.0 
+005B: 7@ += 16@ // (float) 
+0073: 7@ /= 5@ // (float) 
+006B: 7@ *= 13@ // (float) 
+005B: 7@ += 11@ // (float) 
+17@ = Actor.Angle(9@)
+17@ -= 180.0 
+17@ *= -1.0 
+03E3: set_texture_to_be_drawn_antialiased 1 
+cleo_call @NONAME_25636 2 10.0 10.0 12@ 13@ 
+074B: draw_texture 35 position 6@ 7@ scale 12@ 13@ angle 17@ color_RGBA 255 255 255 210 
+03F0: enable_text_draw 0 
+cleo_return 0 
+
+:NONAME_21895
+get_label_pointer 2@ -27862 
+4@ = 0 
+
+:NONAME_21912
+if 
+  22 >= 4@ 
+jf @NONAME_22260 
+string_format 0@s "ldmk%i" 4@ 
+if 
+does_file_exist "cleo\SpiderJ16D\config.ini" 
+jf @NONAME_22201 
+read_string_from_ini_file 2@ "cleo\SpiderJ16D\config.ini" "landmarks" 0@s 
+if 
+scan_string 3@ 2@ "%f %f %f" 5@ 6@ 7@ 
+jf @NONAME_22081 
+jump @NONAME_22111 
+
+:NONAME_22081
+5@ = 0.0 
+6@ = 0.0 
+7@ = 0.0 
+
+:NONAME_22111
+get_label_pointer 8@ -27894 
+0085: 9@ = 4@ // (int) 
+9@ *= 12 
+005A: 8@ += 9@ // (int) 
+write_memory 8@ 4 5@ 0 
+8@ += 4 
+write_memory 8@ 4 6@ 0 
+8@ += 4 
+write_memory 8@ 4 7@ 0 
+jump @NONAME_22246 
+
+:NONAME_22201
+print_formatted_now "ERROR coords file not found" 1500 
+wait 1500 
+cleo_return 0 
+
+:NONAME_22246
+4@ += 1 
+jump @NONAME_21912 
+
+:NONAME_22260
+cleo_return 0 
+
+:NONAME_22265
+Actor.EmulateFromPlayer(9@, 0)
+4@ = 399.0 
+5@ = 229.0 
+cleo_call @NONAME_25636 2 0@ 0@ 12@ 13@ 
+0087: 14@ = 12@ // (float) 
+14@ /= 2.0 
+0087: 15@ = 13@ // (float) 
+15@ /= 2.0 
+0087: 10@ = 4@ // (float) 
+0087: 11@ = 5@ // (float) 
+0063: 10@ -= 14@ // (float) 
+0063: 11@ -= 15@ // (float) 
+7@ = 6000.0 
+8@ = 6000.0 
+18@ = 0 
+
+:NONAME_22409
+if 
+  22 >= 18@ 
+jf @NONAME_22719 
+1@ = 0.0 
+2@ = 0.0 
+get_label_pointer 16@ -27894 
+0085: 17@ = 18@ // (int) 
+17@ *= 12 
+005A: 16@ += 17@ // (int) 
+read_memory 1@ 16@ 4 0 
+16@ += 4 
+read_memory 2@ 16@ 4 0 
+cleo_call @NONAME_25636 2 0@ 0@ 12@ 13@ 
+2@ *= -1.0 
+0087: 19@ = 7@ // (float) 
+19@ /= 2.0 
+005B: 1@ += 19@ // (float) 
+0073: 1@ /= 7@ // (float) 
+006B: 1@ *= 12@ // (float) 
+005B: 1@ += 10@ // (float) 
+0087: 19@ = 8@ // (float) 
+19@ /= 2.0 
+005B: 2@ += 19@ // (float) 
+0073: 2@ /= 8@ // (float) 
+006B: 2@ *= 13@ // (float) 
+005B: 2@ += 11@ // (float) 
+03E3: set_texture_to_be_drawn_antialiased 1 
+cleo_call @NONAME_25636 2 15.0 15.0 12@ 13@ 
+038D: draw_texture 39 position 1@ 2@ size 12@ 13@ RGBA 255 255 255 210 
+03F0: enable_text_draw 0 
+18@ += 1 
+jump @NONAME_22409 
+
+:NONAME_22719
+cleo_return 0 
+
+:NONAME_22724
+Actor.EmulateFromPlayer(0@, 0)
+00BE: text_clear_all 
+03E6: remove_text_box 
+03BF: set_player 0 ignored_by_everyone 1 
+01F7: set_player 0 ignored_by_cops 1 
+0881: set_player 0 able_to_shoot_weapons 0 
+07CC: set_player 0 can_enter_exit_vehicles 0 
+0826: enable_hud 0 
+0581: enable_radar 0 
+09BA: show_entered_zone_name 0 
+09B9: show_entered_car_name 0 
+03F0: enable_text_draw 0 
+01B9: set_actor 0@ armed_weapon_to 0 
+Actor.LockInCurrentPosition(0@, True)
+0619: enable_actor 0@ collision_detection 0 
+Player.CanMove(0, False)
+cleo_return 0 
+
+:NONAME_22811
+Actor.EmulateFromPlayer(0@, 0)
+00BE: text_clear_all 
+03E6: remove_text_box 
+03BF: set_player 0 ignored_by_everyone 0 
+01F7: set_player 0 ignored_by_cops 0 
+0881: set_player 0 able_to_shoot_weapons 1 
+07CC: set_player 0 can_enter_exit_vehicles 1 
+0826: enable_hud 1 
+0581: enable_radar 1 
+09BA: show_entered_zone_name 1 
+09B9: show_entered_car_name 1 
+03F0: enable_text_draw 0 
+Player.CanMove(0, True)
+Actor.LockInCurrentPosition(0@, False)
+0619: enable_actor 0@ collision_detection 1 
+0687: clear_actor 0@ task 
+0792: disembark_instantly_actor 0@ 
+cleo_return 0 
+
+:NONAME_22901
+if 
+  7@ > 0 
+jf @NONAME_22949 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038E: draw_box_position 0@ 1@ size 2@ 3@ RGBA 4@ 5@ 6@ 7@ 
+
+:NONAME_22949
+if 
+  12@ == 1 
+jf @NONAME_23022 
+gosub @NONAME_23488 
+22@ /= 2.0 
+0063: 20@ -= 22@ // (float) 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038E: draw_box_position 20@ 21@ size 8@ 3@ RGBA 13@ 14@ 15@ 16@ 
+
+:NONAME_23022
+if 
+  9@ == 1 
+jf @NONAME_23095 
+gosub @NONAME_23488 
+23@ /= 2.0 
+0063: 21@ -= 23@ // (float) 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038E: draw_box_position 20@ 21@ size 2@ 8@ RGBA 13@ 14@ 15@ 16@ 
+
+:NONAME_23095
+if 
+  10@ == 1 
+jf @NONAME_23168 
+gosub @NONAME_23488 
+22@ /= 2.0 
+005B: 20@ += 22@ // (float) 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038E: draw_box_position 20@ 21@ size 8@ 3@ RGBA 13@ 14@ 15@ 16@ 
+
+:NONAME_23168
+if 
+  11@ == 1 
+jf @NONAME_23241 
+gosub @NONAME_23488 
+23@ /= 2.0 
+005B: 21@ += 23@ // (float) 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038E: draw_box_position 20@ 21@ size 2@ 8@ RGBA 13@ 14@ 15@ 16@ 
+
+:NONAME_23241
+if 
+  17@ > 0 
+jf @NONAME_23483 
+string_format 26@s "J16D%i" 17@ 
+gosub @NONAME_23488 
+if 
+  19@ == 0.0 
+jf @NONAME_23308 
+0342: set_text_draw_centered 1 
+
+:NONAME_23308
+005B: 20@ += 19@ // (float) 
+if 
+  18@ == 3 
+jf @NONAME_23382 
+get_label_pointer 25@ @NONAME_27685 
+read_memory 25@ 25@ 4 0 
+if 
+003B:   25@ == 17@ // (int) 
+jf @NONAME_23382 
+18@ = 4 
+
+:NONAME_23382
+if 
+  18@ == 7 
+jf @NONAME_23448 
+get_label_pointer 25@ @NONAME_27685 
+read_memory 25@ 25@ 4 0 
+if 
+003B:   25@ == 17@ // (int) 
+jf @NONAME_23448 
+18@ = 8 
+
+:NONAME_23448
+cleo_call @NONAME_23846 1 18@ 24@ 
+0063: 21@ -= 24@ // (float) 
+033E: set_draw_text_position 20@ 21@ GXT 26@s 
+
+:NONAME_23483
+cleo_return 0 
+
+:NONAME_23488
+0087: 20@ = 0@ // (float) 
+0087: 21@ = 1@ // (float) 
+0087: 22@ = 2@ // (float) 
+0087: 23@ = 3@ // (float) 
+return 
+
+:NONAME_23522
+if 
+  7@ > 0 
+jf @NONAME_23570 
+03E3: set_texture_to_be_drawn_antialiased 1 
+038E: draw_box_position 0@ 1@ size 2@ 3@ RGBA 4@ 5@ 6@ 7@ 
+
+:NONAME_23570
+if 
+  8@ > 0 
+jf @NONAME_23815 
+string_format 17@s "J16D%i" 8@ 
+gosub @NONAME_23820 
+if 
+  10@ == 0.0 
+jf @NONAME_23637 
+0342: set_text_draw_centered 1 
+
+:NONAME_23637
+005B: 12@ += 10@ // (float) 
+if 
+  9@ == 3 
+jf @NONAME_23711 
+get_label_pointer 16@ @NONAME_27685 
+read_memory 16@ 16@ 4 0 
+if 
+003B:   16@ == 8@ // (int) 
+jf @NONAME_23711 
+9@ = 4 
+
+:NONAME_23711
+if 
+  9@ == 7 
+jf @NONAME_23777 
+get_label_pointer 16@ @NONAME_27685 
+read_memory 16@ 16@ 4 0 
+if 
+003B:   16@ == 8@ // (int) 
+jf @NONAME_23777 
+9@ = 8 
+
+:NONAME_23777
+cleo_call @NONAME_23846 1 9@ 15@ 
+0063: 13@ -= 15@ // (float) 
+045A: draw_text_1number 12@ 13@ GXT 17@s number 11@ 
+
+:NONAME_23815
+cleo_return 0 
+
+:NONAME_23820
+0087: 12@ = 0@ // (float) 
+0087: 13@ = 1@ // (float) 
+0087: 14@ = 2@ // (float) 
+return 
+
+:NONAME_23846
+0871: init_jump_table 0@ total_jumps 17 default_jump 0 @NONAME_24447 jumps 1 @NONAME_24039 2 @NONAME_24063 3 @NONAME_24087 4 @NONAME_24111 5 @NONAME_24135 6 @NONAME_24159 7 @NONAME_24183 
+0872: jump_table_jumps 8 @NONAME_24207 9 @NONAME_24231 10 @NONAME_24255 11 @NONAME_24279 12 @NONAME_24303 13 @NONAME_24327 14 @NONAME_24351 15 @NONAME_24375 16 @NONAME_24399 
+0872: jump_table_jumps 17 @NONAME_24423 -1 @NONAME_24447 -1 @NONAME_24447 -1 @NONAME_24447 -1 @NONAME_24447 -1 @NONAME_24447 -1 @NONAME_24447 -1 @NONAME_24447 -1 @NONAME_24447 
+
+:NONAME_24039
+gosub @NONAME_24455 
+1@ = 3.5 
+jump @NONAME_24447 
+
+:NONAME_24063
+gosub @NONAME_24505 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24087
+gosub @NONAME_24555 
+1@ = 5.0 
+jump @NONAME_24447 
+
+:NONAME_24111
+gosub @NONAME_24610 
+1@ = 5.0 
+jump @NONAME_24447 
+
+:NONAME_24135
+gosub @NONAME_24694 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24159
+gosub @NONAME_24746 
+1@ = 3.5 
+jump @NONAME_24447 
+
+:NONAME_24183
+gosub @NONAME_24797 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24207
+gosub @NONAME_24853 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24231
+gosub @NONAME_24938 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24255
+gosub @NONAME_24992 
+1@ = 8.0 
+jump @NONAME_24447 
+
+:NONAME_24279
+gosub @NONAME_25042 
+1@ = 3.0 
+jump @NONAME_24447 
+
+:NONAME_24303
+gosub @NONAME_25092 
+1@ = 3.0 
+jump @NONAME_24447 
+
+:NONAME_24327
+gosub @NONAME_25143 
+1@ = 0.0 
+jump @NONAME_24447 
+
+:NONAME_24351
+gosub @NONAME_25193 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24375
+gosub @NONAME_25243 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24399
+gosub @NONAME_25294 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24423
+gosub @NONAME_25342 
+1@ = 4.5 
+jump @NONAME_24447 
+
+:NONAME_24447
+cleo_return 1 1@ 
+
+:NONAME_24455
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.16 0.75 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 6 253 244 200 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+return 
+
+:NONAME_24505
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.21 0.98 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 6 253 244 200 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+return 
+
+:NONAME_24555
+0340: set_text_draw_RGBA 240 240 240 255 
+0349: set_text_draw_font 1 
+0343: set_text_draw_linewidth 640.0 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+033F: set_text_draw_letter_size 0.2 1.0 
+0348: enable_text_draw_proportional 1 
+return 
+
+:NONAME_24610
+get_label_pointer 2@ @NONAME_27689 
+read_memory 3@ 2@ 4 0 
+0092: 2@ = float 3@ to_integer 
+0340: set_text_draw_RGBA 50 180 255 2@ 
+0349: set_text_draw_font 1 
+0343: set_text_draw_linewidth 640.0 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+033F: set_text_draw_letter_size 0.2 1.0 
+0348: enable_text_draw_proportional 1 
+return 
+
+:NONAME_24694
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.22 1.02 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 200 200 200 255 
+081C: draw_text_outline 1 RGBA 0 0 0 200 
+return 
+
+:NONAME_24746
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.16 0.75 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 50 180 255 200 
+081C: draw_text_outline 1 RGBA 0 0 0 200 
+return 
+
+:NONAME_24797
+0340: set_text_draw_RGBA 240 240 240 255 
+0349: set_text_draw_font 1 
+0343: set_text_draw_linewidth 640.0 
+081C: draw_text_outline 1 RGBA 0 0 0 200 
+033F: set_text_draw_letter_size 0.16 0.8 
+0348: enable_text_draw_proportional 1 
+return 
+
+:NONAME_24853
+get_label_pointer 2@ @NONAME_27689 
+read_memory 3@ 2@ 4 0 
+0092: 2@ = float 3@ to_integer 
+0340: set_text_draw_RGBA 50 180 255 2@ 
+0349: set_text_draw_font 1 
+0343: set_text_draw_linewidth 640.0 
+081C: draw_text_outline 1 RGBA 0 0 0 200 
+033F: set_text_draw_letter_size 0.16 0.8 
+0348: enable_text_draw_proportional 1 
+return 
+
+:NONAME_24938
+0340: set_text_draw_RGBA 0 95 160 255 
+0349: set_text_draw_font 1 
+0343: set_text_draw_linewidth 640.0 
+081C: draw_text_outline 1 RGBA 0 0 0 200 
+033F: set_text_draw_letter_size 0.16 0.8 
+0348: enable_text_draw_proportional 1 
+return 
+
+:NONAME_24992
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.55 2.55 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 6 253 244 200 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+return 
+
+:NONAME_25042
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.14 0.65 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 6 253 244 200 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+return 
+
+:NONAME_25092
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.24 1.17 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 255 255 255 255 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+return 
+
+:NONAME_25143
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.28 1.35 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 6 253 244 200 
+081C: draw_text_outline 1 RGBA 0 0 0 100 
+return 
+
+:NONAME_25193
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.16 0.75 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 6 253 244 220 
+081C: draw_text_outline 1 RGBA 0 0 0 50 
+return 
+
+:NONAME_25243
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.16 0.75 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 255 255 255 220 
+081C: draw_text_outline 1 RGBA 0 0 0 50 
+return 
+
+:NONAME_25294
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.19 0.92 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 43 57 58 220 
+081C: draw_text_outline 1 RGBA 43 57 58 100 
+return 
+
+:NONAME_25342
+0349: set_text_draw_font 1 
+033F: set_text_draw_letter_size 0.19 0.92 
+0343: set_text_draw_linewidth 640.0 
+0340: set_text_draw_RGBA 17 242 198 220 
+081C: draw_text_outline 1 RGBA 0 0 0 50 
+return 
+
+:NONAME_25392
+get_label_pointer 1@ @NONAME_27689 
+get_label_pointer 3@ @NONAME_27693 
+if 
+  0@ == 1 
+jf @NONAME_25462 
+write_memory 1@ 4 255.0 0 
+write_memory 3@ 1 1 0 
+jump @NONAME_25631 
+
+:NONAME_25462
+read_memory 2@ 1@ 4 0 
+read_memory 4@ 3@ 1 0 
+if 
+  4@ == 1 
+jf @NONAME_25559 
+007F: 2@ -= frame_delta_time * 2.0 // (float) 
+if 
+  180.0 > 2@ 
+jf @NONAME_25552 
+2@ = 180.0 
+4@ = 2 
+
+:NONAME_25552
+jump @NONAME_25607 
+
+:NONAME_25559
+0079: 2@ += frame_delta_time * 2.0 // (float) 
+if 
+  2@ > 255.0 
+jf @NONAME_25607 
+2@ = 255.0 
+4@ = 1 
+
+:NONAME_25607
+write_memory 1@ 4 2@ 0 
+write_memory 3@ 1 4@ 0 
+
+:NONAME_25631
+cleo_return 0 
+
+:NONAME_25636
+cleo_call @NONAME_25762 0 2@ 3@ 
+3@ *= 1.333333 
+0073: 2@ /= 3@ // (float) 
+0073: 0@ /= 2@ // (float) 
+1@ /= 1.071429 
+cleo_return 2 0@ 1@ 
+
+:NONAME_25699
+cleo_call @NONAME_25762 0 2@ 3@ 
+2@ /= 640.0 
+0073: 0@ /= 2@ // (float) 
+3@ /= 448.0 
+0073: 1@ /= 3@ // (float) 
+cleo_return 2 0@ 1@ 
+
+:NONAME_25762
+read_memory 0@ 12677188 4 0 
+read_memory 1@ 12677192 4 0 
+0093: 2@ = integer 0@ to_float 
+0093: 3@ = integer 1@ to_float 
+cleo_return 2 2@ 3@ 
+
+:NONAME_25817
+if 
+001D:   0@ > 1@ // (int) 
+jf @NONAME_25844 
+0085: 0@ = 1@ // (int) 
+
+:NONAME_25844
+if 
+001D:   2@ > 0@ // (int) 
+jf @NONAME_25871 
+0085: 0@ = 2@ // (int) 
+
+:NONAME_25871
+cleo_return 1 0@ 
+
+:NONAME_25879
+3@ = 1 
+
+:NONAME_25886
+if 
+  25 >= 3@ 
+jf @NONAME_25993 
+string_format 0@s "suit%i" 3@ 
+read_int_from_ini_file 2@ "cleo\SpiderJ16D\config.ini" "CODE" 0@s 
+cleo_call @NONAME_27161 2 3@ 2@ 
+3@ += 1 
+jump @NONAME_25886 
+
+:NONAME_25993
+cleo_return 0 
+
+:NONAME_25998
+Actor.EmulateFromPlayer(2@, 0)
+cleo_call @NONAME_26504 1 0@ 1@ 
+Audiostream.PerformAction(1@, AudioStreamState.Play)
+cleo_return 0 
+
+:NONAME_26033
+Actor.EmulateFromPlayer(5@, 0)
+get_label_pointer 4@ -27718 
+if 
+does_file_exist "CLEO\SpiderJ16D\sfx\m_b.mp3" 
+jf @NONAME_26145 
+0@ = Audiostream.Load("CLEO\SpiderJ16D\sfx\m_b.mp3")
+write_memory 4@ 4 0@ 0 
+jump @NONAME_26156 
+
+:NONAME_26145
+write_memory 4@ 4 0 0 
+
+:NONAME_26156
+4@ += 4 
+if 
+does_file_exist "CLEO\SpiderJ16D\sfx\m_ma.mp3" 
+jf @NONAME_26260 
+1@ = Audiostream.Load("CLEO\SpiderJ16D\sfx\m_ma.mp3")
+write_memory 4@ 4 1@ 0 
+jump @NONAME_26271 
+
+:NONAME_26260
+write_memory 4@ 4 0 0 
+
+:NONAME_26271
+4@ += 4 
+if 
+does_file_exist "CLEO\SpiderJ16D\sfx\m_mb.mp3" 
+jf @NONAME_26375 
+2@ = Audiostream.Load("CLEO\SpiderJ16D\sfx\m_mb.mp3")
+write_memory 4@ 4 2@ 0 
+jump @NONAME_26386 
+
+:NONAME_26375
+write_memory 4@ 4 0 0 
+
+:NONAME_26386
+4@ += 4 
+if 
+does_file_exist "CLEO\SpiderJ16D\sfx\m_s.mp3" 
+jf @NONAME_26488 
+3@ = Audiostream.Load("CLEO\SpiderJ16D\sfx\m_s.mp3")
+write_memory 4@ 4 3@ 0 
+jump @NONAME_26499 
+
+:NONAME_26488
+write_memory 4@ 4 0 0 
+
+:NONAME_26499
+cleo_return 0 
+
+:NONAME_26504
+get_label_pointer 1@ -27718 
+005A: 1@ += 0@ // (int) 
+read_memory 2@ 1@ 4 0 
+cleo_return 1 2@ 
+
+:NONAME_26542
+get_label_pointer 4@ -27718 
+read_memory 0@ 4@ 4 0 
+if 
+  0@ == 0 
+jf @NONAME_26589 
+jump @NONAME_26605 
+
+:NONAME_26589
+Audiostream.Release(0@)
+write_memory 4@ 4 0 0 
+
+:NONAME_26605
+4@ += 4 
+read_memory 1@ 4@ 4 0 
+if 
+  1@ == 0 
+jf @NONAME_26649 
+jump @NONAME_26665 
+
+:NONAME_26649
+Audiostream.Release(1@)
+write_memory 4@ 4 0 0 
+
+:NONAME_26665
+4@ += 4 
+read_memory 2@ 4@ 4 0 
+if 
+  2@ == 0 
+jf @NONAME_26709 
+jump @NONAME_26725 
+
+:NONAME_26709
+Audiostream.Release(2@)
+write_memory 4@ 4 0 0 
+
+:NONAME_26725
+4@ += 4 
+read_memory 3@ 4@ 4 0 
+if 
+  3@ == 0 
+jf @NONAME_26769 
+jump @NONAME_26785 
+
+:NONAME_26769
+Audiostream.Release(3@)
+write_memory 4@ 4 0 0 
+
+:NONAME_26785
+cleo_return 0 
+
+:NONAME_26790
+get_label_pointer 3@ -27842 
+write_memory 3@ 4 0@ 0 
+3@ += 4 
+write_memory 3@ 4 1@ 0 
+3@ += 4 
+write_memory 3@ 4 2@ 0 
+cleo_return 0 
+get_label_pointer 0@ -27842 
+read_memory 1@ 0@ 4 0 
+0@ += 4 
+read_memory 2@ 0@ 4 0 
+0@ += 4 
+read_memory 3@ 0@ 4 0 
+cleo_return 3 1@ 2@ 3@ 
+
+:NONAME_26929
+get_label_pointer 2@ -27854 
+write_memory 2@ 4 0@ 0 
+2@ += 4 
+write_memory 2@ 4 1@ 0 
+cleo_return 0 
+
+:NONAME_26975
+get_label_pointer 2@ -27854 
+read_memory 0@ 2@ 4 0 
+2@ += 4 
+read_memory 1@ 2@ 4 0 
+cleo_return 2 0@ 1@ 
+
+:NONAME_27027
+0494: get_joystick 0 direction_offset_to 0@ 1@ 2@ 2@ 
+cleo_return 2 0@ 1@ 
+
+:NONAME_27054
+get_label_pointer 1@ @NONAME_27685 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27081
+get_label_pointer 1@ -27714 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27108
+get_label_pointer 1@ -27734 
+0085: 2@ = 0@ // (int) 
+2@ *= 4 
+005A: 1@ += 2@ // (int) 
+read_memory 1@ 1@ 4 0 
+cleo_return 1 1@ 
+
+:NONAME_27161
+get_label_pointer 2@ -27734 
+0085: 3@ = 0@ // (int) 
+3@ *= 4 
+005A: 2@ += 3@ // (int) 
+write_memory 2@ 4 1@ 0 
+cleo_return 0 
+
+:NONAME_27211
+get_label_pointer 1@ -27710 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27238
+get_label_pointer 0@ -27710 
+read_memory 0@ 0@ 4 0 
+cleo_return 1 0@ 
+
+:NONAME_27268
+get_label_pointer 1@ -27706 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27295
+get_label_pointer 0@ -27706 
+read_memory 0@ 0@ 4 0 
+cleo_return 1 0@ 
+
+:NONAME_27325
+get_label_pointer 1@ -27702 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27352
+get_label_pointer 0@ -27702 
+read_memory 0@ 0@ 4 0 
+cleo_return 1 0@ 
+
+:NONAME_27382
+get_label_pointer 1@ -27698 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27409
+get_label_pointer 0@ -27698 
+read_memory 0@ 0@ 4 0 
+cleo_return 1 0@ 
+
+:NONAME_27439
+get_label_pointer 1@ -27694 
+write_memory 1@ 4 0@ 0 
+cleo_return 0 
+
+:NONAME_27466
+get_label_pointer 0@ -27694 
+read_memory 0@ 0@ 4 0 
+cleo_return 1 0@ 
+
+:NONAME_27496
+if 
+056D:   actor 0@ defined 
+jf @NONAME_27676 
+get_ped_pointer 2@ 0@ 
+0085: 3@ = 2@ // (int) 
+3@ += 1140 
+read_memory 4@ 3@ 4 0 
+if 
+08B7:   test 4@ bit 2 
+jf @NONAME_27625 
+if 
+  1@ == 1 
+jf @NONAME_27618 
+get_label_pointer 5@ @NONAME_27681 
+read_memory 5@ 5@ 4 0 
+write_memory 3@ 4 5@ 0 
+
+:NONAME_27618
+jump @NONAME_27676 
+
+:NONAME_27625
+get_label_pointer 5@ @NONAME_27681 
+write_memory 5@ 4 4@ 0 
+if 
+  1@ == 0 
+jf @NONAME_27676 
+write_memory 3@ 4 2 0 
+
+:NONAME_27676
+cleo_return 0 
+
+:NONAME_27681
+0000: NOP 
+0000: NOP 
+
+:NONAME_27685
+0000: NOP 
+0000: NOP 
+
+:NONAME_27689
+0000: NOP 
+0000: NOP 
+
+:NONAME_27693
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+0000: NOP 
+hex
+ 00
+end
