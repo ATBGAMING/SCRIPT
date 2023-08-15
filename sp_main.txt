@@ -1,0 +1,3239 @@
+{$CLEO .cs}
+
+{0} script_name 'SP_MAIN' 
+{11} Actor.EmulateFromPlayer(0@, 0)
+{18} cleo_call @SP_MAIN_22362 1 1 
+{30} set_cleo_shared_var 118 3 
+{36} gosub @SP_MAIN_6516 
+{43} stream_custom_script "SpiderJ16D\sp_mb.cs" 
+{67} stream_custom_script "SpiderJ16D\sp_ml.cs" 
+{91} stream_custom_script "SpiderJ16D\sp_tta.cs" 
+{116} stream_custom_script "SpiderJ16D\sp_ttb.cs" 
+{141} stream_custom_script "SpiderJ16D\sp_ttc.cs" 
+{166} stream_custom_script "SpiderJ16D\sp_ttd.cs" 
+{191} stream_custom_script "SpiderJ16D\sp_tte.cs" 
+{216} stream_custom_script "SpiderJ16D\sp_lvl.cs" 
+{241} stream_custom_script "SpiderJ16D\sp_aim.cs" 
+{266} stream_custom_script "SpiderJ16D\sp_tmp.cs" 
+{291} 04ED: load_animation "MWEB" 
+{299} 038B: load_requested_models 
+
+:SP_MAIN_301
+{301} Actor.SetImmunities(0@, False, True, True, True, False)
+{316} 0489: set_actor 0@ muted 1 
+{323} gosub @SP_MAIN_6507 
+{330} if 
+{334}   1@ == 1 
+{341} jf @SP_MAIN_3302 
+{348} if 
+{352}    Player.Defined(0)
+{356} jf @SP_MAIN_3225 
+{363} if 
+{367} cleo_call @SP_MAIN_22756 1 0@ 
+{380} jf @SP_MAIN_432 
+{387} 0687: clear_actor 0@ task 
+{392} 0792: disembark_instantly_actor 0@ 
+
+:SP_MAIN_397
+{397} if 
+{401} cleo_call @SP_MAIN_22756 1 0@ 
+{414} jf @SP_MAIN_432 
+{421} wait 0 
+{425} jump @SP_MAIN_397 
+
+:SP_MAIN_432
+{432} if 
+{436} cleo_call @SP_MAIN_22843 9 0@ 0.0 0.0 -5.0 1 1 0 0 0 
+{474} jf @SP_MAIN_3113 
+{481} if 
+{485} cleo_call @SP_MAIN_22843 9 0@ 0.0 1.0 0.0 1 0 0 0 0 
+{523} jf @SP_MAIN_1094 
+{530} if 
+{534} cleo_call @SP_MAIN_22843 9 0@ -1.0 0.0 0.0 1 0 0 0 0 
+{572} jf @SP_MAIN_1056 
+{579} if 
+{583} cleo_call @SP_MAIN_22843 9 0@ 1.0 0.0 0.0 1 0 0 0 0 
+{621} jf @SP_MAIN_1018 
+{628} if 
+{632} cleo_call @SP_MAIN_23117 7 0@ 0.0 2.0 -0.5 0.0 -1.5 -1.5 
+{675} jf @SP_MAIN_1011 
+{682} if and
+{686}    not Actor.Animation(0@) == "SWING_L_A"
+{702}    not Actor.Animation(0@) == "SWING_L_B"
+{718}    not Actor.Animation(0@) == "SWING_L_C"
+{734}    not Actor.Animation(0@) == "SWING_L_D"
+{750}    not Actor.Animation(0@) == "SWING_L_E"
+{766}    not Actor.Animation(0@) == "SWING_L_F"
+{782} jf @SP_MAIN_1011 
+{789} if and
+{793}    not Actor.Animation(0@) == "SWING_R_A"
+{809}    not Actor.Animation(0@) == "SWING_R_B"
+{825}    not Actor.Animation(0@) == "SWING_R_C"
+{841}    not Actor.Animation(0@) == "SWING_R_D"
+{857}    not Actor.Animation(0@) == "SWING_R_E"
+{873}    not Actor.Animation(0@) == "SWING_R_F"
+{889} jf @SP_MAIN_1011 
+{896} if and
+{900} 00E1:   player 0 pressed_key 16 
+{906}    Actor.Animation(0@) == "SPRINT_CIVI"
+{924} jf @SP_MAIN_1011 
+{931} gosub @SP_MAIN_6597 
+{938} 12@ = 1.75 
+{948} 13@ = 2.15 
+{958} 16@ = 6.0 
+{968} 0687: clear_actor 0@ task 
+{973} cleo_call @SP_MAIN_24109 5 0@ 0.0 12@ 13@ 16@ 
+{1000} gosub @SP_MAIN_12592 
+{1007} wait 0 
+
+:SP_MAIN_1011
+{1011} jump @SP_MAIN_1049 
+
+:SP_MAIN_1018
+{1018} if 
+{1022} 00E1:   player 0 pressed_key 16 
+{1028} jf @SP_MAIN_1049 
+{1035} gosub @SP_MAIN_15011 
+{1042} jump @SP_MAIN_3081 
+
+:SP_MAIN_1049
+{1049} jump @SP_MAIN_1087 
+
+:SP_MAIN_1056
+{1056} if 
+{1060} 00E1:   player 0 pressed_key 16 
+{1066} jf @SP_MAIN_1087 
+{1073} gosub @SP_MAIN_16036 
+{1080} jump @SP_MAIN_3081 
+
+:SP_MAIN_1087
+{1087} jump @SP_MAIN_1212 
+
+:SP_MAIN_1094
+{1094} if and
+{1098}    not Actor.Animation(0@) == "RUN_WALL_R_B"
+{1117}    not Actor.Animation(0@) == "RUN_WALL_R_A"
+{1136}    not Actor.Animation(0@) == "RUN_WALL_L_A"
+{1155}    not Actor.Animation(0@) == "RUN_WALL_L_B"
+{1174} jf @SP_MAIN_1212 
+{1181} if 
+{1185} 00E1:   player 0 pressed_key 16 
+{1191} jf @SP_MAIN_1212 
+{1198} gosub @SP_MAIN_17061 
+{1205} jump @SP_MAIN_3081 
+
+:SP_MAIN_1212
+{1212} if or
+{1216} 00E1:   player 0 pressed_key 6 
+{1222} 00E1:   player 0 pressed_key 14 
+{1228} jf @SP_MAIN_1242 
+{1235} jump @SP_MAIN_1274 
+
+:SP_MAIN_1242
+{1242} if 
+{1246} gosub @SP_MAIN_4211 
+{1253} jf @SP_MAIN_1267 
+{1260} jump @SP_MAIN_1274 
+
+:SP_MAIN_1267
+{1267} gosub @SP_MAIN_3378 
+
+:SP_MAIN_1274
+{1274} if and
+{1278} 00E1:   player 0 pressed_key 16 
+{1284} 80E1:   not player 0 pressed_key 14 
+{1290} 80E1:   not player 0 pressed_key 17 
+{1296} 80E1:   not player 0 pressed_key 6 
+{1302} jf @SP_MAIN_3113 
+{1309} if 
+{1313} gosub @SP_MAIN_3472 
+{1320} jf @SP_MAIN_3081 
+{1327} get_cleo_shared_var 2@ 114 
+{1334} if 
+{1338}   2@ == 0 
+{1345} jf @SP_MAIN_1354 
+{1352} Camera.Restore
+
+:SP_MAIN_1354
+{1354} gosub @SP_MAIN_6597 
+{1361} gosub @SP_MAIN_9359 
+{1368} gosub @SP_MAIN_9136 
+{1375} get_cleo_shared_var 2@ 111 
+{1382} if 
+{1386}   2@ == 1 
+{1393} jf @SP_MAIN_1441 
+{1400} 0208: 17@ = random_float_in_ranges 27.0 33.0 
+{1415} cleo_call @SP_MAIN_26202 1 0@ 14@ 3@ 
+{1434} jump @SP_MAIN_1463 
+
+:SP_MAIN_1441
+{1441} cleo_call @SP_MAIN_26795 1 0@ 14@ 17@ 3@ 
+
+:SP_MAIN_1463
+{1463} 0087: 18@ = 17@ // (float) 
+{1471} 18@ *= -1.0 
+{1481} cleo_call @SP_MAIN_25802 2 14@ 145.0 10@ 
+{1502} 06AC: 15@ = actor 0@ movement_speed 
+{1510} 16@ = 1.025 
+{1520} 006B: 16@ *= 15@ // (float) 
+{1528} gosub @SP_MAIN_6474 
+{1535} gosub @SP_MAIN_14356 
+{1542} if 
+{1546}   3@ == 0 
+{1553} jf @SP_MAIN_1612 
+{1560} get_cleo_shared_var 2@ 112 
+{1567} if 
+{1571}   2@ == 1 
+{1578} jf @SP_MAIN_1601 
+{1585} 0209: 3@ = random_int_in_ranges 1 3 
+{1594} jump @SP_MAIN_1612 
+
+:SP_MAIN_1601
+{1601} wait 100 
+{1605} jump @SP_MAIN_3081 
+
+:SP_MAIN_1612
+{1612} 28@ = 1 
+{1619} 0209: 26@ = random_int_in_ranges 0 6 
+{1628} if 
+{1632}   26@ == 3 
+{1639} jf @SP_MAIN_1661 
+{1646} 0208: 10@ = random_float_in_ranges 1.15 1.45 
+
+:SP_MAIN_1661
+{1661} TIMERA = 0 
+
+:SP_MAIN_1668
+{1668} if 
+{1672} 00E1:   player 0 pressed_key 16 
+{1678} jf @SP_MAIN_2794 
+{1685} 0093: 9@ = integer TIMERA to_float 
+{1693} 9@ /= 1000.0 
+{1703} if 
+{1707} 0035:   10@ >= 9@ // (float) 
+{1715} jf @SP_MAIN_2012 
+{1722} cleo_call @SP_MAIN_25660 5 0.0 10@ 9@ 17@ 18@ 19@ 
+{1752} cleo_call @SP_MAIN_25660 5 17@ 18@ 19@ 0.0 1.0 8@ 
+{1784} cleo_call @SP_MAIN_25870 2 14@ 19@ 12@ 13@ 
+{1806} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 13@ 16@ 
+{1833} if 
+{1837}   19@ > -5.0 
+{1847} jf @SP_MAIN_1871 
+{1854} 0079: 16@ += frame_delta_time * 0.2 // (float) 
+{1864} jump @SP_MAIN_1881 
+
+:SP_MAIN_1871
+{1871} 007F: 16@ -= frame_delta_time * 0.1 // (float) 
+
+:SP_MAIN_1881
+{1881} gosub @SP_MAIN_6474 
+{1888} if 
+{1892} 00E1:   player 0 pressed_key 14 
+{1898} jf @SP_MAIN_1915 
+{1905} 0079: 16@ += frame_delta_time * 0.2 // (float) 
+
+:SP_MAIN_1915
+{1915} gosub @SP_MAIN_14714 
+{1922} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{1938} gosub @SP_MAIN_9557 
+{1945} if 
+{1949}   8@ > 0.09 
+{1959} jf @SP_MAIN_2005 
+{1966} gosub @SP_MAIN_7687 
+{1973} if 
+{1977}   28@ == 1 
+{1984} jf @SP_MAIN_2005 
+{1991} gosub @SP_MAIN_6701 
+{1998} 28@ = 0 
+
+:SP_MAIN_2005
+{2005} jump @SP_MAIN_2410 
+
+:SP_MAIN_2012
+{2012} 20@ = 0.0 
+{2022} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{2038} if and
+{2042}    not Actor.Animation(0@) == "SWING_E_A"
+{2058}    not Actor.Animation(0@) == "SWING_E_B"
+{2074}    not Actor.Animation(0@) == "SWING_E_C"
+{2090}    not Actor.Animation(0@) == "SWING_E_D"
+{2106}    not Actor.Animation(0@) == "SWING_E_E"
+{2122}    not Actor.Animation(0@) == "SWING_E_F"
+{2138} jf @SP_MAIN_2410 
+{2145} if and
+{2149}    not Actor.Animation(0@) == "SWING_E_A_R"
+{2167}    not Actor.Animation(0@) == "SWING_E_B_R"
+{2185}    not Actor.Animation(0@) == "SWING_E_C_R"
+{2203}    not Actor.Animation(0@) == "SWING_E_D_R"
+{2221}    not Actor.Animation(0@) == "SWING_E_E_R"
+{2239}    not Actor.Animation(0@) == "SWING_E_F_R"
+{2257} jf @SP_MAIN_2410 
+{2264} gosub @SP_MAIN_7627 
+{2271} gosub @SP_MAIN_10765 
+{2278} gosub @SP_MAIN_7179 
+{2285} 06AC: 15@ = actor 0@ movement_speed 
+{2293} 12@ = 1.15 
+{2303} 006B: 12@ *= 15@ // (float) 
+{2311} 13@ = 1.0 
+{2321} 006B: 13@ *= 15@ // (float) 
+{2329} 16@ = 1.05 
+{2339} 006B: 16@ *= 15@ // (float) 
+{2347} TIMERB = 0 
+
+:SP_MAIN_2354
+{2354} if 
+{2358}   100 > TIMERB 
+{2365} jf @SP_MAIN_2410 
+{2372} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 13@ 16@ 
+{2399} wait 0 
+{2403} jump @SP_MAIN_2354 
+
+:SP_MAIN_2410
+{2410} if 
+{2414} cleo_call @SP_MAIN_22843 9 0@ 0.0 0.0 -1.5 1 0 0 0 0 
+{2452} jf @SP_MAIN_2466 
+{2459} jump @SP_MAIN_2563 
+
+:SP_MAIN_2466
+{2466} get_cleo_shared_var 2@ 113 
+{2473} if 
+{2477}   2@ == 1 
+{2484} jf @SP_MAIN_2563 
+{2491} 13@ += 5.0 
+{2501} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 13@ 16@ 
+{2528} get_ped_pointer 29@ 0@ 
+{2536} 0085: 30@ = 29@ // (int) 
+{2544} 30@ += 1132 
+{2552} write_memory 30@ 1 0 0 
+
+:SP_MAIN_2563
+{2563} if 
+{2567} cleo_call @SP_MAIN_22843 9 0@ 0.0 1.5 0.0 1 0 0 0 0 
+{2605} jf @SP_MAIN_2745 
+{2612} if 
+{2616} cleo_call @SP_MAIN_22843 9 0@ -1.0 0.0 0.0 1 0 0 0 0 
+{2654} jf @SP_MAIN_2731 
+{2661} if 
+{2665} cleo_call @SP_MAIN_22843 9 0@ 1.0 0.0 0.0 1 0 0 0 0 
+{2703} jf @SP_MAIN_2717 
+{2710} jump @SP_MAIN_2724 
+
+:SP_MAIN_2717
+{2717} jump @SP_MAIN_3081 
+
+:SP_MAIN_2724
+{2724} jump @SP_MAIN_2738 
+
+:SP_MAIN_2731
+{2731} jump @SP_MAIN_3081 
+
+:SP_MAIN_2738
+{2738} jump @SP_MAIN_2752 
+
+:SP_MAIN_2745
+{2745} jump @SP_MAIN_3081 
+
+:SP_MAIN_2752
+{2752} if 
+{2756} cleo_call @SP_MAIN_22756 1 0@ 
+{2769} jf @SP_MAIN_2783 
+{2776} jump @SP_MAIN_3081 
+
+:SP_MAIN_2783
+{2783} wait 0 
+{2787} jump @SP_MAIN_1668 
+
+:SP_MAIN_2794
+{2794} 28@ = 0 
+{2801} if and
+{2805}    not Actor.Animation(0@) == "SWING_E_A"
+{2821}    not Actor.Animation(0@) == "SWING_E_B"
+{2837}    not Actor.Animation(0@) == "SWING_E_C"
+{2853}    not Actor.Animation(0@) == "SWING_E_D"
+{2869}    not Actor.Animation(0@) == "SWING_E_E"
+{2885}    not Actor.Animation(0@) == "SWING_E_F"
+{2901} jf @SP_MAIN_3081 
+{2908} if and
+{2912}    not Actor.Animation(0@) == "SWING_E_A_R"
+{2930}    not Actor.Animation(0@) == "SWING_E_B_R"
+{2948}    not Actor.Animation(0@) == "SWING_E_C_R"
+{2966}    not Actor.Animation(0@) == "SWING_E_D_R"
+{2984}    not Actor.Animation(0@) == "SWING_E_E_R"
+{3002}    not Actor.Animation(0@) == "SWING_E_F_R"
+{3020} jf @SP_MAIN_3081 
+{3027} 20@ = 0.0 
+{3037} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{3053} gosub @SP_MAIN_7627 
+{3060} gosub @SP_MAIN_6597 
+{3067} gosub @SP_MAIN_7179 
+{3074} gosub @SP_MAIN_11853 
+
+:SP_MAIN_3081
+{3081} 28@ = 0 
+{3088} 083E: set_actor 0@ rotation 0.0 0.0 22@ while_in_air 
+{3106} gosub @SP_MAIN_7627 
+
+:SP_MAIN_3113
+{3113} if or
+{3117}    Actor.Animation(0@) == "FALL_BACK"
+{3133}    Actor.Animation(0@) == "FALL_FRONT"
+{3150}    Actor.Animation(0@) == "FALL_GLIDE"
+{3167}    Actor.Animation(0@) == "FALL_FALL"
+{3183} jf @SP_MAIN_3211 
+{3190} gosub @SP_MAIN_6597 
+{3197} gosub @SP_MAIN_12236 
+{3204} jump @SP_MAIN_3225 
+
+:SP_MAIN_3211
+{3211} gosub @SP_MAIN_6597 
+{3218} gosub @SP_MAIN_4394 
+
+:SP_MAIN_3225
+{3225} if and
+{3229} is_key_pressed 9 
+{3233} is_key_pressed 32 
+{3237} is_key_pressed 8 
+{3241} jf @SP_MAIN_3295 
+
+:SP_MAIN_3248
+{3248} if 
+{3252} is_key_pressed 8 
+{3256} jf @SP_MAIN_3274 
+{3263} wait 0 
+{3267} jump @SP_MAIN_3248 
+
+:SP_MAIN_3274
+{3274} 0619: enable_actor 0@ collision_detection 1 
+{3281} 0687: clear_actor 0@ task 
+{3286} 0792: disembark_instantly_actor 0@ 
+{3291} Camera.Restore
+{3293} Camera.Restore_WithJumpCut
+
+:SP_MAIN_3295
+{3295} jump @SP_MAIN_3367 
+
+:SP_MAIN_3302
+{3302} 04EF: release_animation "SPIDER" 
+{3312} 04EF: release_animation "MWEB" 
+{3320} Audiostream.Release(27@)
+{3325} gosub @SP_MAIN_6567 
+{3332} cleo_call @SP_MAIN_22362 1 0 
+{3344} gosub @SP_MAIN_9359 
+{3351} 0687: clear_actor 0@ task 
+{3356} 0792: disembark_instantly_actor 0@ 
+{3361} wait 50 
+{3365} terminate_this_custom_script 
+
+:SP_MAIN_3367
+{3367} wait 0 
+{3371} jump @SP_MAIN_301 
+
+:SP_MAIN_3378
+{3378} get_cleo_shared_var 2@ 114 
+{3385} if 
+{3389}   2@ == 1 
+{3396} jf @SP_MAIN_3445 
+{3403} if 
+{3407} is_key_pressed 66 
+{3411} jf @SP_MAIN_3425 
+{3418} jump @SP_MAIN_3438 
+
+:SP_MAIN_3425
+{3425} cleo_call @SP_MAIN_23751 1 0@ 
+
+:SP_MAIN_3438
+{3438} jump @SP_MAIN_3470 
+
+:SP_MAIN_3445
+{3445} gosub @SP_MAIN_14922 
+{3452} 083E: set_actor 0@ rotation 0.0 0.0 22@ while_in_air 
+
+:SP_MAIN_3470
+{3470} return 
+
+:SP_MAIN_3472
+{3472} if and
+{3476}    not Actor.Animation(0@) == "JUMP_LAUNCH_A"
+{3496}    not Actor.Animation(0@) == "JUMP_LAUNCH_B"
+{3516}    not Actor.Animation(0@) == "JUMP_LAUNCH_C"
+{3536} jf @SP_MAIN_4207 
+{3543} if and
+{3547}    not Actor.Animation(0@) == "PKJUMPA"
+{3561}    not Actor.Animation(0@) == "PKJUMPB"
+{3575}    not Actor.Animation(0@) == "PKJUMPC"
+{3589}    not Actor.Animation(0@) == "PKJUMPZ"
+{3603}    not Actor.Animation(0@) == "PKJUMPD"
+{3617}    not Actor.Animation(0@) == "PKJUMPE"
+{3631}    not Actor.Animation(0@) == "JUMPTOWALL"
+{3648} jf @SP_MAIN_4207 
+{3655} if and
+{3659}    not Actor.Animation(0@) == "WALL_IDLE_A"
+{3677}    not Actor.Animation(0@) == "WALL_IDLE_B"
+{3695}    not Actor.Animation(0@) == "WALK_WALL"
+{3711}    not Actor.Animation(0@) == "RUN_WALL"
+{3726}    not Actor.Animation(0@) == "WALL_JUMP_FALL"
+{3747}    not Actor.Animation(0@) == "JUMP_WALL_TOP_B"
+{3769}    not Actor.Animation(0@) == "JUMP_WALL_TOP_A"
+{3791} jf @SP_MAIN_4207 
+{3798} if and
+{3802}    not Actor.Animation(0@) == "GROUNDTOLAMPB"
+{3822}    not Actor.Animation(0@) == "GROUNDTOLAMPC"
+{3842}    not Actor.Animation(0@) == "AIRTOLAMPA"
+{3859}    not Actor.Animation(0@) == "AIRTOLAMPB"
+{3876}    not Actor.Animation(0@) == "AIRTOLAMPC"
+{3893}    not Actor.Animation(0@) == "FALL_LAND_E"
+{3911} jf @SP_MAIN_4207 
+{3918} if and
+{3922}    not Actor.Animation(0@) == "C_RIGHT_A_00"
+{3941}    not Actor.Animation(0@) == "C_RIGHT_A_01"
+{3960}    not Actor.Animation(0@) == "C_RIGHT_A_02"
+{3979}    not Actor.Animation(0@) == "C_LEFT_A_00"
+{3997}    not Actor.Animation(0@) == "C_LEFT_A_01"
+{4015}    not Actor.Animation(0@) == "C_LEFT_A_02"
+{4033} jf @SP_MAIN_4207 
+{4040} if and
+{4044}    not Actor.Animation(0@) == "C_RIGHT_B_00"
+{4063}    not Actor.Animation(0@) == "C_LEFT_B_00"
+{4081}    not Actor.Animation(0@) == "C_IDLE_Z"
+{4096}    not Actor.Animation(0@) == "C_HIT_FRONT"
+{4114}    not Actor.Animation(0@) == "C_HIT_FALL"
+{4131}    not Actor.Animation(0@) == "C_HIT_CENTER"
+{4150} jf @SP_MAIN_4207 
+{4157} if and
+{4161}    not Actor.Animation(0@) == "C_HIT_LEFT"
+{4178}    not Actor.Animation(0@) == "C_HIT_RIGHT"
+{4196} jf @SP_MAIN_4207 
+{4203} 0485:   return_true 
+{4205} return 
+
+:SP_MAIN_4207
+{4207} 059A:   return_false 
+{4209} return 
+
+:SP_MAIN_4211
+{4211} if or
+{4215}    Actor.Animation(0@) == "WEBZIP_A"
+{4230}    Actor.Animation(0@) == "WEBZIP_A_R"
+{4247}    Actor.Animation(0@) == "FALL_LAND_E"
+{4265}    Actor.Animation(0@) == "T_TOWER_A"
+{4281} jf @SP_MAIN_4297 
+{4288} 0485:   return_true 
+{4290} jump @SP_MAIN_4392 
+
+:SP_MAIN_4297
+{4297} if or
+{4301}    Actor.Animation(0@) == "GROUNDTOLAMPB"
+{4321}    Actor.Animation(0@) == "AIRTOLAMPA"
+{4338}    Actor.Animation(0@) == "AIRTOLAMPB"
+{4355}    Actor.Animation(0@) == "AIRTOLAMPB_B"
+{4374} jf @SP_MAIN_4390 
+{4381} 0485:   return_true 
+{4383} jump @SP_MAIN_4392 
+
+:SP_MAIN_4390
+{4390} 059A:   return_false 
+
+:SP_MAIN_4392
+{4392} return 
+
+:SP_MAIN_4394
+{4394} if 
+{4398} 00E1:   player 0 pressed_key 15 
+{4404} jf @SP_MAIN_6284 
+{4411} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{4427} if and
+{4431}   0 > 6@ 
+{4438} 00E1:   player 0 pressed_key 0 
+{4444} jf @SP_MAIN_4892 
+{4451} if 
+{4455} gosub @SP_MAIN_6286 
+{4462} jf @SP_MAIN_4885 
+{4469} 0812: AS_actor 0@ perform_animation "FALL_ACROB_L_IN" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{4514} wait 0 
+
+:SP_MAIN_4518
+{4518} if 
+{4522}    Actor.Animation(0@) == "FALL_ACROB_L_IN"
+{4544} jf @SP_MAIN_4615 
+{4551} 0613: 8@ = actor 0@ animation "FALL_ACROB_L_IN" time 
+{4576} if 
+{4580}   8@ >= 0.99 
+{4590} jf @SP_MAIN_4604 
+{4597} jump @SP_MAIN_4615 
+
+:SP_MAIN_4604
+{4604} wait 0 
+{4608} jump @SP_MAIN_4518 
+
+:SP_MAIN_4615
+{4615} 0812: AS_actor 0@ perform_animation "FALL_ACROB_LEFT" IFP "SPIDER" framedelta 17.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{4660} wait 0 
+
+:SP_MAIN_4664
+{4664} if and
+{4668}   0 > 6@ 
+{4675}    Actor.Animation(0@) == "FALL_ACROB_LEFT"
+{4697} jf @SP_MAIN_4731 
+{4704} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{4720} wait 0 
+{4724} jump @SP_MAIN_4664 
+
+:SP_MAIN_4731
+{4731} 0812: AS_actor 0@ perform_animation "FALL_ACROB_L_OUT" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{4777} wait 0 
+
+:SP_MAIN_4781
+{4781} if 
+{4785}    Actor.Animation(0@) == "FALL_ACROB_L_OUT"
+{4808} jf @SP_MAIN_4880 
+{4815} 0613: 8@ = actor 0@ animation "FALL_ACROB_L_OUT" time 
+{4841} if 
+{4845}   8@ >= 0.99 
+{4855} jf @SP_MAIN_4869 
+{4862} jump @SP_MAIN_4880 
+
+:SP_MAIN_4869
+{4869} wait 0 
+{4873} jump @SP_MAIN_4781 
+
+:SP_MAIN_4880
+{4880} 0687: clear_actor 0@ task 
+
+:SP_MAIN_4885
+{4885} jump @SP_MAIN_6284 
+
+:SP_MAIN_4892
+{4892} if and
+{4896}   6@ > 0 
+{4903} 00E1:   player 0 pressed_key 0 
+{4909} jf @SP_MAIN_5359 
+{4916} if 
+{4920} gosub @SP_MAIN_6286 
+{4927} jf @SP_MAIN_5352 
+{4934} 0812: AS_actor 0@ perform_animation "FALL_ACROB_R_IN" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{4979} wait 0 
+
+:SP_MAIN_4983
+{4983} if 
+{4987}    Actor.Animation(0@) == "FALL_ACROB_R_IN"
+{5009} jf @SP_MAIN_5080 
+{5016} 0613: 8@ = actor 0@ animation "FALL_ACROB_R_IN" time 
+{5041} if 
+{5045}   8@ >= 0.99 
+{5055} jf @SP_MAIN_5069 
+{5062} jump @SP_MAIN_5080 
+
+:SP_MAIN_5069
+{5069} wait 0 
+{5073} jump @SP_MAIN_4983 
+
+:SP_MAIN_5080
+{5080} 0812: AS_actor 0@ perform_animation "FALL_ACROB_RIGHT" IFP "SPIDER" framedelta 17.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{5126} wait 0 
+
+:SP_MAIN_5130
+{5130} if and
+{5134}   6@ > 0 
+{5141}    Actor.Animation(0@) == "FALL_ACROB_RIGHT"
+{5164} jf @SP_MAIN_5198 
+{5171} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{5187} wait 0 
+{5191} jump @SP_MAIN_5130 
+
+:SP_MAIN_5198
+{5198} 0812: AS_actor 0@ perform_animation "FALL_ACROB_R_OUT" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{5244} wait 0 
+
+:SP_MAIN_5248
+{5248} if 
+{5252}    Actor.Animation(0@) == "FALL_ACROB_R_OUT"
+{5275} jf @SP_MAIN_5347 
+{5282} 0613: 8@ = actor 0@ animation "FALL_ACROB_R_OUT" time 
+{5308} if 
+{5312}   8@ >= 0.99 
+{5322} jf @SP_MAIN_5336 
+{5329} jump @SP_MAIN_5347 
+
+:SP_MAIN_5336
+{5336} wait 0 
+{5340} jump @SP_MAIN_5248 
+
+:SP_MAIN_5347
+{5347} 0687: clear_actor 0@ task 
+
+:SP_MAIN_5352
+{5352} jump @SP_MAIN_6284 
+
+:SP_MAIN_5359
+{5359} if and
+{5363}   7@ > 0 
+{5370} 00E1:   player 0 pressed_key 1 
+{5376} jf @SP_MAIN_5824 
+{5383} if 
+{5387} gosub @SP_MAIN_6286 
+{5394} jf @SP_MAIN_5817 
+{5401} 0812: AS_actor 0@ perform_animation "FALL_ACROB_B_IN" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{5446} wait 0 
+
+:SP_MAIN_5450
+{5450} if 
+{5454}    Actor.Animation(0@) == "FALL_ACROB_B_IN"
+{5476} jf @SP_MAIN_5547 
+{5483} 0613: 8@ = actor 0@ animation "FALL_ACROB_B_IN" time 
+{5508} if 
+{5512}   8@ >= 0.99 
+{5522} jf @SP_MAIN_5536 
+{5529} jump @SP_MAIN_5547 
+
+:SP_MAIN_5536
+{5536} wait 0 
+{5540} jump @SP_MAIN_5450 
+
+:SP_MAIN_5547
+{5547} 0812: AS_actor 0@ perform_animation "FALL_ACROB_BACK" IFP "SPIDER" framedelta 17.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{5592} wait 0 
+
+:SP_MAIN_5596
+{5596} if and
+{5600}   7@ > 0 
+{5607}    Actor.Animation(0@) == "FALL_ACROB_BACK"
+{5629} jf @SP_MAIN_5663 
+{5636} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{5652} wait 0 
+{5656} jump @SP_MAIN_5596 
+
+:SP_MAIN_5663
+{5663} 0812: AS_actor 0@ perform_animation "FALL_ACROB_B_OUT" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{5709} wait 0 
+
+:SP_MAIN_5713
+{5713} if 
+{5717}    Actor.Animation(0@) == "FALL_ACROB_B_OUT"
+{5740} jf @SP_MAIN_5812 
+{5747} 0613: 8@ = actor 0@ animation "FALL_ACROB_B_OUT" time 
+{5773} if 
+{5777}   8@ >= 0.99 
+{5787} jf @SP_MAIN_5801 
+{5794} jump @SP_MAIN_5812 
+
+:SP_MAIN_5801
+{5801} wait 0 
+{5805} jump @SP_MAIN_5713 
+
+:SP_MAIN_5812
+{5812} 0687: clear_actor 0@ task 
+
+:SP_MAIN_5817
+{5817} jump @SP_MAIN_6284 
+
+:SP_MAIN_5824
+{5824} if and
+{5828}   0 > 7@ 
+{5835} 00E1:   player 0 pressed_key 1 
+{5841} jf @SP_MAIN_6284 
+{5848} if 
+{5852} gosub @SP_MAIN_6286 
+{5859} jf @SP_MAIN_6284 
+{5866} 0812: AS_actor 0@ perform_animation "FALL_ACROB_F_IN" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{5911} wait 0 
+
+:SP_MAIN_5915
+{5915} if 
+{5919}    Actor.Animation(0@) == "FALL_ACROB_F_IN"
+{5941} jf @SP_MAIN_6012 
+{5948} 0613: 8@ = actor 0@ animation "FALL_ACROB_F_IN" time 
+{5973} if 
+{5977}   8@ >= 0.99 
+{5987} jf @SP_MAIN_6001 
+{5994} jump @SP_MAIN_6012 
+
+:SP_MAIN_6001
+{6001} wait 0 
+{6005} jump @SP_MAIN_5915 
+
+:SP_MAIN_6012
+{6012} 0812: AS_actor 0@ perform_animation "FALL_ACROB_FRONT" IFP "SPIDER" framedelta 17.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{6058} wait 0 
+
+:SP_MAIN_6062
+{6062} if and
+{6066}   0 > 7@ 
+{6073}    Actor.Animation(0@) == "FALL_ACROB_FRONT"
+{6096} jf @SP_MAIN_6130 
+{6103} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{6119} wait 0 
+{6123} jump @SP_MAIN_6062 
+
+:SP_MAIN_6130
+{6130} 0812: AS_actor 0@ perform_animation "FALL_ACROB_F_OUT" IFP "SPIDER" framedelta 9.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{6176} wait 0 
+
+:SP_MAIN_6180
+{6180} if 
+{6184}    Actor.Animation(0@) == "FALL_ACROB_F_OUT"
+{6207} jf @SP_MAIN_6279 
+{6214} 0613: 8@ = actor 0@ animation "FALL_ACROB_F_OUT" time 
+{6240} if 
+{6244}   8@ >= 0.99 
+{6254} jf @SP_MAIN_6268 
+{6261} jump @SP_MAIN_6279 
+
+:SP_MAIN_6268
+{6268} wait 0 
+{6272} jump @SP_MAIN_6180 
+
+:SP_MAIN_6279
+{6279} 0687: clear_actor 0@ task 
+
+:SP_MAIN_6284
+{6284} return 
+
+:SP_MAIN_6286
+{6286} if or
+{6290}    Actor.Animation(0@) == "FALL_GLIDE_A"
+{6309}    Actor.Animation(0@) == "FALL_GLIDE_B"
+{6328}    Actor.Animation(0@) == "FALL_GLIDE_C"
+{6347}    Actor.Animation(0@) == "FALL_GLIDE_D"
+{6366} jf @SP_MAIN_6382 
+{6373} 0485:   return_true 
+{6375} jump @SP_MAIN_6472 
+
+:SP_MAIN_6382
+{6382} if or
+{6386}    Actor.Animation(0@) == "SWING_E_A"
+{6402}    Actor.Animation(0@) == "SWING_E_C"
+{6418}    Actor.Animation(0@) == "SWING_E_A_R"
+{6436}    Actor.Animation(0@) == "SWING_E_C_R"
+{6454} jf @SP_MAIN_6470 
+{6461} 0485:   return_true 
+{6463} jump @SP_MAIN_6472 
+
+:SP_MAIN_6470
+{6470} 059A:   return_false 
+
+:SP_MAIN_6472
+{6472} return 
+
+:SP_MAIN_6474
+{6474} if 
+{6478}   16@ > 50.0 
+{6488} jf @SP_MAIN_6505 
+{6495} 16@ = 50.0 
+
+:SP_MAIN_6505
+{6505} return 
+
+:SP_MAIN_6507
+{6507} get_cleo_shared_var 1@ 110 
+{6514} return 
+
+:SP_MAIN_6516
+{6516} write_memory 12030940 4 5.0 0 
+{6532} 0792: disembark_instantly_actor 0@ 
+{6537} Actor.SetImmunities(0@, False, True, True, True, False)
+{6552} 0489: set_actor 0@ muted 1 
+{6559} Player.InfiniteRun(0, True)
+{6565} return 
+
+:SP_MAIN_6567
+{6567} Actor.SetImmunities(0@, False, False, False, False, False)
+{6582} Player.InfiniteRun(0, False)
+{6588} 0489: set_actor 0@ muted 0 
+{6595} return 
+
+:SP_MAIN_6597
+{6597} if 
+{6601} 84EE:   not animation "SPIDER" loaded 
+{6611} jf @SP_MAIN_6637 
+{6618} 04ED: load_animation "SPIDER" 
+{6628} 038B: load_requested_models 
+{6630} jump @SP_MAIN_6639 
+
+:SP_MAIN_6637
+{6637} return 
+
+:SP_MAIN_6639
+{6639} wait 0 
+{6643} jump @SP_MAIN_6597 
+
+:SP_MAIN_6650
+{6650} if 
+{6654} 84EE:   not animation "MWALL" loaded 
+{6663} jf @SP_MAIN_6688 
+{6670} 04ED: load_animation "MWALL" 
+{6679} 038B: load_requested_models 
+{6681} jump @SP_MAIN_6690 
+
+:SP_MAIN_6688
+{6688} return 
+
+:SP_MAIN_6690
+{6690} wait 0 
+{6694} jump @SP_MAIN_6650 
+
+:SP_MAIN_6701
+{6701} Audiostream.Release(27@)
+{6706} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_7177 jumps 0 @SP_MAIN_6769 1 @SP_MAIN_6837 2 @SP_MAIN_6905 3 @SP_MAIN_6973 4 @SP_MAIN_7041 5 @SP_MAIN_7109 -1 @SP_MAIN_7177 
+
+:SP_MAIN_6769
+{6769} if 
+{6773} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web1.mp3")
+{6808} jf @SP_MAIN_6830 
+{6815} Audiostream.LinkToActor(27@, 0@)
+{6823} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_6830
+{6830} jump @SP_MAIN_7177 
+
+:SP_MAIN_6837
+{6837} if 
+{6841} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web2.mp3")
+{6876} jf @SP_MAIN_6898 
+{6883} Audiostream.LinkToActor(27@, 0@)
+{6891} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_6898
+{6898} jump @SP_MAIN_7177 
+
+:SP_MAIN_6905
+{6905} if 
+{6909} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web3.mp3")
+{6944} jf @SP_MAIN_6966 
+{6951} Audiostream.LinkToActor(27@, 0@)
+{6959} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_6966
+{6966} jump @SP_MAIN_7177 
+
+:SP_MAIN_6973
+{6973} if 
+{6977} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web1.mp3")
+{7012} jf @SP_MAIN_7034 
+{7019} Audiostream.LinkToActor(27@, 0@)
+{7027} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_7034
+{7034} jump @SP_MAIN_7177 
+
+:SP_MAIN_7041
+{7041} if 
+{7045} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web2.mp3")
+{7080} jf @SP_MAIN_7102 
+{7087} Audiostream.LinkToActor(27@, 0@)
+{7095} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_7102
+{7102} jump @SP_MAIN_7177 
+
+:SP_MAIN_7109
+{7109} if 
+{7113} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web3.mp3")
+{7148} jf @SP_MAIN_7170 
+{7155} Audiostream.LinkToActor(27@, 0@)
+{7163} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_7170
+{7170} jump @SP_MAIN_7177 
+
+:SP_MAIN_7177
+{7177} return 
+
+:SP_MAIN_7179
+{7179} Audiostream.Release(27@)
+{7184} 0209: 26@ = random_int_in_ranges 0 3 
+{7193} 0871: init_jump_table 26@ total_jumps 3 default_jump 0 @SP_MAIN_7466 jumps 0 @SP_MAIN_7256 1 @SP_MAIN_7326 2 @SP_MAIN_7396 -1 @SP_MAIN_7466 -1 @SP_MAIN_7466 -1 @SP_MAIN_7466 -1 @SP_MAIN_7466 
+
+:SP_MAIN_7256
+{7256} if 
+{7260} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web1_f.mp3")
+{7297} jf @SP_MAIN_7319 
+{7304} Audiostream.LinkToActor(27@, 0@)
+{7312} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_7319
+{7319} jump @SP_MAIN_7466 
+
+:SP_MAIN_7326
+{7326} if 
+{7330} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web2_f.mp3")
+{7367} jf @SP_MAIN_7389 
+{7374} Audiostream.LinkToActor(27@, 0@)
+{7382} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_7389
+{7389} jump @SP_MAIN_7466 
+
+:SP_MAIN_7396
+{7396} if 
+{7400} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\web3_f.mp3")
+{7437} jf @SP_MAIN_7459 
+{7444} Audiostream.LinkToActor(27@, 0@)
+{7452} Audiostream.PerformAction(27@, AudioStreamState.Play)
+
+:SP_MAIN_7459
+{7459} jump @SP_MAIN_7466 
+
+:SP_MAIN_7466
+{7466} return 
+
+:SP_MAIN_7468
+{7468} Audiostream.Release(27@)
+{7473} if 
+{7477} 27@ = Audiostream.Load3D("CLEO\SpiderJ16D\sfx\e_wall.mp3")
+{7514} jf @SP_MAIN_7543 
+{7521} Audiostream.LinkToActor(27@, 0@)
+{7529} Audiostream.PerformAction(27@, AudioStreamState.Play)
+{7536} Audiostream.Loop(27@, 1)
+
+:SP_MAIN_7543
+{7543} return 
+{7545} if 
+{7549} 83CA:   not object 4@ exists 
+{7554} jf @SP_MAIN_7625 
+{7561} Model.Load(1582)
+{7566} 038B: load_requested_models 
+{7568} wait 0 
+{7572} Object.Create(4@, 1582, 0.0, 0.0, 0.0)
+{7595} Object.CollisionDetection(4@, False)
+{7602} 04D9: object 4@ set_scripted_collision_check 0 
+{7609} 0750: set_object 4@ visibility 0 
+{7616} wait 0 
+{7620} Model.Destroy(1582)
+
+:SP_MAIN_7625
+{7625} return 
+
+:SP_MAIN_7627
+{7627} if 
+{7631} 03CA:   object 4@ exists 
+{7636} jf @SP_MAIN_7685 
+{7643} 0682: detach_object 4@ 0.0 0.0 0.0 collision_detection 0 
+{7665} Object.PutAt(4@, 0.0, 0.0, -15.0)
+
+:SP_MAIN_7685
+{7685} return 
+
+:SP_MAIN_7687
+{7687} if and
+{7691} 056D:   actor 5@ defined 
+{7696} 03CA:   object 4@ exists 
+{7701} jf @SP_MAIN_9072 
+{7708} 0871: init_jump_table 3@ total_jumps 3 default_jump 0 @SP_MAIN_9034 jumps 0 @SP_MAIN_7771 1 @SP_MAIN_7778 2 @SP_MAIN_8406 -1 @SP_MAIN_9034 -1 @SP_MAIN_9034 -1 @SP_MAIN_9034 -1 @SP_MAIN_9034 
+
+:SP_MAIN_7771
+{7771} jump @SP_MAIN_9034 
+
+:SP_MAIN_7778
+{7778} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_8399 jumps 0 @SP_MAIN_7841 1 @SP_MAIN_7934 2 @SP_MAIN_8027 3 @SP_MAIN_8120 4 @SP_MAIN_8213 5 @SP_MAIN_8306 -1 @SP_MAIN_8399 
+
+:SP_MAIN_7841
+{7841} 0812: AS_actor 5@ perform_animation "M_WEBSWINGL_A" IFP "MWEB" framedelta 83.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{7882} 0614: set_actor 5@ animation "M_WEBSWINGL_A" progress_to 8@ // 0.0 to 1.0 
+{7905} 0612: set_actor 5@ animation "M_WEBSWINGL_A" paused 0 
+{7927} jump @SP_MAIN_8399 
+
+:SP_MAIN_7934
+{7934} 0812: AS_actor 5@ perform_animation "M_WEBSWINGL_B" IFP "MWEB" framedelta 91.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{7975} 0614: set_actor 5@ animation "M_WEBSWINGL_B" progress_to 8@ // 0.0 to 1.0 
+{7998} 0612: set_actor 5@ animation "M_WEBSWINGL_B" paused 0 
+{8020} jump @SP_MAIN_8399 
+
+:SP_MAIN_8027
+{8027} 0812: AS_actor 5@ perform_animation "M_WEBSWINGL_C" IFP "MWEB" framedelta 66.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8068} 0614: set_actor 5@ animation "M_WEBSWINGL_C" progress_to 8@ // 0.0 to 1.0 
+{8091} 0612: set_actor 5@ animation "M_WEBSWINGL_C" paused 0 
+{8113} jump @SP_MAIN_8399 
+
+:SP_MAIN_8120
+{8120} 0812: AS_actor 5@ perform_animation "M_WEBSWINGL_D" IFP "MWEB" framedelta 36.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8161} 0614: set_actor 5@ animation "M_WEBSWINGL_D" progress_to 8@ // 0.0 to 1.0 
+{8184} 0612: set_actor 5@ animation "M_WEBSWINGL_D" paused 0 
+{8206} jump @SP_MAIN_8399 
+
+:SP_MAIN_8213
+{8213} 0812: AS_actor 5@ perform_animation "M_WEBSWINGL_E" IFP "MWEB" framedelta 51.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8254} 0614: set_actor 5@ animation "M_WEBSWINGL_E" progress_to 8@ // 0.0 to 1.0 
+{8277} 0612: set_actor 5@ animation "M_WEBSWINGL_E" paused 0 
+{8299} jump @SP_MAIN_8399 
+
+:SP_MAIN_8306
+{8306} 0812: AS_actor 5@ perform_animation "M_WEBSWINGL_F" IFP "MWEB" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8347} 0614: set_actor 5@ animation "M_WEBSWINGL_F" progress_to 8@ // 0.0 to 1.0 
+{8370} 0612: set_actor 5@ animation "M_WEBSWINGL_F" paused 0 
+{8392} jump @SP_MAIN_8399 
+
+:SP_MAIN_8399
+{8399} jump @SP_MAIN_9034 
+
+:SP_MAIN_8406
+{8406} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_9027 jumps 0 @SP_MAIN_8469 1 @SP_MAIN_8562 2 @SP_MAIN_8655 3 @SP_MAIN_8748 4 @SP_MAIN_8841 5 @SP_MAIN_8934 -1 @SP_MAIN_9027 
+
+:SP_MAIN_8469
+{8469} 0812: AS_actor 5@ perform_animation "M_WEBSWINGR_A" IFP "MWEB" framedelta 88.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8510} 0614: set_actor 5@ animation "M_WEBSWINGR_A" progress_to 8@ // 0.0 to 1.0 
+{8533} 0612: set_actor 5@ animation "M_WEBSWINGR_A" paused 0 
+{8555} jump @SP_MAIN_9027 
+
+:SP_MAIN_8562
+{8562} 0812: AS_actor 5@ perform_animation "M_WEBSWINGR_B" IFP "MWEB" framedelta 70.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8603} 0614: set_actor 5@ animation "M_WEBSWINGR_B" progress_to 8@ // 0.0 to 1.0 
+{8626} 0612: set_actor 5@ animation "M_WEBSWINGR_B" paused 0 
+{8648} jump @SP_MAIN_9027 
+
+:SP_MAIN_8655
+{8655} 0812: AS_actor 5@ perform_animation "M_WEBSWINGR_C" IFP "MWEB" framedelta 66.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8696} 0614: set_actor 5@ animation "M_WEBSWINGR_C" progress_to 8@ // 0.0 to 1.0 
+{8719} 0612: set_actor 5@ animation "M_WEBSWINGR_C" paused 0 
+{8741} jump @SP_MAIN_9027 
+
+:SP_MAIN_8748
+{8748} 0812: AS_actor 5@ perform_animation "M_WEBSWINGR_D" IFP "MWEB" framedelta 36.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8789} 0614: set_actor 5@ animation "M_WEBSWINGR_D" progress_to 8@ // 0.0 to 1.0 
+{8812} 0612: set_actor 5@ animation "M_WEBSWINGR_D" paused 0 
+{8834} jump @SP_MAIN_9027 
+
+:SP_MAIN_8841
+{8841} 0812: AS_actor 5@ perform_animation "M_WEBSWINGR_E" IFP "MWEB" framedelta 91.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8882} 0614: set_actor 5@ animation "M_WEBSWINGR_E" progress_to 8@ // 0.0 to 1.0 
+{8905} 0612: set_actor 5@ animation "M_WEBSWINGR_E" paused 0 
+{8927} jump @SP_MAIN_9027 
+
+:SP_MAIN_8934
+{8934} 0812: AS_actor 5@ perform_animation "M_WEBSWINGR_F" IFP "MWEB" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{8975} 0614: set_actor 5@ animation "M_WEBSWINGR_F" progress_to 8@ // 0.0 to 1.0 
+{8998} 0612: set_actor 5@ animation "M_WEBSWINGR_F" paused 0 
+{9020} jump @SP_MAIN_9027 
+
+:SP_MAIN_9027
+{9027} jump @SP_MAIN_9034 
+
+:SP_MAIN_9034
+{9034} 069B: attach_object 4@ to_actor 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 
+
+:SP_MAIN_9072
+{9072} return 
+{9074} if 
+{9078} 03CA:   object 4@ exists 
+{9083} jf @SP_MAIN_9134 
+{9090} Actor.StorePos(0@, 23@, 24@, 25@)
+{9104} Object.PutAt(4@, 23@, 24@, 25@)
+{9118} 22@ = Actor.Angle(0@)
+{9126} Object.Angle(4@) = 22@
+
+:SP_MAIN_9134
+{9134} return 
+
+:SP_MAIN_9136
+{9136} gosub @SP_MAIN_9439 
+{9143} if and
+{9147} 856D:   not actor 5@ defined 
+{9152} 83CA:   not object 4@ exists 
+{9157} jf @SP_MAIN_9350 
+{9164} Object.Create(4@, 1598, 0.0, 0.0, 0.0)
+{9187} Object.CollisionDetection(4@, False)
+{9194} 04D9: object 4@ set_scripted_collision_check 0 
+{9201} 08D2: object 4@ scale_model 0.01 
+{9211} Object.SetImmunities(4@, True, True, True, True, True)
+{9226} Actor.Create(5@, PedType.CivMale, 290, 0.0, 0.0, -10.0)
+{9251} 0619: enable_actor 5@ collision_detection 0 
+{9258} 0568: set_actor 5@ untargetable 1 
+{9265} 04F4: put_actor 5@ into_turret_on_object 4@ offset_from_object_origin 0.0 0.0 0.0 orientation 0 both_side_angle_limit 0.0 lock_weapon 0 
+{9297} 0812: AS_actor 5@ perform_animation "M_IDLEWEB" IFP "MWEB" framedelta 5.0 loopA 1 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{9334} 22@ = Actor.Angle(0@)
+{9342} Object.Angle(4@) = 22@
+
+:SP_MAIN_9350
+{9350} gosub @SP_MAIN_9461 
+{9357} return 
+
+:SP_MAIN_9359
+{9359} if and
+{9363} 056D:   actor 5@ defined 
+{9368} 03CA:   object 4@ exists 
+{9373} jf @SP_MAIN_9437 
+{9380} 0682: detach_object 4@ 0.0 0.0 0.0 collision_detection 0 
+{9402} Object.PutAt(4@, 0.0, 0.0, -15.0)
+{9422} 0465: remove_actor 5@ from_turret_mode 
+{9427} Actor.DestroyInstantly(5@)
+{9432} Object.Destroy(4@)
+
+:SP_MAIN_9437
+{9437} return 
+
+:SP_MAIN_9439
+{9439} Model.Load(1598)
+{9444} 023C: load_special_actor 'WMT' as 1 // models 290-299 
+{9457} 038B: load_requested_models 
+{9459} return 
+
+:SP_MAIN_9461
+{9461} Model.Destroy(1582)
+{9466} 0296: unload_special_actor 1 
+{9470} return 
+{9472} if 
+{9476} 03CA:   object 4@ exists 
+{9481} jf @SP_MAIN_9493 
+{9488} Object.Destroy(4@)
+
+:SP_MAIN_9493
+{9493} return 
+{9495} if 
+{9499} 03CA:   object 4@ exists 
+{9504} jf @SP_MAIN_9555 
+{9511} Actor.StorePos(0@, 23@, 24@, 25@)
+{9525} Object.PutAt(4@, 23@, 24@, 25@)
+{9539} 22@ = Actor.Angle(0@)
+{9547} Object.Angle(4@) = 22@
+
+:SP_MAIN_9555
+{9555} return 
+
+:SP_MAIN_9557
+{9557} 0871: init_jump_table 3@ total_jumps 2 default_jump 1 @SP_MAIN_10756 jumps 1 @SP_MAIN_9620 2 @SP_MAIN_10188 -1 @SP_MAIN_10763 -1 @SP_MAIN_10763 -1 @SP_MAIN_10763 -1 @SP_MAIN_10763 -1 @SP_MAIN_10763 
+
+:SP_MAIN_9620
+{9620} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_10181 jumps 0 @SP_MAIN_9683 1 @SP_MAIN_9766 2 @SP_MAIN_9849 3 @SP_MAIN_9932 4 @SP_MAIN_10015 5 @SP_MAIN_10098 -1 @SP_MAIN_10181 
+
+:SP_MAIN_9683
+{9683} 0812: AS_actor 0@ perform_animation "SWING_L_A" IFP "SPIDER" framedelta 83.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{9722} 0614: set_actor 0@ animation "SWING_L_A" progress_to 8@ // 0.0 to 1.0 
+{9741} 0612: set_actor 0@ animation "SWING_L_A" paused 0 
+{9759} jump @SP_MAIN_10181 
+
+:SP_MAIN_9766
+{9766} 0812: AS_actor 0@ perform_animation "SWING_L_B" IFP "SPIDER" framedelta 91.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{9805} 0614: set_actor 0@ animation "SWING_L_B" progress_to 8@ // 0.0 to 1.0 
+{9824} 0612: set_actor 0@ animation "SWING_L_B" paused 0 
+{9842} jump @SP_MAIN_10181 
+
+:SP_MAIN_9849
+{9849} 0812: AS_actor 0@ perform_animation "SWING_L_C" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{9888} 0614: set_actor 0@ animation "SWING_L_C" progress_to 8@ // 0.0 to 1.0 
+{9907} 0612: set_actor 0@ animation "SWING_L_C" paused 0 
+{9925} jump @SP_MAIN_10181 
+
+:SP_MAIN_9932
+{9932} 0812: AS_actor 0@ perform_animation "SWING_L_D" IFP "SPIDER" framedelta 36.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{9971} 0614: set_actor 0@ animation "SWING_L_D" progress_to 8@ // 0.0 to 1.0 
+{9990} 0612: set_actor 0@ animation "SWING_L_D" paused 0 
+{10008} jump @SP_MAIN_10181 
+
+:SP_MAIN_10015
+{10015} 0812: AS_actor 0@ perform_animation "SWING_L_E" IFP "SPIDER" framedelta 51.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10054} 0614: set_actor 0@ animation "SWING_L_E" progress_to 8@ // 0.0 to 1.0 
+{10073} 0612: set_actor 0@ animation "SWING_L_E" paused 0 
+{10091} jump @SP_MAIN_10181 
+
+:SP_MAIN_10098
+{10098} 0812: AS_actor 0@ perform_animation "SWING_L_F" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10137} 0614: set_actor 0@ animation "SWING_L_F" progress_to 8@ // 0.0 to 1.0 
+{10156} 0612: set_actor 0@ animation "SWING_L_F" paused 0 
+{10174} jump @SP_MAIN_10181 
+
+:SP_MAIN_10181
+{10181} jump @SP_MAIN_10763 
+
+:SP_MAIN_10188
+{10188} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_10749 jumps 0 @SP_MAIN_10251 1 @SP_MAIN_10334 2 @SP_MAIN_10417 3 @SP_MAIN_10500 4 @SP_MAIN_10583 5 @SP_MAIN_10666 -1 @SP_MAIN_10749 
+
+:SP_MAIN_10251
+{10251} 0812: AS_actor 0@ perform_animation "SWING_R_A" IFP "SPIDER" framedelta 88.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10290} 0614: set_actor 0@ animation "SWING_R_A" progress_to 8@ // 0.0 to 1.0 
+{10309} 0612: set_actor 0@ animation "SWING_R_A" paused 0 
+{10327} jump @SP_MAIN_10749 
+
+:SP_MAIN_10334
+{10334} 0812: AS_actor 0@ perform_animation "SWING_R_B" IFP "SPIDER" framedelta 71.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10373} 0614: set_actor 0@ animation "SWING_R_B" progress_to 8@ // 0.0 to 1.0 
+{10392} 0612: set_actor 0@ animation "SWING_R_B" paused 0 
+{10410} jump @SP_MAIN_10749 
+
+:SP_MAIN_10417
+{10417} 0812: AS_actor 0@ perform_animation "SWING_R_C" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10456} 0614: set_actor 0@ animation "SWING_R_C" progress_to 8@ // 0.0 to 1.0 
+{10475} 0612: set_actor 0@ animation "SWING_R_C" paused 0 
+{10493} jump @SP_MAIN_10749 
+
+:SP_MAIN_10500
+{10500} 0812: AS_actor 0@ perform_animation "SWING_R_D" IFP "SPIDER" framedelta 36.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10539} 0614: set_actor 0@ animation "SWING_R_D" progress_to 8@ // 0.0 to 1.0 
+{10558} 0612: set_actor 0@ animation "SWING_R_D" paused 0 
+{10576} jump @SP_MAIN_10749 
+
+:SP_MAIN_10583
+{10583} 0812: AS_actor 0@ perform_animation "SWING_R_E" IFP "SPIDER" framedelta 51.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10622} 0614: set_actor 0@ animation "SWING_R_E" progress_to 8@ // 0.0 to 1.0 
+{10641} 0612: set_actor 0@ animation "SWING_R_E" paused 0 
+{10659} jump @SP_MAIN_10749 
+
+:SP_MAIN_10666
+{10666} 0812: AS_actor 0@ perform_animation "SWING_R_F" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10705} 0614: set_actor 0@ animation "SWING_R_F" progress_to 8@ // 0.0 to 1.0 
+{10724} 0612: set_actor 0@ animation "SWING_R_F" paused 0 
+{10742} jump @SP_MAIN_10749 
+
+:SP_MAIN_10749
+{10749} jump @SP_MAIN_10763 
+
+:SP_MAIN_10756
+{10756} jump @SP_MAIN_10763 
+
+:SP_MAIN_10763
+{10763} return 
+
+:SP_MAIN_10765
+{10765} 0871: init_jump_table 3@ total_jumps 2 default_jump 1 @SP_MAIN_11844 jumps 1 @SP_MAIN_10828 2 @SP_MAIN_11324 -1 @SP_MAIN_11851 -1 @SP_MAIN_11851 -1 @SP_MAIN_11851 -1 @SP_MAIN_11851 -1 @SP_MAIN_11851 
+
+:SP_MAIN_10828
+{10828} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_11317 jumps 0 @SP_MAIN_10891 1 @SP_MAIN_10962 2 @SP_MAIN_11033 3 @SP_MAIN_11104 4 @SP_MAIN_11175 5 @SP_MAIN_11246 -1 @SP_MAIN_11317 
+
+:SP_MAIN_10891
+{10891} 0812: AS_actor 0@ perform_animation "SWING_E_A" IFP "SPIDER" framedelta 69.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{10930} wait 0 
+{10934} 0393: actor 0@ perform_animation "SWING_E_A" at 1.3 times_normal_rate 
+{10955} jump @SP_MAIN_11317 
+
+:SP_MAIN_10962
+{10962} 0812: AS_actor 0@ perform_animation "SWING_E_B" IFP "SPIDER" framedelta 70.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11001} wait 0 
+{11005} 0393: actor 0@ perform_animation "SWING_E_B" at 1.3 times_normal_rate 
+{11026} jump @SP_MAIN_11317 
+
+:SP_MAIN_11033
+{11033} 0812: AS_actor 0@ perform_animation "SWING_E_C" IFP "SPIDER" framedelta 91.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{11072} wait 0 
+{11076} 0393: actor 0@ perform_animation "SWING_E_C" at 1.4 times_normal_rate 
+{11097} jump @SP_MAIN_11317 
+
+:SP_MAIN_11104
+{11104} 0812: AS_actor 0@ perform_animation "SWING_E_D" IFP "SPIDER" framedelta 51.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11143} wait 0 
+{11147} 0393: actor 0@ perform_animation "SWING_E_D" at 1.4 times_normal_rate 
+{11168} jump @SP_MAIN_11317 
+
+:SP_MAIN_11175
+{11175} 0812: AS_actor 0@ perform_animation "SWING_E_E" IFP "SPIDER" framedelta 101.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11214} wait 0 
+{11218} 0393: actor 0@ perform_animation "SWING_E_E" at 1.4 times_normal_rate 
+{11239} jump @SP_MAIN_11317 
+
+:SP_MAIN_11246
+{11246} 0812: AS_actor 0@ perform_animation "SWING_E_E" IFP "SPIDER" framedelta 101.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11285} wait 0 
+{11289} 0393: actor 0@ perform_animation "SWING_E_E" at 1.4 times_normal_rate 
+{11310} jump @SP_MAIN_11317 
+
+:SP_MAIN_11317
+{11317} jump @SP_MAIN_11851 
+
+:SP_MAIN_11324
+{11324} 0871: init_jump_table 26@ total_jumps 6 default_jump 0 @SP_MAIN_11837 jumps 0 @SP_MAIN_11387 1 @SP_MAIN_11462 2 @SP_MAIN_11537 3 @SP_MAIN_11612 4 @SP_MAIN_11687 5 @SP_MAIN_11762 -1 @SP_MAIN_11837 
+
+:SP_MAIN_11387
+{11387} 0812: AS_actor 0@ perform_animation "SWING_E_A_R" IFP "SPIDER" framedelta 104.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{11428} wait 0 
+{11432} 0393: actor 0@ perform_animation "SWING_E_A_R" at 1.35 times_normal_rate 
+{11455} jump @SP_MAIN_11837 
+
+:SP_MAIN_11462
+{11462} 0812: AS_actor 0@ perform_animation "SWING_E_B_R" IFP "SPIDER" framedelta 118.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11503} wait 0 
+{11507} 0393: actor 0@ perform_animation "SWING_E_B_R" at 1.4 times_normal_rate 
+{11530} jump @SP_MAIN_11837 
+
+:SP_MAIN_11537
+{11537} 0812: AS_actor 0@ perform_animation "SWING_E_C_R" IFP "SPIDER" framedelta 92.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{11578} wait 0 
+{11582} 0393: actor 0@ perform_animation "SWING_E_C_R" at 1.4 times_normal_rate 
+{11605} jump @SP_MAIN_11837 
+
+:SP_MAIN_11612
+{11612} 0812: AS_actor 0@ perform_animation "SWING_E_D_R" IFP "SPIDER" framedelta 51.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11653} wait 0 
+{11657} 0393: actor 0@ perform_animation "SWING_E_D_R" at 1.4 times_normal_rate 
+{11680} jump @SP_MAIN_11837 
+
+:SP_MAIN_11687
+{11687} 0812: AS_actor 0@ perform_animation "SWING_E_E_R" IFP "SPIDER" framedelta 101.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11728} wait 0 
+{11732} 0393: actor 0@ perform_animation "SWING_E_E_R" at 1.4 times_normal_rate 
+{11755} jump @SP_MAIN_11837 
+
+:SP_MAIN_11762
+{11762} 0812: AS_actor 0@ perform_animation "SWING_E_E_R" IFP "SPIDER" framedelta 101.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11803} wait 0 
+{11807} 0393: actor 0@ perform_animation "SWING_E_E_R" at 1.4 times_normal_rate 
+{11830} jump @SP_MAIN_11837 
+
+:SP_MAIN_11837
+{11837} jump @SP_MAIN_11851 
+
+:SP_MAIN_11844
+{11844} jump @SP_MAIN_11851 
+
+:SP_MAIN_11851
+{11851} return 
+
+:SP_MAIN_11853
+{11853} 0209: 26@ = random_int_in_ranges 0 5 
+{11862} 0871: init_jump_table 26@ total_jumps 5 default_jump 0 @SP_MAIN_12234 jumps 0 @SP_MAIN_11925 1 @SP_MAIN_11974 2 @SP_MAIN_12051 3 @SP_MAIN_12128 4 @SP_MAIN_12181 -1 @SP_MAIN_12234 -1 @SP_MAIN_12234 
+
+:SP_MAIN_11925
+{11925} 0812: AS_actor 0@ perform_animation "SWING_FAIL_A" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{11967} jump @SP_MAIN_12234 
+
+:SP_MAIN_11974
+{11974} 0812: AS_actor 0@ perform_animation "SWING_FAIL_B" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{12016} wait 0 
+{12020} 0393: actor 0@ perform_animation "SWING_FAIL_B" at 1.25 times_normal_rate 
+{12044} jump @SP_MAIN_12234 
+
+:SP_MAIN_12051
+{12051} 0812: AS_actor 0@ perform_animation "SWING_FAIL_C" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{12093} wait 0 
+{12097} 0393: actor 0@ perform_animation "SWING_FAIL_C" at 1.25 times_normal_rate 
+{12121} jump @SP_MAIN_12234 
+
+:SP_MAIN_12128
+{12128} 0812: AS_actor 0@ perform_animation "SWING_FAIL_D" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{12170} wait 0 
+{12174} jump @SP_MAIN_12234 
+
+:SP_MAIN_12181
+{12181} 0812: AS_actor 0@ perform_animation "SWING_FAIL_E" IFP "SPIDER" framedelta 26.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{12223} wait 0 
+{12227} jump @SP_MAIN_12234 
+
+:SP_MAIN_12234
+{12234} return 
+
+:SP_MAIN_12236
+{12236} 26@ = 2 
+{12243} 0871: init_jump_table 26@ total_jumps 4 default_jump 0 @SP_MAIN_12590 jumps 0 @SP_MAIN_12306 1 @SP_MAIN_12359 2 @SP_MAIN_12436 3 @SP_MAIN_12513 -1 @SP_MAIN_12590 -1 @SP_MAIN_12590 -1 @SP_MAIN_12590 
+
+:SP_MAIN_12306
+{12306} 0812: AS_actor 0@ perform_animation "FALL_GLIDE_A" IFP "SPIDER" framedelta 101.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{12348} wait 0 
+{12352} jump @SP_MAIN_12590 
+
+:SP_MAIN_12359
+{12359} 0812: AS_actor 0@ perform_animation "FALL_GLIDE_B" IFP "SPIDER" framedelta 101.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{12401} wait 0 
+{12405} 0393: actor 0@ perform_animation "FALL_GLIDE_D" at 1.15 times_normal_rate 
+{12429} jump @SP_MAIN_12590 
+
+:SP_MAIN_12436
+{12436} 0812: AS_actor 0@ perform_animation "FALL_GLIDE_C" IFP "SPIDER" framedelta 151.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{12478} wait 0 
+{12482} 0393: actor 0@ perform_animation "FALL_GLIDE_C" at 1.15 times_normal_rate 
+{12506} jump @SP_MAIN_12590 
+
+:SP_MAIN_12513
+{12513} 0812: AS_actor 0@ perform_animation "FALL_GLIDE_D" IFP "SPIDER" framedelta 151.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{12555} wait 0 
+{12559} 0393: actor 0@ perform_animation "FALL_GLIDE_D" at 1.15 times_normal_rate 
+{12583} jump @SP_MAIN_12590 
+
+:SP_MAIN_12590
+{12590} return 
+
+:SP_MAIN_12592
+{12592} 0209: 26@ = random_int_in_ranges 0 2 
+{12601} 0871: init_jump_table 26@ total_jumps 2 default_jump 0 @SP_MAIN_12952 jumps 0 @SP_MAIN_12664 1 @SP_MAIN_12808 -1 @SP_MAIN_12952 -1 @SP_MAIN_12952 -1 @SP_MAIN_12952 -1 @SP_MAIN_12952 -1 @SP_MAIN_12952 
+
+:SP_MAIN_12664
+{12664} 0812: AS_actor 0@ perform_animation "JUMP_BUILD_A" IFP "SPIDER" framedelta 37.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{12706} wait 0 
+
+:SP_MAIN_12710
+{12710} if 
+{12714}    Actor.Animation(0@) == "JUMP_BUILD_A"
+{12733} jf @SP_MAIN_12801 
+{12740} 0613: 8@ = actor 0@ animation "JUMP_BUILD_A" time 
+{12762} if 
+{12766}   8@ >= 0.85 
+{12776} jf @SP_MAIN_12790 
+{12783} jump @SP_MAIN_12801 
+
+:SP_MAIN_12790
+{12790} wait 0 
+{12794} jump @SP_MAIN_12710 
+
+:SP_MAIN_12801
+{12801} jump @SP_MAIN_12952 
+
+:SP_MAIN_12808
+{12808} 0812: AS_actor 0@ perform_animation "JUMP_BUILD_B" IFP "SPIDER" framedelta 115.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{12850} wait 0 
+
+:SP_MAIN_12854
+{12854} if 
+{12858}    Actor.Animation(0@) == "JUMP_BUILD_B"
+{12877} jf @SP_MAIN_12945 
+{12884} 0613: 8@ = actor 0@ animation "JUMP_BUILD_B" time 
+{12906} if 
+{12910}   8@ >= 0.4 
+{12920} jf @SP_MAIN_12934 
+{12927} jump @SP_MAIN_12945 
+
+:SP_MAIN_12934
+{12934} wait 0 
+{12938} jump @SP_MAIN_12854 
+
+:SP_MAIN_12945
+{12945} jump @SP_MAIN_12952 
+
+:SP_MAIN_12952
+{12952} return 
+
+:SP_MAIN_12954
+{12954} 0209: 26@ = random_int_in_ranges 0 3 
+{12963} 0871: init_jump_table 26@ total_jumps 3 default_jump 0 @SP_MAIN_13653 jumps 0 @SP_MAIN_13026 1 @SP_MAIN_13235 2 @SP_MAIN_13444 -1 @SP_MAIN_13653 -1 @SP_MAIN_13653 -1 @SP_MAIN_13653 -1 @SP_MAIN_13653 
+
+:SP_MAIN_13026
+{13026} 0812: AS_actor 0@ perform_animation "RUN_WALL_JUMP_R_A" IFP "SPIDER" framedelta 25.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{13073} wait 0 
+
+:SP_MAIN_13077
+{13077} if 
+{13081}    Actor.Animation(0@) == "RUN_WALL_JUMP_R_A"
+{13105} jf @SP_MAIN_13228 
+{13112} 0613: 8@ = actor 0@ animation "RUN_WALL_JUMP_R_A" time 
+{13139} if 
+{13143}   0.35 > 8@ 
+{13153} jf @SP_MAIN_13189 
+{13160} cleo_call @SP_MAIN_24246 5 0@ -10.0 12@ 1.0 16@ 
+
+:SP_MAIN_13189
+{13189} if 
+{13193}   8@ >= 0.9 
+{13203} jf @SP_MAIN_13217 
+{13210} jump @SP_MAIN_13228 
+
+:SP_MAIN_13217
+{13217} wait 0 
+{13221} jump @SP_MAIN_13077 
+
+:SP_MAIN_13228
+{13228} jump @SP_MAIN_13653 
+
+:SP_MAIN_13235
+{13235} 0812: AS_actor 0@ perform_animation "RUN_WALL_JUMP_R_B" IFP "SPIDER" framedelta 23.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{13282} wait 0 
+
+:SP_MAIN_13286
+{13286} if 
+{13290}    Actor.Animation(0@) == "RUN_WALL_JUMP_R_B"
+{13314} jf @SP_MAIN_13437 
+{13321} 0613: 8@ = actor 0@ animation "RUN_WALL_JUMP_R_B" time 
+{13348} if 
+{13352}   0.35 > 8@ 
+{13362} jf @SP_MAIN_13398 
+{13369} cleo_call @SP_MAIN_24246 5 0@ -10.0 12@ 1.0 16@ 
+
+:SP_MAIN_13398
+{13398} if 
+{13402}   8@ >= 0.7 
+{13412} jf @SP_MAIN_13426 
+{13419} jump @SP_MAIN_13437 
+
+:SP_MAIN_13426
+{13426} wait 0 
+{13430} jump @SP_MAIN_13286 
+
+:SP_MAIN_13437
+{13437} jump @SP_MAIN_13653 
+
+:SP_MAIN_13444
+{13444} 0812: AS_actor 0@ perform_animation "RUN_WALL_JUMP_R_A" IFP "SPIDER" framedelta 25.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{13491} wait 0 
+
+:SP_MAIN_13495
+{13495} if 
+{13499}    Actor.Animation(0@) == "RUN_WALL_JUMP_R_A"
+{13523} jf @SP_MAIN_13646 
+{13530} 0613: 8@ = actor 0@ animation "RUN_WALL_JUMP_R_A" time 
+{13557} if 
+{13561}   0.35 > 8@ 
+{13571} jf @SP_MAIN_13607 
+{13578} cleo_call @SP_MAIN_24246 5 0@ -10.0 12@ 1.0 16@ 
+
+:SP_MAIN_13607
+{13607} if 
+{13611}   8@ >= 0.9 
+{13621} jf @SP_MAIN_13635 
+{13628} jump @SP_MAIN_13646 
+
+:SP_MAIN_13635
+{13635} wait 0 
+{13639} jump @SP_MAIN_13495 
+
+:SP_MAIN_13646
+{13646} jump @SP_MAIN_13653 
+
+:SP_MAIN_13653
+{13653} return 
+
+:SP_MAIN_13655
+{13655} 0209: 26@ = random_int_in_ranges 0 3 
+{13664} 0871: init_jump_table 26@ total_jumps 3 default_jump 0 @SP_MAIN_14354 jumps 0 @SP_MAIN_13727 1 @SP_MAIN_13936 2 @SP_MAIN_14145 -1 @SP_MAIN_14354 -1 @SP_MAIN_14354 -1 @SP_MAIN_14354 -1 @SP_MAIN_14354 
+
+:SP_MAIN_13727
+{13727} 0812: AS_actor 0@ perform_animation "RUN_WALL_JUMP_L_A" IFP "SPIDER" framedelta 25.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{13774} wait 0 
+
+:SP_MAIN_13778
+{13778} if 
+{13782}    Actor.Animation(0@) == "RUN_WALL_JUMP_L_A"
+{13806} jf @SP_MAIN_13929 
+{13813} 0613: 8@ = actor 0@ animation "RUN_WALL_JUMP_L_A" time 
+{13840} if 
+{13844}   0.35 > 8@ 
+{13854} jf @SP_MAIN_13890 
+{13861} cleo_call @SP_MAIN_24246 5 0@ 10.0 12@ 1.0 16@ 
+
+:SP_MAIN_13890
+{13890} if 
+{13894}   8@ >= 0.9 
+{13904} jf @SP_MAIN_13918 
+{13911} jump @SP_MAIN_13929 
+
+:SP_MAIN_13918
+{13918} wait 0 
+{13922} jump @SP_MAIN_13778 
+
+:SP_MAIN_13929
+{13929} jump @SP_MAIN_14354 
+
+:SP_MAIN_13936
+{13936} 0812: AS_actor 0@ perform_animation "RUN_WALL_JUMP_L_B" IFP "SPIDER" framedelta 23.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{13983} wait 0 
+
+:SP_MAIN_13987
+{13987} if 
+{13991}    Actor.Animation(0@) == "RUN_WALL_JUMP_L_B"
+{14015} jf @SP_MAIN_14138 
+{14022} 0613: 8@ = actor 0@ animation "RUN_WALL_JUMP_L_B" time 
+{14049} if 
+{14053}   0.35 > 8@ 
+{14063} jf @SP_MAIN_14099 
+{14070} cleo_call @SP_MAIN_24246 5 0@ 10.0 12@ 1.0 16@ 
+
+:SP_MAIN_14099
+{14099} if 
+{14103}   8@ >= 0.7 
+{14113} jf @SP_MAIN_14127 
+{14120} jump @SP_MAIN_14138 
+
+:SP_MAIN_14127
+{14127} wait 0 
+{14131} jump @SP_MAIN_13987 
+
+:SP_MAIN_14138
+{14138} jump @SP_MAIN_14354 
+
+:SP_MAIN_14145
+{14145} 0812: AS_actor 0@ perform_animation "RUN_WALL_JUMP_L_A" IFP "SPIDER" framedelta 25.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{14192} wait 0 
+
+:SP_MAIN_14196
+{14196} if 
+{14200}    Actor.Animation(0@) == "RUN_WALL_JUMP_L_A"
+{14224} jf @SP_MAIN_14347 
+{14231} 0613: 8@ = actor 0@ animation "RUN_WALL_JUMP_L_A" time 
+{14258} if 
+{14262}   0.35 > 8@ 
+{14272} jf @SP_MAIN_14308 
+{14279} cleo_call @SP_MAIN_24246 5 0@ 10.0 12@ 1.0 16@ 
+
+:SP_MAIN_14308
+{14308} if 
+{14312}   8@ >= 0.9 
+{14322} jf @SP_MAIN_14336 
+{14329} jump @SP_MAIN_14347 
+
+:SP_MAIN_14336
+{14336} wait 0 
+{14340} jump @SP_MAIN_14196 
+
+:SP_MAIN_14347
+{14347} jump @SP_MAIN_14354 
+
+:SP_MAIN_14354
+{14354} return 
+
+:SP_MAIN_14356
+{14356} 0871: init_jump_table 3@ total_jumps 3 default_jump 0 @SP_MAIN_14712 jumps 0 @SP_MAIN_14419 1 @SP_MAIN_14436 2 @SP_MAIN_14574 -1 @SP_MAIN_14712 -1 @SP_MAIN_14712 -1 @SP_MAIN_14712 -1 @SP_MAIN_14712 
+
+:SP_MAIN_14419
+{14419} 20@ = 0.0 
+{14429} jump @SP_MAIN_14712 
+
+:SP_MAIN_14436
+{14436} if 
+{14440}   8.1 > 14@ 
+{14450} jf @SP_MAIN_14482 
+{14457} 0087: 20@ = 17@ // (float) 
+{14465} 20@ /= -3.0 
+{14475} jump @SP_MAIN_14567 
+
+:SP_MAIN_14482
+{14482} if 
+{14486}   10.1 > 14@ 
+{14496} jf @SP_MAIN_14528 
+{14503} 0087: 20@ = 17@ // (float) 
+{14511} 20@ /= -2.0 
+{14521} jump @SP_MAIN_14567 
+
+:SP_MAIN_14528
+{14528} if 
+{14532}   15.1 > 14@ 
+{14542} jf @SP_MAIN_14567 
+{14549} 0087: 20@ = 17@ // (float) 
+{14557} 20@ /= -1.6 
+
+:SP_MAIN_14567
+{14567} jump @SP_MAIN_14712 
+
+:SP_MAIN_14574
+{14574} if 
+{14578}   8.1 > 14@ 
+{14588} jf @SP_MAIN_14620 
+{14595} 0087: 20@ = 17@ // (float) 
+{14603} 20@ /= 3.0 
+{14613} jump @SP_MAIN_14705 
+
+:SP_MAIN_14620
+{14620} if 
+{14624}   10.1 > 14@ 
+{14634} jf @SP_MAIN_14666 
+{14641} 0087: 20@ = 17@ // (float) 
+{14649} 20@ /= 2.0 
+{14659} jump @SP_MAIN_14705 
+
+:SP_MAIN_14666
+{14666} if 
+{14670}   15.1 > 14@ 
+{14680} jf @SP_MAIN_14705 
+{14687} 0087: 20@ = 17@ // (float) 
+{14695} 20@ /= 1.6 
+
+:SP_MAIN_14705
+{14705} jump @SP_MAIN_14712 
+
+:SP_MAIN_14712
+{14712} return 
+
+:SP_MAIN_14714
+{14714} 22@ = Actor.Angle(0@)
+{14722} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{14738} if 
+{14742}   0 > 6@ 
+{14749} jf @SP_MAIN_14773 
+{14756} 0079: 22@ += frame_delta_time * 0.5 // (float) 
+{14766} jump @SP_MAIN_14920 
+
+:SP_MAIN_14773
+{14773} if 
+{14777}   6@ > 0 
+{14784} jf @SP_MAIN_14808 
+{14791} 007F: 22@ -= frame_delta_time * 0.5 // (float) 
+{14801} jump @SP_MAIN_14920 
+
+:SP_MAIN_14808
+{14808} 0871: init_jump_table 3@ total_jumps 3 default_jump 0 @SP_MAIN_14920 jumps 0 @SP_MAIN_14871 1 @SP_MAIN_14886 2 @SP_MAIN_14903 -1 @SP_MAIN_14920 -1 @SP_MAIN_14920 -1 @SP_MAIN_14920 -1 @SP_MAIN_14920 
+
+:SP_MAIN_14871
+{14871} 0087: 22@ = 22@ // (float) 
+{14879} jump @SP_MAIN_14920 
+
+:SP_MAIN_14886
+{14886} 0079: 22@ += frame_delta_time * 0.085 // (float) 
+{14896} jump @SP_MAIN_14920 
+
+:SP_MAIN_14903
+{14903} 007F: 22@ -= frame_delta_time * 0.085 // (float) 
+{14913} jump @SP_MAIN_14920 
+
+:SP_MAIN_14920
+{14920} return 
+
+:SP_MAIN_14922
+{14922} 22@ = Actor.Angle(0@)
+{14930} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{14946} if 
+{14950}   0 > 6@ 
+{14957} jf @SP_MAIN_14981 
+{14964} 0079: 22@ += frame_delta_time * 3.0 // (float) 
+{14974} jump @SP_MAIN_15009 
+
+:SP_MAIN_14981
+{14981} if 
+{14985}   6@ > 0 
+{14992} jf @SP_MAIN_15009 
+{14999} 007F: 22@ -= frame_delta_time * 3.0 // (float) 
+
+:SP_MAIN_15009
+{15009} return 
+
+:SP_MAIN_15011
+{15011} gosub @SP_MAIN_6597 
+{15018} 06AC: 15@ = actor 0@ movement_speed 
+{15026} if 
+{15030}   30.0 > 15@ 
+{15040} jf @SP_MAIN_15057 
+{15047} 15@ = 30.0 
+
+:SP_MAIN_15057
+{15057} 12@ = 0.5 
+{15067} 006B: 12@ *= 15@ // (float) 
+{15075} 16@ = 0.65 
+{15085} 006B: 16@ *= 15@ // (float) 
+{15093} cleo_call @SP_MAIN_23487 8 0@ 10.0 0.2 0.0 10.0 -0.2 0.0 0.0 
+{15141} cleo_call @SP_MAIN_23328 5 0@ 5.0 0.0 0.0 0.4 
+{15174} 0687: clear_actor 0@ task 
+{15179} 0812: AS_actor 0@ perform_animation "RUN_WALL_R_A" IFP "SPIDER" framedelta 30.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{15221} wait 0 
+{15225} 0393: actor 0@ perform_animation "RUN_WALL_R_A" at 1.15 times_normal_rate 
+{15249} gosub @SP_MAIN_7468 
+{15256} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+
+:SP_MAIN_15272
+{15272} if and
+{15276}    Actor.Animation(0@) == "RUN_WALL_R_A"
+{15295} 00E1:   player 0 pressed_key 16 
+{15301}   0 > 7@ 
+{15308} jf @SP_MAIN_15571 
+{15315} if 
+{15319} cleo_call @SP_MAIN_22843 9 0@ 2.0 0.0 0.0 1 0 0 0 0 
+{15357} jf @SP_MAIN_15378 
+{15364} jump @SP_MAIN_16010 
+{15371} jump @SP_MAIN_15544 
+
+:SP_MAIN_15378
+{15378} if 
+{15382} cleo_call @SP_MAIN_22843 9 0@ 0.0 2.0 0.0 1 0 0 0 0 
+{15420} jf @SP_MAIN_15537 
+{15427} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 0.15 16@ 
+{15456} 0613: 8@ = actor 0@ animation "RUN_WALL_R_A" time 
+{15478} if 
+{15482}   8@ >= 0.99 
+{15492} jf @SP_MAIN_15506 
+{15499} jump @SP_MAIN_15571 
+
+:SP_MAIN_15506
+{15506} if 
+{15510} 00E1:   player 0 pressed_key 14 
+{15516} jf @SP_MAIN_15530 
+{15523} jump @SP_MAIN_16010 
+
+:SP_MAIN_15530
+{15530} jump @SP_MAIN_15544 
+
+:SP_MAIN_15537
+{15537} jump @SP_MAIN_16010 
+
+:SP_MAIN_15544
+{15544} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{15560} wait 0 
+{15564} jump @SP_MAIN_15272 
+
+:SP_MAIN_15571
+{15571} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+
+:SP_MAIN_15587
+{15587} if and
+{15591} 00E1:   player 0 pressed_key 16 
+{15597}   0 > 7@ 
+{15604} jf @SP_MAIN_16010 
+{15611} if 
+{15615} cleo_call @SP_MAIN_22843 9 0@ 2.0 0.25 0.0 1 0 0 0 0 
+{15653} jf @SP_MAIN_15674 
+{15660} jump @SP_MAIN_16010 
+{15667} jump @SP_MAIN_15983 
+
+:SP_MAIN_15674
+{15674} if 
+{15678} cleo_call @SP_MAIN_22843 9 0@ 0.0 2.0 0.0 1 0 0 0 0 
+{15716} jf @SP_MAIN_15976 
+{15723} if 
+{15727}    not Actor.Animation(0@) == "RUN_WALL_R_B"
+{15746} jf @SP_MAIN_15916 
+{15753} cleo_call @SP_MAIN_23487 8 0@ 10.0 0.2 0.0 10.0 -0.2 0.0 0.0 
+{15801} cleo_call @SP_MAIN_23328 5 0@ 5.0 0.0 0.0 0.4 
+{15834} 0687: clear_actor 0@ task 
+{15839} 0812: AS_actor 0@ perform_animation "RUN_WALL_R_B" IFP "SPIDER" framedelta 30.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{15881} wait 0 
+{15885} 0393: actor 0@ perform_animation "RUN_WALL_R_B" at 1.15 times_normal_rate 
+{15909} jump @SP_MAIN_15969 
+
+:SP_MAIN_15916
+{15916} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 0.15 16@ 
+{15945} if 
+{15949} 00E1:   player 0 pressed_key 14 
+{15955} jf @SP_MAIN_15969 
+{15962} jump @SP_MAIN_16010 
+
+:SP_MAIN_15969
+{15969} jump @SP_MAIN_15983 
+
+:SP_MAIN_15976
+{15976} jump @SP_MAIN_16010 
+
+:SP_MAIN_15983
+{15983} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{15999} wait 0 
+{16003} jump @SP_MAIN_15587 
+
+:SP_MAIN_16010
+{16010} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{16017} 0687: clear_actor 0@ task 
+{16022} gosub @SP_MAIN_12954 
+{16029} 0687: clear_actor 0@ task 
+{16034} return 
+
+:SP_MAIN_16036
+{16036} gosub @SP_MAIN_6597 
+{16043} 06AC: 15@ = actor 0@ movement_speed 
+{16051} if 
+{16055}   30.0 > 15@ 
+{16065} jf @SP_MAIN_16082 
+{16072} 15@ = 30.0 
+
+:SP_MAIN_16082
+{16082} 12@ = 0.5 
+{16092} 006B: 12@ *= 15@ // (float) 
+{16100} 16@ = 0.65 
+{16110} 006B: 16@ *= 15@ // (float) 
+{16118} cleo_call @SP_MAIN_23487 8 0@ -10.0 0.2 0.0 -10.0 -0.2 0.0 0.0 
+{16166} cleo_call @SP_MAIN_23328 5 0@ -5.0 0.0 0.0 0.4 
+{16199} 0687: clear_actor 0@ task 
+{16204} 0812: AS_actor 0@ perform_animation "RUN_WALL_L_A" IFP "SPIDER" framedelta 30.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{16246} wait 0 
+{16250} 0393: actor 0@ perform_animation "RUN_WALL_L_A" at 1.15 times_normal_rate 
+{16274} gosub @SP_MAIN_7468 
+{16281} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+
+:SP_MAIN_16297
+{16297} if and
+{16301}    Actor.Animation(0@) == "RUN_WALL_L_A"
+{16320} 00E1:   player 0 pressed_key 16 
+{16326}   0 > 7@ 
+{16333} jf @SP_MAIN_16596 
+{16340} if 
+{16344} cleo_call @SP_MAIN_22843 9 0@ -2.0 0.0 0.0 1 0 0 0 0 
+{16382} jf @SP_MAIN_16403 
+{16389} jump @SP_MAIN_17035 
+{16396} jump @SP_MAIN_16569 
+
+:SP_MAIN_16403
+{16403} if 
+{16407} cleo_call @SP_MAIN_22843 9 0@ 0.0 2.0 0.0 1 0 0 0 0 
+{16445} jf @SP_MAIN_16562 
+{16452} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 0.15 16@ 
+{16481} 0613: 8@ = actor 0@ animation "RUN_WALL_L_A" time 
+{16503} if 
+{16507}   8@ >= 0.99 
+{16517} jf @SP_MAIN_16531 
+{16524} jump @SP_MAIN_16596 
+
+:SP_MAIN_16531
+{16531} if 
+{16535} 00E1:   player 0 pressed_key 14 
+{16541} jf @SP_MAIN_16555 
+{16548} jump @SP_MAIN_17035 
+
+:SP_MAIN_16555
+{16555} jump @SP_MAIN_16569 
+
+:SP_MAIN_16562
+{16562} jump @SP_MAIN_17035 
+
+:SP_MAIN_16569
+{16569} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{16585} wait 0 
+{16589} jump @SP_MAIN_16297 
+
+:SP_MAIN_16596
+{16596} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+
+:SP_MAIN_16612
+{16612} if and
+{16616} 00E1:   player 0 pressed_key 16 
+{16622}   0 > 7@ 
+{16629} jf @SP_MAIN_17035 
+{16636} if 
+{16640} cleo_call @SP_MAIN_22843 9 0@ -2.0 0.25 0.0 1 0 0 0 0 
+{16678} jf @SP_MAIN_16699 
+{16685} jump @SP_MAIN_17035 
+{16692} jump @SP_MAIN_17008 
+
+:SP_MAIN_16699
+{16699} if 
+{16703} cleo_call @SP_MAIN_22843 9 0@ 0.0 2.0 0.0 1 0 0 0 0 
+{16741} jf @SP_MAIN_17001 
+{16748} if 
+{16752}    not Actor.Animation(0@) == "RUN_WALL_L_B"
+{16771} jf @SP_MAIN_16941 
+{16778} cleo_call @SP_MAIN_23487 8 0@ -10.0 0.2 0.0 -10.0 -0.2 0.0 0.0 
+{16826} cleo_call @SP_MAIN_23328 5 0@ -5.0 0.0 0.0 0.4 
+{16859} 0687: clear_actor 0@ task 
+{16864} 0812: AS_actor 0@ perform_animation "RUN_WALL_L_B" IFP "SPIDER" framedelta 30.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{16906} wait 0 
+{16910} 0393: actor 0@ perform_animation "RUN_WALL_L_B" at 1.15 times_normal_rate 
+{16934} jump @SP_MAIN_16994 
+
+:SP_MAIN_16941
+{16941} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 0.15 16@ 
+{16970} if 
+{16974} 00E1:   player 0 pressed_key 14 
+{16980} jf @SP_MAIN_16994 
+{16987} jump @SP_MAIN_17035 
+
+:SP_MAIN_16994
+{16994} jump @SP_MAIN_17008 
+
+:SP_MAIN_17001
+{17001} jump @SP_MAIN_17035 
+
+:SP_MAIN_17008
+{17008} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{17024} wait 0 
+{17028} jump @SP_MAIN_16612 
+
+:SP_MAIN_17035
+{17035} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{17042} 0687: clear_actor 0@ task 
+{17047} gosub @SP_MAIN_13655 
+{17054} 0687: clear_actor 0@ task 
+{17059} return 
+
+:SP_MAIN_17061
+{17061} 20@ = 0.0 
+{17071} cleo_call @SP_MAIN_23487 8 0@ 0.2 10.0 0.0 -0.2 10.0 0.0 90.0 
+{17119} wait 0 
+{17123} 22@ = Actor.Angle(0@)
+{17131} 0087: 19@ = 22@ // (float) 
+
+:SP_MAIN_17139
+{17139} if 
+{17143} 0485:   return_true 
+{17145} jf @SP_MAIN_22349 
+{17152} if 
+{17156} cleo_call @SP_MAIN_22843 9 0@ 0.0 0.0 1.5 1 0 0 0 0 
+{17194} jf @SP_MAIN_22033 
+{17201} cleo_call @SP_MAIN_24418 0 6@ 7@ 
+{17217} if and
+{17221}   6@ > 0 
+{17228} 00E1:   player 0 pressed_key 0 
+{17234} jf @SP_MAIN_17258 
+{17241} 0079: 20@ += frame_delta_time * 1.5 // (float) 
+{17251} jump @SP_MAIN_17292 
+
+:SP_MAIN_17258
+{17258} if and
+{17262}   0 > 6@ 
+{17269} 00E1:   player 0 pressed_key 0 
+{17275} jf @SP_MAIN_17292 
+{17282} 007F: 20@ -= frame_delta_time * 1.5 // (float) 
+
+:SP_MAIN_17292
+{17292} if and
+{17296}   0 > 7@ 
+{17303} 00E1:   player 0 pressed_key 16 
+{17309} jf @SP_MAIN_17521 
+{17316} Actor.LockInCurrentPosition(0@, False)
+{17323} if 
+{17327}    not Actor.Animation(0@) == "RUN_WALL"
+{17342} jf @SP_MAIN_17439 
+{17349} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.4 
+{17382} 0687: clear_actor 0@ task 
+{17387} 0812: AS_actor 0@ perform_animation "RUN_WALL" IFP "SPIDER" framedelta 9.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{17425} gosub @SP_MAIN_7468 
+{17432} jump @SP_MAIN_17472 
+
+:SP_MAIN_17439
+{17439} cleo_call @SP_MAIN_24246 5 0@ 0.0 0.0 20.0 10.0 
+
+:SP_MAIN_17472
+{17472} cleo_call @SP_MAIN_25598 3 20@ 45.0 -45.0 20@ 
+{17498} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{17514} jump @SP_MAIN_20279 
+
+:SP_MAIN_17521
+{17521} if and
+{17525}   0 > 7@ 
+{17532} 80E1:   not player 0 pressed_key 16 
+{17538} jf @SP_MAIN_18628 
+{17545} if and
+{17549}    not Actor.Animation(0@) == "WALK_WALL"
+{17565}    not Actor.Animation(0@) == "IDLETOWALKWALL"
+{17586}    not Actor.Animation(0@) == "WALK_WALL_B"
+{17604}    not Actor.Animation(0@) == "IDLETOWALKWALL_B"
+{17627} jf @SP_MAIN_18546 
+{17634} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{17641} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{17674} if and
+{17678}    Actor.Animation(0@) == "WALL_IDLE_A"
+{17696}    not Actor.Animation(0@) == "WALK_WALL"
+{17712} jf @SP_MAIN_17776 
+{17719} 0812: AS_actor 0@ perform_animation "WALK_WALL" IFP "SPIDER" framedelta 31.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{17758} wait 0 
+{17762} Actor.LockInCurrentPosition(0@, False)
+{17769} jump @SP_MAIN_18539 
+
+:SP_MAIN_17776
+{17776} if and
+{17780}    Actor.Animation(0@) == "WALL_IDLE_C"
+{17798}    not Actor.Animation(0@) == "WALK_WALL_B"
+{17816} jf @SP_MAIN_17882 
+{17823} 0812: AS_actor 0@ perform_animation "WALK_WALL_B" IFP "SPIDER" framedelta 31.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{17864} wait 0 
+{17868} Actor.LockInCurrentPosition(0@, False)
+{17875} jump @SP_MAIN_18539 
+
+:SP_MAIN_17882
+{17882} if and
+{17886}    Actor.Animation(0@) == "WALL_IDLE_B"
+{17904}    not Actor.Animation(0@) == "WALK_WALL_B"
+{17922}    not Actor.Animation(0@) == "IDLETOWALKWALL_B"
+{17945} jf @SP_MAIN_18167 
+{17952} Actor.LockInCurrentPosition(0@, True)
+{17959} 0812: AS_actor 0@ perform_animation "IDLETOWALKWALL_B" IFP "SPIDER" framedelta 11.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18005} wait 0 
+
+:SP_MAIN_18009
+{18009} if 
+{18013}    Actor.Animation(0@) == "IDLETOWALKWALL_B"
+{18036} jf @SP_MAIN_18108 
+{18043} 0613: 8@ = actor 0@ animation "IDLETOWALKWALL_B" time 
+{18069} if 
+{18073}   8@ > 0.95 
+{18083} jf @SP_MAIN_18097 
+{18090} jump @SP_MAIN_18108 
+
+:SP_MAIN_18097
+{18097} wait 0 
+{18101} jump @SP_MAIN_18009 
+
+:SP_MAIN_18108
+{18108} 0812: AS_actor 0@ perform_animation "WALK_WALL_B" IFP "SPIDER" framedelta 31.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18149} wait 0 
+{18153} Actor.LockInCurrentPosition(0@, False)
+{18160} jump @SP_MAIN_18539 
+
+:SP_MAIN_18167
+{18167} if and
+{18171}    Actor.Animation(0@) == "WALL_IDLE_D"
+{18189}    not Actor.Animation(0@) == "WALK_WALL"
+{18205}    not Actor.Animation(0@) == "IDLETOWALKWALL"
+{18226} jf @SP_MAIN_18440 
+{18233} Actor.LockInCurrentPosition(0@, True)
+{18240} 0812: AS_actor 0@ perform_animation "IDLETOWALKWALL" IFP "SPIDER" framedelta 11.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18284} wait 0 
+
+:SP_MAIN_18288
+{18288} if 
+{18292}    Actor.Animation(0@) == "IDLETOWALKWALL"
+{18313} jf @SP_MAIN_18383 
+{18320} 0613: 8@ = actor 0@ animation "IDLETOWALKWALL" time 
+{18344} if 
+{18348}   8@ > 0.95 
+{18358} jf @SP_MAIN_18372 
+{18365} jump @SP_MAIN_18383 
+
+:SP_MAIN_18372
+{18372} wait 0 
+{18376} jump @SP_MAIN_18288 
+
+:SP_MAIN_18383
+{18383} 0812: AS_actor 0@ perform_animation "WALK_WALL" IFP "SPIDER" framedelta 31.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18422} wait 0 
+{18426} Actor.LockInCurrentPosition(0@, False)
+{18433} jump @SP_MAIN_18539 
+
+:SP_MAIN_18440
+{18440} if and
+{18444}    Actor.Animation(0@) == "RUN_WALL"
+{18459}    not Actor.Animation(0@) == "WALK_WALL"
+{18475} jf @SP_MAIN_18539 
+{18482} Actor.LockInCurrentPosition(0@, True)
+{18489} 0812: AS_actor 0@ perform_animation "WALK_WALL" IFP "SPIDER" framedelta 31.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18528} wait 0 
+{18532} Actor.LockInCurrentPosition(0@, False)
+
+:SP_MAIN_18539
+{18539} jump @SP_MAIN_18579 
+
+:SP_MAIN_18546
+{18546} cleo_call @SP_MAIN_24246 5 0@ 0.0 0.0 8.5 4.0 
+
+:SP_MAIN_18579
+{18579} cleo_call @SP_MAIN_25598 3 20@ 45.0 -45.0 20@ 
+{18605} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{18621} jump @SP_MAIN_20279 
+
+:SP_MAIN_18628
+{18628} if and
+{18632} 00E1:   player 0 pressed_key 16 
+{18638} 80E1:   not player 0 pressed_key 1 
+{18644} jf @SP_MAIN_18984 
+{18651} Actor.LockInCurrentPosition(0@, True)
+{18658} if and
+{18662}    not Actor.Animation(0@) == "WALL_IDLE_A"
+{18680}    not Actor.Animation(0@) == "WALL_IDLE_B"
+{18698}    not Actor.Animation(0@) == "WALL_IDLE_C"
+{18716}    not Actor.Animation(0@) == "WALL_IDLE_D"
+{18734} jf @SP_MAIN_18977 
+{18741} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{18748} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{18764} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{18797} 0687: clear_actor 0@ task 
+{18802} 0209: 26@ = random_int_in_ranges 0 2 
+{18811} 0871: init_jump_table 26@ total_jumps 2 default_jump 0 @SP_MAIN_18970 jumps 0 @SP_MAIN_18874 1 @SP_MAIN_18922 -1 @SP_MAIN_18970 -1 @SP_MAIN_18970 -1 @SP_MAIN_18970 -1 @SP_MAIN_18970 -1 @SP_MAIN_18970 
+
+:SP_MAIN_18874
+{18874} 0812: AS_actor 0@ perform_animation "WALL_IDLE_A" IFP "SPIDER" framedelta 11.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18915} jump @SP_MAIN_18970 
+
+:SP_MAIN_18922
+{18922} 0812: AS_actor 0@ perform_animation "WALL_IDLE_C" IFP "SPIDER" framedelta 11.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{18963} jump @SP_MAIN_18970 
+
+:SP_MAIN_18970
+{18970} TIMERB = 0 
+
+:SP_MAIN_18977
+{18977} jump @SP_MAIN_20279 
+
+:SP_MAIN_18984
+{18984} Actor.LockInCurrentPosition(0@, True)
+{18991} if and
+{18995}    Actor.Animation(0@) == "WALK_WALL"
+{19011}    not Actor.Animation(0@) == "WALL_IDLE_A"
+{19029} jf @SP_MAIN_19147 
+{19036} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{19043} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{19059} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{19092} 0812: AS_actor 0@ perform_animation "WALL_IDLE_A" IFP "SPIDER" framedelta 11.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{19133} TIMERB = 0 
+{19140} jump @SP_MAIN_20279 
+
+:SP_MAIN_19147
+{19147} if and
+{19151}    Actor.Animation(0@) == "WALK_WALL_B"
+{19169}    not Actor.Animation(0@) == "WALL_IDLE_C"
+{19187} jf @SP_MAIN_19305 
+{19194} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{19201} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{19217} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{19250} 0812: AS_actor 0@ perform_animation "WALL_IDLE_C" IFP "SPIDER" framedelta 11.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{19291} TIMERB = 0 
+{19298} jump @SP_MAIN_20279 
+
+:SP_MAIN_19305
+{19305} if and
+{19309}    Actor.Animation(0@) == "RUN_WALL"
+{19324}    not Actor.Animation(0@) == "WALL_IDLE_A"
+{19342}    not Actor.Animation(0@) == "WALL_IDLE_C"
+{19360} jf @SP_MAIN_19605 
+{19367} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{19374} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{19390} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{19423} 0209: 26@ = random_int_in_ranges 0 2 
+{19432} 0871: init_jump_table 26@ total_jumps 2 default_jump 0 @SP_MAIN_19591 jumps 0 @SP_MAIN_19495 1 @SP_MAIN_19543 -1 @SP_MAIN_19591 -1 @SP_MAIN_19591 -1 @SP_MAIN_19591 -1 @SP_MAIN_19591 -1 @SP_MAIN_19591 
+
+:SP_MAIN_19495
+{19495} 0812: AS_actor 0@ perform_animation "WALL_IDLE_A" IFP "SPIDER" framedelta 11.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{19536} jump @SP_MAIN_19591 
+
+:SP_MAIN_19543
+{19543} 0812: AS_actor 0@ perform_animation "WALL_IDLE_C" IFP "SPIDER" framedelta 11.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{19584} jump @SP_MAIN_19591 
+
+:SP_MAIN_19591
+{19591} TIMERB = 0 
+{19598} jump @SP_MAIN_20279 
+
+:SP_MAIN_19605
+{19605} if 
+{19609}   TIMERB > 2000 
+{19617} jf @SP_MAIN_20279 
+{19624} if and
+{19628}    Actor.Animation(0@) == "WALL_IDLE_A"
+{19646}    not Actor.Animation(0@) == "WALL_IDLE_B"
+{19664}    not Actor.Animation(0@) == "WALKWALLTOIDLE"
+{19685} jf @SP_MAIN_19953 
+{19692} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{19699} 20@ = 0.0 
+{19709} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{19725} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{19758} 0812: AS_actor 0@ perform_animation "WALKWALLTOIDLE" IFP "SPIDER" framedelta 11.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{19802} wait 0 
+
+:SP_MAIN_19806
+{19806} if 
+{19810}    Actor.Animation(0@) == "WALKWALLTOIDLE"
+{19831} jf @SP_MAIN_19901 
+{19838} 0613: 8@ = actor 0@ animation "WALKWALLTOIDLE" time 
+{19862} if 
+{19866}   8@ > 0.95 
+{19876} jf @SP_MAIN_19890 
+{19883} jump @SP_MAIN_19901 
+
+:SP_MAIN_19890
+{19890} wait 0 
+{19894} jump @SP_MAIN_19806 
+
+:SP_MAIN_19901
+{19901} 0812: AS_actor 0@ perform_animation "WALL_IDLE_B" IFP "SPIDER" framedelta 51.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{19942} wait 0 
+{19946} jump @SP_MAIN_20279 
+
+:SP_MAIN_19953
+{19953} if and
+{19957}    Actor.Animation(0@) == "WALL_IDLE_C"
+{19975}    not Actor.Animation(0@) == "WALL_IDLE_D"
+{19993}    not Actor.Animation(0@) == "WALKBWALLTOIDLE"
+{20015} jf @SP_MAIN_20279 
+{20022} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{20029} 20@ = 0.0 
+{20039} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{20055} cleo_call @SP_MAIN_23328 5 0@ 0.0 5.0 0.0 0.0 
+{20088} 0812: AS_actor 0@ perform_animation "WALKBWALLTOIDLE" IFP "SPIDER" framedelta 11.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{20133} wait 0 
+
+:SP_MAIN_20137
+{20137} if 
+{20141}    Actor.Animation(0@) == "WALKBWALLTOIDLE"
+{20163} jf @SP_MAIN_20234 
+{20170} 0613: 8@ = actor 0@ animation "WALKBWALLTOIDLE" time 
+{20195} if 
+{20199}   8@ > 0.95 
+{20209} jf @SP_MAIN_20223 
+{20216} jump @SP_MAIN_20234 
+
+:SP_MAIN_20223
+{20223} wait 0 
+{20227} jump @SP_MAIN_20137 
+
+:SP_MAIN_20234
+{20234} 0812: AS_actor 0@ perform_animation "WALL_IDLE_D" IFP "SPIDER" framedelta 51.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{20275} wait 0 
+
+:SP_MAIN_20279
+{20279} if and
+{20283} 00E1:   player 0 pressed_key 14 
+{20289} 80E1:   not player 0 pressed_key 16 
+{20295} jf @SP_MAIN_20561 
+{20302} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{20309} 20@ = 0.0 
+{20319} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{20335} 0687: clear_actor 0@ task 
+{20340} 0812: AS_actor 0@ perform_animation "WALL_JUMP_FALL" IFP "SPIDER" framedelta 45.0 loopA 0 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{20384} wait 0 
+
+:SP_MAIN_20388
+{20388} if 
+{20392}    Actor.Animation(0@) == "WALL_JUMP_FALL"
+{20413} jf @SP_MAIN_20554 
+{20420} 0613: 8@ = actor 0@ animation "WALL_JUMP_FALL" time 
+{20444} if and
+{20448}   8@ > 0.159 
+{20458}   0.182 > 8@ 
+{20468} jf @SP_MAIN_20515 
+{20475} Actor.LockInCurrentPosition(0@, False)
+{20482} cleo_call @SP_MAIN_24246 5 0@ 0.0 -1.5 3.0 15.0 
+
+:SP_MAIN_20515
+{20515} if 
+{20519}   8@ >= 0.7 
+{20529} jf @SP_MAIN_20543 
+{20536} jump @SP_MAIN_22349 
+
+:SP_MAIN_20543
+{20543} wait 0 
+{20547} jump @SP_MAIN_20388 
+
+:SP_MAIN_20554
+{20554} jump @SP_MAIN_22349 
+
+:SP_MAIN_20561
+{20561} if 
+{20565} cleo_call @SP_MAIN_22843 9 0@ 0.0 2.5 0.5 1 0 0 0 0 
+{20603} jf @SP_MAIN_22026 
+{20610} Camera.Restore
+{20612} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{20619} 20@ = 0.0 
+{20629} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{20645} 06AC: 15@ = actor 0@ movement_speed 
+{20653} if 
+{20657}   25.0 > 15@ 
+{20667} jf @SP_MAIN_20684 
+{20674} 15@ = 25.0 
+
+:SP_MAIN_20684
+{20684} 12@ = 2.0 
+{20694} 006B: 12@ *= 15@ // (float) 
+{20702} 13@ = 0.03 
+{20712} 006B: 13@ *= 15@ // (float) 
+{20720} if and
+{20724} 00E1:   player 0 pressed_key 14 
+{20730} 00E1:   player 0 pressed_key 16 
+{20736} jf @SP_MAIN_21395 
+{20743} if 
+{20747}    Actor.Animation(0@) == "RUN_WALL"
+{20762} jf @SP_MAIN_21388 
+{20769} gosub @SP_MAIN_9359 
+{20776} gosub @SP_MAIN_9136 
+{20783} 015B: shake_player_controller 0 time 200 intensity 1500 
+{20793} Actor.LockInCurrentPosition(0@, False)
+{20800} cleo_call @SP_MAIN_24246 5 0@ 0.0 1.0 13@ 15@ 
+{20829} 0687: clear_actor 0@ task 
+{20834} 0812: AS_actor 5@ perform_animation "M_WEBTHROW" IFP "MWEB" framedelta 56.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{20872} 0812: AS_actor 0@ perform_animation "JUMP_WALL_TOP_C" IFP "SPIDER" framedelta 81.0 loopA 0 lockX 1 lockY 1 lockF 1 time -2 // versionB 
+{20917} wait 0 
+{20921} 0393: actor 5@ perform_animation "M_WEBTHROW" at 1.35 times_normal_rate 
+{20943} 0393: actor 0@ perform_animation "JUMP_WALL_TOP_C" at 1.35 times_normal_rate 
+
+:SP_MAIN_20970
+{20970} if 
+{20974}    Actor.Animation(0@) == "JUMP_WALL_TOP_C"
+{20996} jf @SP_MAIN_21353 
+{21003} 0613: 8@ = actor 0@ animation "JUMP_WALL_TOP_C" time 
+{21028} if and
+{21032}   8@ >= 0.173 
+{21042}   0.185 > 8@ 
+{21052} jf @SP_MAIN_21120 
+{21059} if 
+{21063} 0685:   object 4@ attached 
+{21068} jf @SP_MAIN_21082 
+{21075} jump @SP_MAIN_21120 
+
+:SP_MAIN_21082
+{21082} 069B: attach_object 4@ to_actor 0@ with_offset 0.0 0.0 0.0 rotation 15.0 0.0 0.0 
+
+:SP_MAIN_21120
+{21120} if and
+{21124}   8@ >= 0.185 
+{21134}   0.309 > 8@ 
+{21144} jf @SP_MAIN_21209 
+{21151} 04C4: store_coords_to 23@ 24@ 25@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{21180} cleo_call @SP_MAIN_23813 4 0@ 23@ 24@ 25@ 
+{21202} jump @SP_MAIN_21342 
+
+:SP_MAIN_21209
+{21209} if 
+{21213} 0685:   object 4@ attached 
+{21218} jf @SP_MAIN_21247 
+{21225} 0682: detach_object 4@ 0.0 0.0 0.0 collision_detection 0 
+
+:SP_MAIN_21247
+{21247} if and
+{21251}   8@ >= 0.309 
+{21261}   0.494 > 8@ 
+{21271} jf @SP_MAIN_21314 
+{21278} cleo_call @SP_MAIN_24246 5 0@ 0.0 12@ 1.5 15@ 
+{21307} jump @SP_MAIN_21342 
+
+:SP_MAIN_21314
+{21314} if 
+{21318}   8@ >= 0.85 
+{21328} jf @SP_MAIN_21342 
+{21335} jump @SP_MAIN_21353 
+
+:SP_MAIN_21342
+{21342} wait 0 
+{21346} jump @SP_MAIN_20970 
+
+:SP_MAIN_21353
+{21353} gosub @SP_MAIN_9359 
+
+:SP_MAIN_21360
+{21360} if 
+{21364} 00E1:   player 0 pressed_key 14 
+{21370} jf @SP_MAIN_21388 
+{21377} wait 0 
+{21381} jump @SP_MAIN_21360 
+
+:SP_MAIN_21388
+{21388} jump @SP_MAIN_22026 
+
+:SP_MAIN_21395
+{21395} if and
+{21399}    Actor.Animation(0@) == "RUN_WALL"
+{21414} 00E1:   player 0 pressed_key 16 
+{21420} jf @SP_MAIN_21692 
+{21427} Actor.LockInCurrentPosition(0@, False)
+{21434} cleo_call @SP_MAIN_24246 5 0@ 0.0 5.0 8.0 15.0 
+{21467} 0687: clear_actor 0@ task 
+{21472} 0812: AS_actor 0@ perform_animation "JUMP_WALL_TOP_A" IFP "SPIDER" framedelta 37.0 loopA 0 lockX 1 lockY 1 lockF 0 time -1 // versionB 
+{21517} wait 0 
+{21521} 0393: actor 0@ perform_animation "JUMP_WALL_TOP_A" at 1.35 times_normal_rate 
+
+:SP_MAIN_21548
+{21548} if 
+{21552}    Actor.Animation(0@) == "JUMP_WALL_TOP_A"
+{21574} jf @SP_MAIN_21678 
+{21581} cleo_call @SP_MAIN_24246 5 0@ 0.0 5.0 8.0 10.0 
+{21614} 0613: 8@ = actor 0@ animation "JUMP_WALL_TOP_A" time 
+{21639} if 
+{21643}   8@ >= 0.5 
+{21653} jf @SP_MAIN_21667 
+{21660} jump @SP_MAIN_21678 
+
+:SP_MAIN_21667
+{21667} wait 0 
+{21671} jump @SP_MAIN_21548 
+
+:SP_MAIN_21678
+{21678} jump @SP_MAIN_22349 
+{21685} jump @SP_MAIN_22026 
+
+:SP_MAIN_21692
+{21692} if or
+{21696}    Actor.Animation(0@) == "WALK_WALL"
+{21712}    Actor.Animation(0@) == "WALK_WALL_B"
+{21730} jf @SP_MAIN_22002 
+{21737} Actor.LockInCurrentPosition(0@, False)
+{21744} cleo_call @SP_MAIN_24246 5 0@ 0.0 0.5 3.0 15.0 
+{21777} 0687: clear_actor 0@ task 
+{21782} 0812: AS_actor 0@ perform_animation "JUMP_WALL_TOP_A" IFP "SPIDER" framedelta 37.0 loopA 0 lockX 1 lockY 1 lockF 0 time -1 // versionB 
+{21827} wait 0 
+{21831} 0393: actor 0@ perform_animation "JUMP_WALL_TOP_A" at 1.5 times_normal_rate 
+
+:SP_MAIN_21858
+{21858} if 
+{21862}    Actor.Animation(0@) == "JUMP_WALL_TOP_A"
+{21884} jf @SP_MAIN_21988 
+{21891} cleo_call @SP_MAIN_24246 5 0@ 0.0 0.5 2.0 10.0 
+{21924} 0613: 8@ = actor 0@ animation "JUMP_WALL_TOP_A" time 
+{21949} if 
+{21953}   8@ >= 0.5 
+{21963} jf @SP_MAIN_21977 
+{21970} jump @SP_MAIN_21988 
+
+:SP_MAIN_21977
+{21977} wait 0 
+{21981} jump @SP_MAIN_21858 
+
+:SP_MAIN_21988
+{21988} jump @SP_MAIN_22349 
+{21995} jump @SP_MAIN_22026 
+
+:SP_MAIN_22002
+{22002} Actor.LockInCurrentPosition(0@, False)
+{22009} 0687: clear_actor 0@ task 
+{22014} 0792: disembark_instantly_actor 0@ 
+{22019} jump @SP_MAIN_22349 
+
+:SP_MAIN_22026
+{22026} jump @SP_MAIN_22273 
+
+:SP_MAIN_22033
+{22033} if 
+{22037}    not Actor.Animation(0@) == "PKJUMPE"
+{22051} jf @SP_MAIN_22273 
+{22058} Audiostream.PerformAction(27@, AudioStreamState.Stop)
+{22065} 20@ = 0.0 
+{22075} 083E: set_actor 0@ rotation 0.0 20@ 22@ while_in_air 
+{22091} 0812: AS_actor 0@ perform_animation "PKJUMPE" IFP "SPIDER" framedelta 25.0 loopA 1 lockX 1 lockY 1 lockF 0 time -2 // versionB 
+{22128} TIMERA = 0 
+
+:SP_MAIN_22135
+{22135} if 
+{22139}   500 > TIMERA 
+{22147} jf @SP_MAIN_22198 
+{22154} cleo_call @SP_MAIN_24246 5 0@ 0.0 -1.0 1.0 10.0 
+{22187} wait 0 
+{22191} jump @SP_MAIN_22135 
+
+:SP_MAIN_22198
+{22198} TIMERA = 0 
+
+:SP_MAIN_22205
+{22205} if 
+{22209}   500 > TIMERA 
+{22217} jf @SP_MAIN_22268 
+{22224} cleo_call @SP_MAIN_24246 5 0@ 0.0 1.0 1.0 10.0 
+{22257} wait 0 
+{22261} jump @SP_MAIN_22205 
+
+:SP_MAIN_22268
+{22268} 0687: clear_actor 0@ task 
+
+:SP_MAIN_22273
+{22273} if and
+{22277} is_key_pressed 9 
+{22281} is_key_pressed 32 
+{22285} is_key_pressed 8 
+{22289} jf @SP_MAIN_22338 
+
+:SP_MAIN_22296
+{22296} if 
+{22300} is_key_pressed 8 
+{22304} jf @SP_MAIN_22322 
+{22311} wait 0 
+{22315} jump @SP_MAIN_22296 
+
+:SP_MAIN_22322
+{22322} 0792: disembark_instantly_actor 0@ 
+{22327} Camera.Restore
+{22329} Camera.Restore_WithJumpCut
+{22331} jump @SP_MAIN_22349 
+
+:SP_MAIN_22338
+{22338} wait 0 
+{22342} jump @SP_MAIN_17139 
+
+:SP_MAIN_22349
+{22349} Camera.Restore
+{22351} Actor.LockInCurrentPosition(0@, False)
+{22358} return 
+{22360} terminate_this_custom_script 
+
+:SP_MAIN_22362
+{22362} if 
+{22366}   0@ == 1 
+{22373} jf @SP_MAIN_22485 
+{22380} write_memory 6197710 1 144 1 
+{22394} write_memory 6197711 1 144 1 
+{22408} write_memory 6197712 1 144 1 
+{22422} write_memory 6197713 1 144 1 
+{22436} write_memory 6197714 1 144 1 
+{22450} write_memory 6197715 1 144 1 
+{22464} write_memory 6197716 1 144 1 
+{22478} jump @SP_MAIN_22596 
+
+:SP_MAIN_22485
+{22485} if 
+{22489}   0@ == 0 
+{22496} jf @SP_MAIN_22596 
+{22503} write_memory 6197710 1 199 1 
+{22517} write_memory 6197711 1 70 1 
+{22530} write_memory 6197712 1 76 1 
+{22543} write_memory 6197713 1 0 1 
+{22556} write_memory 6197714 1 0 1 
+{22569} write_memory 6197715 1 128 1 
+{22583} write_memory 6197716 1 62 1 
+
+:SP_MAIN_22596
+{22596} cleo_return 0 
+{22601} Actor.EmulateFromPlayer(0@, 0)
+{22608} get_ped_pointer 2@ 0@ 
+{22616} 0085: 1@ = 2@ // (int) 
+{22624} 1@ += 1332 
+{22632} read_memory 1@ 1@ 4 0 
+{22644} if 
+{22648}   1@ == 7 
+{22655} jf @SP_MAIN_22671 
+{22662} 0485:   return_true 
+{22664} jump @SP_MAIN_22673 
+
+:SP_MAIN_22671
+{22671} 059A:   return_false 
+
+:SP_MAIN_22673
+{22673} cleo_return 0 
+{22678} Actor.EmulateFromPlayer(1@, 0)
+{22685} get_ped_pointer 3@ 1@ 
+{22693} 0085: 2@ = 3@ // (int) 
+{22701} 2@ += 1132 
+{22709} read_memory 2@ 2@ 1 0 
+{22721} if 
+{22725} 003B:   2@ == 0@ // (int) 
+{22733} jf @SP_MAIN_22749 
+{22740} 0485:   return_true 
+{22742} jump @SP_MAIN_22751 
+
+:SP_MAIN_22749
+{22749} 059A:   return_false 
+
+:SP_MAIN_22751
+{22751} cleo_return 0 
+
+:SP_MAIN_22756
+{22756} if 
+{22760}    Player.Defined(0@)
+{22765} jf @SP_MAIN_22836 
+{22772} Actor.StorePos(0@, 1@, 2@, 3@)
+{22786} 092E: get_water_height_at 1@ 2@ ignore_waves 1 store_to 4@ 
+{22799} if 
+{22803} 0025:   4@ > 3@ // (float) 
+{22811} jf @SP_MAIN_22827 
+{22818} 0485:   return_true 
+{22820} jump @SP_MAIN_22829 
+
+:SP_MAIN_22827
+{22827} 059A:   return_false 
+
+:SP_MAIN_22829
+{22829} jump @SP_MAIN_22838 
+
+:SP_MAIN_22836
+{22836} 059A:   return_false 
+
+:SP_MAIN_22838
+{22838} cleo_return 0 
+
+:SP_MAIN_22843
+{22843} 04C4: store_coords_to 9@ 10@ 11@ from_actor 0@ with_offset 1@ 2@ 3@ 
+{22866} 04C4: store_coords_to 12@ 13@ 14@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{22895} if 
+{22899} 06BD:   no_obstacles_between 12@ 13@ 14@ and 9@ 10@ 11@ solid 4@ car 5@ actor 6@ object 7@ particle 8@ 
+{22934} jf @SP_MAIN_22950 
+{22941} 0485:   return_true 
+{22943} jump @SP_MAIN_22952 
+
+:SP_MAIN_22950
+{22950} 059A:   return_false 
+
+:SP_MAIN_22952
+{22952} cleo_return 0 
+{22957} get_ped_pointer 1@ 0@ 
+{22965} 1@ += 1148 
+{22973} read_memory 1@ 1@ 4 0 
+{22985} 0085: 2@ = 1@ // (int) 
+{22993} 2@ += 4 
+{23000} 2@ += 12 
+{23007} read_memory 2@ 2@ 4 0 
+{23019} if 
+{23023}   2@ > 0 
+{23030} jf @SP_MAIN_23051 
+{23037} 059A:   return_false 
+{23039} cleo_return 0 
+{23044} jump @SP_MAIN_23110 
+
+:SP_MAIN_23051
+{23051} 0085: 2@ = 1@ // (int) 
+{23059} 2@ += 24 
+{23066} 2@ += 16 
+{23073} read_memory 2@ 2@ 4 0 
+{23085} if 
+{23089}   2@ > 0 
+{23096} jf @SP_MAIN_23110 
+{23103} 059A:   return_false 
+{23105} cleo_return 0 
+
+:SP_MAIN_23110
+{23110} 0485:   return_true 
+{23112} cleo_return 0 
+
+:SP_MAIN_23117
+{23117} 04C4: store_coords_to 7@ 11@ 15@ from_actor 0@ with_offset 1@ 2@ 3@ 
+{23140} 04C4: store_coords_to 8@ 12@ 16@ from_actor 0@ with_offset 4@ 5@ 6@ 
+{23163} 04C4: store_coords_to 9@ 13@ 17@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{23192} 04C4: store_coords_to 10@ 14@ 18@ from_actor 0@ with_offset 0.0 3.0 0.0 
+{23221} if 
+{23225} 06BD:   no_obstacles_between 10@ 14@ 18@ and 9@ 13@ 17@ solid 1 car 0 actor 0 object 0 particle 0 
+{23255} jf @SP_MAIN_23321 
+{23262} if 
+{23266} 06BD:   no_obstacles_between 7@ 11@ 15@ and 8@ 12@ 16@ solid 1 car 0 actor 0 object 0 particle 0 
+{23296} jf @SP_MAIN_23312 
+{23303} 059A:   return_false 
+{23305} jump @SP_MAIN_23314 
+
+:SP_MAIN_23312
+{23312} 0485:   return_true 
+
+:SP_MAIN_23314
+{23314} jump @SP_MAIN_23323 
+
+:SP_MAIN_23321
+{23321} 059A:   return_false 
+
+:SP_MAIN_23323
+{23323} cleo_return 0 
+
+:SP_MAIN_23328
+{23328} 04C4: store_coords_to 5@ 8@ 11@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{23357} 04C4: store_coords_to 6@ 9@ 12@ from_actor 0@ with_offset 1@ 2@ 3@ 
+{23380} cleo_call @SP_MAIN_25093 6 5@ 8@ 11@ 6@ 9@ 12@ 7@ 10@ 13@ 
+{23417} if and
+{23421} 8045:   not  6@ == 7@ // (float) 
+{23429} 8045:   not  9@ == 10@ // (float) 
+{23437} 8045:   not  12@ == 13@ // (float) 
+{23445} jf @SP_MAIN_23482 
+{23452} 0063: 10@ -= 4@ // (float) 
+{23460} cleo_call @SP_MAIN_23813 4 0@ 7@ 10@ 13@ 
+
+:SP_MAIN_23482
+{23482} cleo_return 0 
+
+:SP_MAIN_23487
+{23487} 04C4: store_coords_to 8@ 11@ 14@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{23516} 04C4: store_coords_to 9@ 12@ 15@ from_actor 0@ with_offset 1@ 2@ 3@ 
+{23539} 04C4: store_coords_to 10@ 13@ 16@ from_actor 0@ with_offset 4@ 5@ 6@ 
+{23562} cleo_call @SP_MAIN_25093 6 8@ 11@ 14@ 9@ 12@ 15@ 9@ 12@ 15@ 
+{23599} cleo_call @SP_MAIN_25093 6 8@ 11@ 14@ 10@ 13@ 16@ 10@ 13@ 16@ 
+{23636} cleo_call @SP_MAIN_24445 4 9@ 12@ 10@ 13@ 17@ 
+{23661} 005B: 17@ += 7@ // (float) 
+{23669} Actor.Angle(0@) = 17@
+{23677} cleo_return 0 
+{23682} 0087: 1@ = 0@ // (float) 
+{23690} 1@ *= 2.0 
+{23700} if 
+{23704}   1@ > 80.0 
+{23714} jf @SP_MAIN_23731 
+{23721} 1@ = 80.0 
+
+:SP_MAIN_23731
+{23731} 0922: set_camera_zoom_from 1@ to 70.0 timelimit 2000 smooth_transition 2 
+{23746} cleo_return 0 
+
+:SP_MAIN_23751
+{23751} 068E: get_camera_target_point_to 1@ 2@ 3@ 
+{23762} 068D: get_camera_position_to 4@ 5@ 6@ 
+{23773} 0063: 1@ -= 4@ // (float) 
+{23781} 0063: 2@ -= 5@ // (float) 
+{23789} 0604: get_Z_angle_for_point 1@ 2@ store_to 7@ 
+{23800} Actor.Angle(0@) = 7@
+{23808} cleo_return 0 
+
+:SP_MAIN_23813
+{23813} get_ped_pointer 4@ 0@ 
+{23821} 0085: 5@ = 4@ // (int) 
+{23829} 5@ += 20 
+{23836} read_memory 5@ 5@ 4 0 
+{23848} 0085: 6@ = 5@ // (int) 
+{23856} 6@ += 48 
+{23863} write_memory 6@ 4 1@ 0 
+{23875} 6@ += 4 
+{23882} write_memory 6@ 4 2@ 0 
+{23894} 6@ += 4 
+{23901} write_memory 6@ 4 3@ 0 
+{23913} cleo_return 0 
+{23918} 0087: 6@ = 1@ // (float) 
+{23926} 0087: 8@ = 2@ // (float) 
+{23934} 0087: 10@ = 3@ // (float) 
+{23942} 04C4: store_coords_to 5@ 7@ 9@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{23971} 0063: 6@ -= 5@ // (float) 
+{23979} 0063: 8@ -= 7@ // (float) 
+{23987} 0063: 10@ -= 9@ // (float) 
+{23995} 050A: 11@ = distance_between_XYZ 0.0 0.0 0.0 and_XYZ 6@ 8@ 10@ 
+{24024} 0073: 6@ /= 11@ // (float) 
+{24032} 0073: 8@ /= 11@ // (float) 
+{24040} 0073: 10@ /= 11@ // (float) 
+{24048} 006B: 6@ *= 4@ // (float) 
+{24056} 006B: 8@ *= 4@ // (float) 
+{24064} 006B: 10@ *= 4@ // (float) 
+{24072} 083C: set_actor 0@ velocity_in_direction_XYZ 6@ 8@ 10@ 
+{24086} wait 0 
+{24090} 083C: set_actor 0@ velocity_in_direction_XYZ 6@ 8@ 10@ 
+{24104} cleo_return 0 
+
+:SP_MAIN_24109
+{24109} 04C4: store_coords_to 5@ 7@ 9@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{24138} 04C4: store_coords_to 6@ 8@ 10@ from_actor 0@ with_offset 1@ 2@ 3@ 
+{24161} 0063: 6@ -= 5@ // (float) 
+{24169} 0063: 8@ -= 7@ // (float) 
+{24177} 0063: 10@ -= 9@ // (float) 
+{24185} 006B: 6@ *= 4@ // (float) 
+{24193} 006B: 8@ *= 4@ // (float) 
+{24201} 006B: 10@ *= 4@ // (float) 
+{24209} 083C: set_actor 0@ velocity_in_direction_XYZ 6@ 8@ 10@ 
+{24223} wait 0 
+{24227} 083C: set_actor 0@ velocity_in_direction_XYZ 6@ 8@ 10@ 
+{24241} cleo_return 0 
+
+:SP_MAIN_24246
+{24246} 04C4: store_coords_to 6@ 7@ 8@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{24275} 04C4: store_coords_to 9@ 10@ 11@ from_actor 0@ with_offset 1@ 2@ 3@ 
+{24298} 0063: 9@ -= 6@ // (float) 
+{24306} 0063: 10@ -= 7@ // (float) 
+{24314} 0063: 11@ -= 8@ // (float) 
+{24322} 050A: 5@ = distance_between_XYZ 0.0 0.0 0.0 and_XYZ 9@ 10@ 11@ 
+{24351} 0073: 9@ /= 5@ // (float) 
+{24359} 0073: 10@ /= 5@ // (float) 
+{24367} 0073: 11@ /= 5@ // (float) 
+{24375} 006B: 9@ *= 4@ // (float) 
+{24383} 006B: 10@ *= 4@ // (float) 
+{24391} 006B: 11@ *= 4@ // (float) 
+{24399} 083C: set_actor 0@ velocity_in_direction_XYZ 9@ 10@ 11@ 
+{24413} cleo_return 0 
+
+:SP_MAIN_24418
+{24418} 0494: get_joystick 0 direction_offset_to 0@ 1@ 2@ 2@ 
+{24434} cleo_return 2 0@ 1@ 
+
+:SP_MAIN_24445
+{24445} 0063: 0@ -= 2@ // (float) 
+{24453} 0063: 1@ -= 3@ // (float) 
+{24461} 0604: get_Z_angle_for_point 0@ 1@ store_to 4@ 
+{24472} cleo_return 1 4@ 
+
+:SP_MAIN_24480
+{24480} 0509: 6@ = distance_between_XY 0@ 1@ and_XY 3@ 4@ 
+{24497} 0087: 7@ = 2@ // (float) 
+{24505} 0063: 7@ -= 5@ // (float) 
+{24513} 0604: get_Z_angle_for_point 6@ 7@ store_to 8@ 
+{24524} 8@ -= 270.0 
+{24534} cleo_return 1 8@ 
+{24542} 0509: 6@ = distance_between_XY 0@ 1@ and_XY 3@ 4@ 
+{24559} 0087: 7@ = 2@ // (float) 
+{24567} 0063: 7@ -= 5@ // (float) 
+{24575} 0087: 8@ = 7@ // (float) 
+{24583} cleo_call @SP_MAIN_24620 2 6@ 8@ 9@ 
+{24602} 9@ -= 270.0 
+{24612} cleo_return 1 9@ 
+
+:SP_MAIN_24620
+{24620} 0087: 2@ = 0@ // (float) 
+{24628} 0087: 3@ = 1@ // (float) 
+{24636} 0509: 4@ = distance_between_XY 2@ 3@ and_XY 0.0 0.0 
+{24657} 0073: 2@ /= 4@ // (float) 
+{24665} 0073: 3@ /= 4@ // (float) 
+{24673} 0509: 4@ = distance_between_XY 2@ 3@ and_XY 0.0 1.0 
+{24694} 5@ = 0 
+
+:SP_MAIN_24701
+{24701} if 
+{24705}   15 >= 5@ 
+{24712} jf @SP_MAIN_24835 
+{24719} 4@ /= 2.0 
+{24729} 006B: 4@ *= 4@ // (float) 
+{24737} 0087: 3@ = 4@ // (float) 
+{24745} 4@ *= -1.0 
+{24755} 4@ += 1.0 
+{24765} 01FB: 4@ = square_root 4@ 
+{24773} 4@ *= -1.0 
+{24783} 4@ += 1.0 
+{24793} 006B: 4@ *= 4@ // (float) 
+{24801} 005B: 4@ += 3@ // (float) 
+{24809} 01FB: 4@ = square_root 4@ 
+{24817} 5@ += 1 
+{24824} wait 0 
+{24828} jump @SP_MAIN_24701 
+
+:SP_MAIN_24835
+{24835} 4@ *= 65536.0 
+{24845} 4@ /= 3.141593 
+{24855} 4@ *= 180.0 
+{24865} if 
+{24869}   2@ > 0.0 
+{24879} jf @SP_MAIN_24906 
+{24886} 4@ *= -1.0 
+{24896} 4@ += 360.0 
+
+:SP_MAIN_24906
+{24906} cleo_return 1 4@ 
+{24914} Actor.StorePos(0@, 2@, 5@, 8@)
+{24928} cleo_call @SP_MAIN_25019 4 1@ 2@ 5@ 8@ 3@ 6@ 9@ 4@ 7@ 10@ 
+{24968} cleo_call @SP_MAIN_25093 6 3@ 6@ 9@ 4@ 7@ 10@ 2@ 5@ 8@ 
+{25005} cleo_return 3 2@ 5@ 8@ 
+
+:SP_MAIN_25019
+{25019} get_var_pointer 10@ 4@ 
+{25027} get_var_pointer 11@ 7@ 
+{25035} call_method 5327216 11989032 6 0 11@ 10@ 3@ 2@ 1@ 0@ 
+{25070} cleo_return 6 4@ 5@ 6@ 7@ 8@ 9@ 
+
+:SP_MAIN_25093
+{25093} Actor.EmulateFromPlayer(12@, 0)
+{25100} get_ped_pointer 11@ 12@ 
+{25108} cleo_call @SP_MAIN_25188 17 0@ 1@ 2@ 3@ 4@ 5@ 1 1 1 1 0 1 0 11@ 0 0 0 6@ 7@ 8@ 9@ 10@ 
+{25174} cleo_return 3 6@ 7@ 8@ 
+
+:SP_MAIN_25188
+{25188} if 
+{25192}    not 13@ == 0 
+{25199} jf @SP_MAIN_25220 
+{25206} write_memory 12045672 4 13@ 0 
+
+:SP_MAIN_25220
+{25220} write_memory 12045680 1 11@ 0 
+{25234} get_var_pointer 22@ 0@ 
+{25242} get_var_pointer 23@ 3@ 
+{25250} get_var_pointer 24@ 17@ 
+{25258} get_var_pointer 25@ 20@ 
+{25266} call_function 5683712 12 12 16@ 15@ 14@ 10@ 9@ 8@ 7@ 6@ 25@ 24@ 23@ 22@ 26@ 
+{25317} if 
+{25321}    not 13@ == 0 
+{25328} jf @SP_MAIN_25348 
+{25335} write_memory 12045672 4 0 0 
+
+:SP_MAIN_25348
+{25348} if 
+{25352}    not 26@ == 0 
+{25359} jf @SP_MAIN_25577 
+{25366} if and
+{25370}    not 17@ == 0.0 
+{25380}    not 18@ == 0.0 
+{25390}    not 19@ == 0.0 
+{25400} jf @SP_MAIN_25577 
+{25407} 050A: 21@ = distance_between_XYZ 0@ 1@ 2@ and_XYZ 17@ 18@ 19@ 
+{25430} if 
+{25434}   12@ == 1 
+{25441} jf @SP_MAIN_25557 
+{25448} get_var_pointer 30@ 27@ 
+{25456} call_function 7233968 7 7 30@ 5@ 4@ 3@ 2@ 1@ 0@ 31@ 
+{25492} if 
+{25496}    not 31@ == 0 
+{25503} jf @SP_MAIN_25557 
+{25510} 0087: 17@ = 27@ // (float) 
+{25518} 0087: 18@ = 28@ // (float) 
+{25526} 0087: 19@ = 29@ // (float) 
+{25534} 050A: 21@ = distance_between_XYZ 0@ 1@ 2@ and_XYZ 27@ 28@ 29@ 
+
+:SP_MAIN_25557
+{25557} cleo_return 5 17@ 18@ 19@ 21@ 20@ 
+
+:SP_MAIN_25577
+{25577} cleo_return 5 3@ 4@ 5@ 0.0 0 
+
+:SP_MAIN_25598
+{25598} if 
+{25602} 0025:   0@ > 1@ // (float) 
+{25610} jf @SP_MAIN_25625 
+{25617} 0087: 0@ = 1@ // (float) 
+
+:SP_MAIN_25625
+{25625} if 
+{25629} 0025:   2@ > 0@ // (float) 
+{25637} jf @SP_MAIN_25652 
+{25644} 0087: 0@ = 2@ // (float) 
+
+:SP_MAIN_25652
+{25652} cleo_return 1 0@ 
+
+:SP_MAIN_25660
+{25660} 0087: 5@ = 1@ // (float) 
+{25668} 0063: 5@ -= 0@ // (float) 
+{25676} if 
+{25680}   5@ == 0.0 
+{25690} jf @SP_MAIN_25730 
+{25697} 0087: 6@ = 3@ // (float) 
+{25705} 005B: 6@ += 4@ // (float) 
+{25713} 6@ /= 2.0 
+{25723} jump @SP_MAIN_25794 
+
+:SP_MAIN_25730
+{25730} 0063: 4@ -= 3@ // (float) 
+{25738} 0063: 1@ -= 0@ // (float) 
+{25746} 0063: 2@ -= 0@ // (float) 
+{25754} 0087: 5@ = 4@ // (float) 
+{25762} 0073: 5@ /= 1@ // (float) 
+{25770} 0087: 6@ = 5@ // (float) 
+{25778} 006B: 6@ *= 2@ // (float) 
+{25786} 005B: 6@ += 3@ // (float) 
+
+:SP_MAIN_25794
+{25794} cleo_return 1 6@ 
+
+:SP_MAIN_25802
+{25802} 3@ = 2.0 
+{25812} 3@ *= 3.141593 
+{25822} 0087: 4@ = 0@ // (float) 
+{25830} 0073: 4@ /= 1@ // (float) 
+{25838} 01FB: 5@ = square_root 4@ 
+{25846} 0087: 2@ = 3@ // (float) 
+{25854} 006B: 2@ *= 5@ // (float) 
+{25862} cleo_return 1 2@ 
+
+:SP_MAIN_25870
+{25870} 02F7: 6@ = cosine 1@ // (float) 
+{25878} 02F7: 7@ = cosine 90.0 // (float) 
+{25888} 0087: 8@ = 6@ // (float) 
+{25896} 0063: 8@ -= 7@ // (float) 
+{25904} 0087: 2@ = 0@ // (float) 
+{25912} 006B: 2@ *= 8@ // (float) 
+{25920} 9@ = 9.8 
+{25930} 006B: 9@ *= 2@ // (float) 
+{25938} 9@ *= 2.0 
+{25948} 01FB: 3@ = square_root 9@ 
+{25956} 02F7: 10@ = cosine 1@ // (float) 
+{25964} 0087: 4@ = 3@ // (float) 
+{25972} 006B: 4@ *= 10@ // (float) 
+{25980} 0097: make 4@ absolute_float 
+{25985} 02F6: 11@ = sine 1@ // (float) 
+{25993} 0087: 5@ = 3@ // (float) 
+{26001} 006B: 5@ *= 11@ // (float) 
+{26009} 5@ *= -1.0 
+{26019} cleo_return 2 4@ 5@ 
+{26030} 0400: store_coords_to 10@ 11@ 12@ from_object 1@ with_offset 0.0 0.0 0.0 
+{26059} 0400: store_coords_to 13@ 14@ 15@ from_object 1@ with_offset 2@ 3@ 4@ 
+{26082} 0063: 13@ -= 10@ // (float) 
+{26090} 0063: 14@ -= 11@ // (float) 
+{26098} 0063: 15@ -= 12@ // (float) 
+{26106} 050A: 9@ = distance_between_XYZ 0.0 0.0 0.0 and_XYZ 13@ 14@ 15@ 
+{26135} 0073: 13@ /= 9@ // (float) 
+{26143} 0073: 14@ /= 9@ // (float) 
+{26151} 0073: 15@ /= 9@ // (float) 
+{26159} 006B: 13@ *= 5@ // (float) 
+{26167} 006B: 14@ *= 6@ // (float) 
+{26175} 006B: 15@ *= 7@ // (float) 
+{26183} 083C: set_actor 0@ velocity_in_direction_XYZ 13@ 14@ 15@ 
+{26197} cleo_return 0 
+
+:SP_MAIN_26202
+{26202} 2@ = 1 
+{26209} 3@ = 0 
+{26216} 4@ = 0 
+{26223} 5@ = 1 
+{26230} 6@ = 0 
+{26237} 04C4: store_coords_to 7@ 12@ 17@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{26266} 04C4: store_coords_to 8@ 13@ 18@ from_actor 0@ with_offset 15.0 5.0 5.0 
+{26295} if 
+{26299} 86BD:   not no_obstacles_between 8@ 13@ 18@ and 7@ 12@ 17@ solid 2@ car 3@ actor 4@ object 5@ particle 6@ 
+{26334} jf @SP_MAIN_26416 
+{26341} cleo_call @SP_MAIN_27499 12 7@ 12@ 17@ 8@ 13@ 18@ 1 0 0 0 0 0 10@ 15@ 20@ 25@ 
+{26393} 050A: 22@ = distance_between_XYZ 7@ 12@ 17@ and_XYZ 10@ 15@ 20@ 
+
+:SP_MAIN_26416
+{26416} 04C4: store_coords_to 9@ 14@ 19@ from_actor 0@ with_offset -15.0 5.0 5.0 
+{26445} if 
+{26449} 86BD:   not no_obstacles_between 9@ 14@ 19@ and 7@ 12@ 17@ solid 2@ car 3@ actor 4@ object 5@ particle 6@ 
+{26484} jf @SP_MAIN_26566 
+{26491} cleo_call @SP_MAIN_27499 12 7@ 12@ 17@ 9@ 14@ 19@ 1 0 0 0 0 0 10@ 15@ 20@ 26@ 
+{26543} 050A: 23@ = distance_between_XYZ 7@ 12@ 17@ and_XYZ 10@ 15@ 20@ 
+
+:SP_MAIN_26566
+{26566} 04C4: store_coords_to 10@ 15@ 20@ from_actor 0@ with_offset 5.0 5.0 5.0 
+{26595} 050A: 24@ = distance_between_XYZ 7@ 12@ 17@ and_XYZ 10@ 15@ 20@ 
+{26618} if 
+{26622} 0025:   23@ > 22@ // (float) 
+{26630} jf @SP_MAIN_26659 
+{26637} 0087: 25@ = 22@ // (float) 
+{26645} 1@ = 1 
+{26652} jump @SP_MAIN_26715 
+
+:SP_MAIN_26659
+{26659} if 
+{26663} 0025:   22@ > 23@ // (float) 
+{26671} jf @SP_MAIN_26700 
+{26678} 0087: 25@ = 23@ // (float) 
+{26686} 1@ = 2 
+{26693} jump @SP_MAIN_26715 
+
+:SP_MAIN_26700
+{26700} 0087: 25@ = 24@ // (float) 
+{26708} 1@ = 0 
+
+:SP_MAIN_26715
+{26715} if 
+{26719}   25@ > 10.0 
+{26729} jf @SP_MAIN_26753 
+{26736} 25@ = 10.0 
+{26746} jump @SP_MAIN_26784 
+
+:SP_MAIN_26753
+{26753} if 
+{26757}   5.0 > 25@ 
+{26767} jf @SP_MAIN_26784 
+{26774} 25@ = 5.0 
+
+:SP_MAIN_26784
+{26784} cleo_return 2 25@ 1@ 
+
+:SP_MAIN_26795
+{26795} 2@ = 1 
+{26802} 3@ = 0 
+{26809} 4@ = 0 
+{26816} 5@ = 1 
+{26823} 6@ = 0 
+{26830} 7@ = 0.0 
+{26840} 1@ = 0 
+{26847} 04C4: store_coords_to 9@ 12@ 15@ from_actor 0@ with_offset 0.0 0.0 0.0 
+{26876} 04C4: store_coords_to 8@ 11@ 14@ from_actor 0@ with_offset 15.0 5.0 8.0 
+{26905} if 
+{26909} 86BD:   not no_obstacles_between 9@ 12@ 15@ and 8@ 11@ 14@ solid 2@ car 3@ actor 4@ object 5@ particle 6@ 
+{26944} jf @SP_MAIN_27048 
+{26951} cleo_call @SP_MAIN_27499 12 9@ 12@ 15@ 8@ 11@ 14@ 1 0 0 0 0 0 10@ 13@ 16@ 17@ 
+{27003} 1@ = 2 
+{27010} cleo_call @SP_MAIN_24480 6 9@ 12@ 15@ 10@ 13@ 16@ 7@ 
+{27041} jump @SP_MAIN_27388 
+
+:SP_MAIN_27048
+{27048} 04C4: store_coords_to 8@ 11@ 14@ from_actor 0@ with_offset -15.0 5.0 8.0 
+{27077} if 
+{27081} 86BD:   not no_obstacles_between 9@ 12@ 15@ and 8@ 11@ 14@ solid 2@ car 3@ actor 4@ object 5@ particle 6@ 
+{27116} jf @SP_MAIN_27220 
+{27123} cleo_call @SP_MAIN_27499 12 9@ 12@ 15@ 8@ 11@ 14@ 1 0 0 0 0 0 10@ 13@ 16@ 17@ 
+{27175} 1@ = 1 
+{27182} cleo_call @SP_MAIN_24480 6 9@ 12@ 15@ 10@ 13@ 16@ 7@ 
+{27213} jump @SP_MAIN_27388 
+
+:SP_MAIN_27220
+{27220} 04C4: store_coords_to 10@ 13@ 16@ from_actor 0@ with_offset 0.0 10.0 10.0 
+{27249} 1@ = 0 
+{27256} cleo_call @SP_MAIN_24480 6 9@ 12@ 15@ 10@ 13@ 16@ 7@ 
+{27287} 0097: make 7@ absolute_float 
+{27292} 0819: 19@ = actor 0@ distance_from_ground 
+{27300} if 
+{27304}   10.0 > 19@ 
+{27314} jf @SP_MAIN_27346 
+{27321} 18@ = 13.0 
+{27331} 0087: 7@ = 18@ // (float) 
+{27339} jump @SP_MAIN_27388 
+
+:SP_MAIN_27346
+{27346} 0208: 18@ = random_float_in_ranges 18.0 30.0 
+{27361} if 
+{27365} 0025:   7@ > 18@ // (float) 
+{27373} jf @SP_MAIN_27388 
+{27380} 0087: 7@ = 18@ // (float) 
+
+:SP_MAIN_27388
+{27388} 0097: make 7@ absolute_float 
+{27393} 050A: 17@ = distance_between_XYZ 9@ 12@ 15@ and_XYZ 10@ 13@ 16@ 
+{27416} if 
+{27420}   17@ > 15.0 
+{27430} jf @SP_MAIN_27454 
+{27437} 17@ = 15.0 
+{27447} jump @SP_MAIN_27485 
+
+:SP_MAIN_27454
+{27454} if 
+{27458}   8.0 > 17@ 
+{27468} jf @SP_MAIN_27485 
+{27475} 17@ = 8.0 
+
+:SP_MAIN_27485
+{27485} cleo_return 3 17@ 7@ 1@ 
+
+:SP_MAIN_27499
+{27499} if 
+{27503}    not 11@ == 0 
+{27510} jf @SP_MAIN_27531 
+{27517} write_memory 12045672 4 11@ 0 
+
+:SP_MAIN_27531
+{27531} get_var_pointer 16@ 0@ 
+{27539} get_var_pointer 17@ 3@ 
+{27547} get_var_pointer 18@ 12@ 
+{27555} get_var_pointer 19@ 15@ 
+{27563} call_function 5683712 12 12 0 0 0 10@ 9@ 8@ 7@ 6@ 19@ 18@ 17@ 16@ 20@ 
+{27611} if 
+{27615}    not 11@ == 0 
+{27622} jf @SP_MAIN_27642 
+{27629} write_memory 12045672 4 0 0 
+
+:SP_MAIN_27642
+{27642} get_var_pointer 24@ 21@ 
+{27650} if 
+{27654}    not 20@ == 0 
+{27661} jf @SP_MAIN_27739 
+{27668} if and
+{27672}    not 12@ == 0.0 
+{27682}    not 13@ == 0.0 
+{27692}    not 14@ == 0.0 
+{27702} jf @SP_MAIN_27732 
+{27709} 050A: 15@ = distance_between_XYZ 0@ 1@ 2@ and_XYZ 12@ 13@ 14@ 
+
+:SP_MAIN_27732
+{27732} jump @SP_MAIN_27749 
+
+:SP_MAIN_27739
+{27739} 15@ = 0.0 
+
+:SP_MAIN_27749
+{27749} cleo_return 4 12@ 13@ 14@ 15@ 
+{27766} 2@ = 90.0 
+{27776} 0063: 2@ -= 1@ // (float) 
+{27784} 02F6: 3@ = sine 2@ // (float) 
+{27792} 006B: 3@ *= 0@ // (float) 
+{27800} 0097: make 3@ absolute_float 
+{27805} 02F7: 4@ = cosine 2@ // (float) 
+{27813} 4@ *= -1.0 
+{27823} 006B: 4@ *= 0@ // (float) 
+{27831} cleo_return 2 3@ 4@ 
