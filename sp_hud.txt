@@ -1,0 +1,1443 @@
+p{$CLEO .cs}
+{$USE CLEO+}
+
+{0} script_name 'SP_HUD' 
+{11} wait 0 
+{15} Actor.EmulateFromPlayer(0@, 0)
+{22} gosub @SP_HUD_1995 
+{29} 8@ = 0 
+{36} 7@ = 1 
+{43} cleo_call @SP_HUD_7561 0 9@ 
+{56} cleo_call @SP_HUD_8122 1 9@ 
+{69} get_cleo_shared_var 9@ 3 
+{76} cleo_call @SP_HUD_8578 1 9@ 
+{89} get_cleo_shared_var 9@ 4 
+{96} cleo_call @SP_HUD_8521 1 9@ 
+{109} get_cleo_shared_var 9@ 5 
+{116} cleo_call @SP_HUD_8464 1 9@ 
+{129} get_cleo_shared_var 9@ 6 
+{136} cleo_call @SP_HUD_8407 1 9@ 
+{149} get_cleo_shared_var 9@ 7 
+{156} cleo_call @SP_HUD_8350 1 9@ 
+{169} get_cleo_shared_var 9@ 8 
+{176} cleo_call @SP_HUD_8293 1 9@ 
+{189} get_cleo_shared_var 9@ 9 
+{196} cleo_call @SP_HUD_8236 1 9@ 
+{209} get_cleo_shared_var 9@ 10 
+{216} cleo_call @SP_HUD_8179 1 9@ 
+
+:SP_HUD_229
+{229} if 
+{233}    Player.Defined(0)
+{237} jf @SP_HUD_1327 
+{244} gosub @SP_HUD_1848 
+{251} if 
+{255}   1@ == 1 
+{262} jf @SP_HUD_1228 
+{269} if 
+{273}   4@ == 0 
+{280} jf @SP_HUD_1156 
+{287} if 
+{291}   2@ == 1 
+{298} jf @SP_HUD_1149 
+{305} if 
+{309} gosub @SP_HUD_1338 
+{316} jf @SP_HUD_584 
+{323} cleo_call @SP_HUD_8149 0 9@ 
+{336} 0871: init_jump_table 9@ total_jumps 4 default_jump 1 @SP_HUD_547 jumps 1 @SP_HUD_399 2 @SP_HUD_436 3 @SP_HUD_473 4 @SP_HUD_510 -1 @SP_HUD_584 -1 @SP_HUD_584 -1 @SP_HUD_584 
+
+:SP_HUD_399
+{399} cleo_call @SP_HUD_8635 4 800.0 85.0 125.0 70.0 
+{429} jump @SP_HUD_584 
+
+:SP_HUD_436
+{436} cleo_call @SP_HUD_8635 4 575.0 85.0 125.0 70.0 
+{466} jump @SP_HUD_584 
+
+:SP_HUD_473
+{473} cleo_call @SP_HUD_8635 4 725.0 85.0 125.0 70.0 
+{503} jump @SP_HUD_584 
+
+:SP_HUD_510
+{510} cleo_call @SP_HUD_8635 4 525.0 85.0 125.0 70.0 
+{540} jump @SP_HUD_584 
+
+:SP_HUD_547
+{547} cleo_call @SP_HUD_8635 4 800.0 85.0 125.0 70.0 
+{577} jump @SP_HUD_584 
+
+:SP_HUD_584
+{584} if 
+{588} does_file_exist "CLEO\SpiderJ16D\sp_hit.cs" 
+{617} jf @SP_HUD_649 
+{624} stream_custom_script "SpiderJ16D\sp_hit.cs" 
+
+:SP_HUD_649
+{649} if 
+{653}   2@ == 1 
+{660} jf @SP_HUD_1070 
+{667} gosub @SP_HUD_1848 
+{674} gosub @SP_HUD_1878 
+{681} if or
+{685} is_on_scripted_cutscene 
+{687} is_on_cutscene 
+{689}   7@ == 0 
+{696} jf @SP_HUD_714 
+{703} 03F0: enable_text_draw 0 
+{707} jump @SP_HUD_951 
+
+:SP_HUD_714
+{714} if 
+{718}   5@ == 0 
+{725} jf @SP_HUD_951 
+{732} 03F0: enable_text_draw 0 
+{736} if 
+{740} gosub @SP_HUD_1382 
+{747} jf @SP_HUD_761 
+{754} gosub @SP_HUD_2751 
+
+:SP_HUD_761
+{761} if 
+{765} gosub @SP_HUD_1426 
+{772} jf @SP_HUD_786 
+{779} gosub @SP_HUD_3845 
+
+:SP_HUD_786
+{786} if 
+{790} gosub @SP_HUD_1470 
+{797} jf @SP_HUD_811 
+{804} gosub @SP_HUD_7007 
+
+:SP_HUD_811
+{811} if 
+{815} gosub @SP_HUD_1514 
+{822} jf @SP_HUD_836 
+{829} gosub @SP_HUD_7155 
+
+:SP_HUD_836
+{836} if 
+{840} gosub @SP_HUD_1558 
+{847} jf @SP_HUD_861 
+{854} gosub @SP_HUD_6741 
+
+:SP_HUD_861
+{861} if 
+{865} gosub @SP_HUD_1602 
+{872} jf @SP_HUD_886 
+{879} gosub @SP_HUD_6877 
+
+:SP_HUD_886
+{886} if 
+{890} gosub @SP_HUD_1646 
+{897} jf @SP_HUD_911 
+{904} gosub @SP_HUD_7368 
+
+:SP_HUD_911
+{911} if 
+{915} gosub @SP_HUD_1690 
+{922} jf @SP_HUD_940 
+{929} 0826: enable_hud 0 
+{933} jump @SP_HUD_944 
+
+:SP_HUD_940
+{940} 0826: enable_hud 1 
+
+:SP_HUD_944
+{944} gosub @SP_HUD_7497 
+
+:SP_HUD_951
+{951} if 
+{955}   4@ == 1 
+{962} jf @SP_HUD_1034 
+{969} 03F0: enable_text_draw 0 
+
+:SP_HUD_973
+{973} if 
+{977}   4@ == 1 
+{984} jf @SP_HUD_1034 
+{991} gosub @SP_HUD_1848 
+{998} if 
+{1002}   1@ == 0 
+{1009} jf @SP_HUD_1023 
+{1016} jump @SP_HUD_1228 
+
+:SP_HUD_1023
+{1023} wait 0 
+{1027} jump @SP_HUD_973 
+
+:SP_HUD_1034
+{1034} if 
+{1038}   1@ == 0 
+{1045} jf @SP_HUD_1059 
+{1052} jump @SP_HUD_1228 
+
+:SP_HUD_1059
+{1059} wait 0 
+{1063} jump @SP_HUD_649 
+
+:SP_HUD_1070
+{1070} if 
+{1074} gosub @SP_HUD_1338 
+{1081} jf @SP_HUD_1149 
+{1088} cleo_call @SP_HUD_8149 0 9@ 
+{1101} if 
+{1105}   4 >= 9@ 
+{1112} jf @SP_HUD_1149 
+{1119} cleo_call @SP_HUD_8635 4 40.0 104.0 94.0 76.0 
+
+:SP_HUD_1149
+{1149} jump @SP_HUD_1221 
+
+:SP_HUD_1156
+{1156} 03F0: enable_text_draw 0 
+
+:SP_HUD_1160
+{1160} if 
+{1164}   4@ == 1 
+{1171} jf @SP_HUD_1221 
+{1178} gosub @SP_HUD_1848 
+{1185} if 
+{1189}   1@ == 0 
+{1196} jf @SP_HUD_1210 
+{1203} jump @SP_HUD_1228 
+
+:SP_HUD_1210
+{1210} wait 0 
+{1214} jump @SP_HUD_1160 
+
+:SP_HUD_1221
+{1221} jump @SP_HUD_1327 
+
+:SP_HUD_1228
+{1228} 03F0: enable_text_draw 0 
+{1232} if 
+{1236} gosub @SP_HUD_1338 
+{1243} jf @SP_HUD_1311 
+{1250} cleo_call @SP_HUD_8149 0 9@ 
+{1263} if 
+{1267}   4 >= 9@ 
+{1274} jf @SP_HUD_1311 
+{1281} cleo_call @SP_HUD_8635 4 40.0 104.0 94.0 76.0 
+
+:SP_HUD_1311
+{1311} 03F0: enable_text_draw 0 
+{1315} wait 25 
+{1319} 0391: release_textures 
+{1321} wait 0 
+{1325} terminate_this_custom_script 
+
+:SP_HUD_1327
+{1327} wait 0 
+{1331} jump @SP_HUD_229 
+
+:SP_HUD_1338
+{1338} cleo_call @SP_HUD_8605 0 24@ 
+{1351} if 
+{1355}   24@ == 1 
+{1362} jf @SP_HUD_1378 
+{1369} 0485:   return_true 
+{1371} jump @SP_HUD_1380 
+
+:SP_HUD_1378
+{1378} 059A:   return_false 
+
+:SP_HUD_1380
+{1380} return 
+
+:SP_HUD_1382
+{1382} cleo_call @SP_HUD_8548 0 24@ 
+{1395} if 
+{1399}   24@ == 1 
+{1406} jf @SP_HUD_1422 
+{1413} 0485:   return_true 
+{1415} jump @SP_HUD_1424 
+
+:SP_HUD_1422
+{1422} 059A:   return_false 
+
+:SP_HUD_1424
+{1424} return 
+
+:SP_HUD_1426
+{1426} cleo_call @SP_HUD_8491 0 24@ 
+{1439} if 
+{1443}   24@ == 1 
+{1450} jf @SP_HUD_1466 
+{1457} 0485:   return_true 
+{1459} jump @SP_HUD_1468 
+
+:SP_HUD_1466
+{1466} 059A:   return_false 
+
+:SP_HUD_1468
+{1468} return 
+
+:SP_HUD_1470
+{1470} cleo_call @SP_HUD_8434 0 24@ 
+{1483} if 
+{1487}   24@ == 1 
+{1494} jf @SP_HUD_1510 
+{1501} 0485:   return_true 
+{1503} jump @SP_HUD_1512 
+
+:SP_HUD_1510
+{1510} 059A:   return_false 
+
+:SP_HUD_1512
+{1512} return 
+
+:SP_HUD_1514
+{1514} cleo_call @SP_HUD_8377 0 24@ 
+{1527} if 
+{1531}   24@ == 1 
+{1538} jf @SP_HUD_1554 
+{1545} 0485:   return_true 
+{1547} jump @SP_HUD_1556 
+
+:SP_HUD_1554
+{1554} 059A:   return_false 
+
+:SP_HUD_1556
+{1556} return 
+
+:SP_HUD_1558
+{1558} cleo_call @SP_HUD_8320 0 24@ 
+{1571} if 
+{1575}   24@ == 1 
+{1582} jf @SP_HUD_1598 
+{1589} 0485:   return_true 
+{1591} jump @SP_HUD_1600 
+
+:SP_HUD_1598
+{1598} 059A:   return_false 
+
+:SP_HUD_1600
+{1600} return 
+
+:SP_HUD_1602
+{1602} cleo_call @SP_HUD_8263 0 24@ 
+{1615} if 
+{1619}   24@ == 1 
+{1626} jf @SP_HUD_1642 
+{1633} 0485:   return_true 
+{1635} jump @SP_HUD_1644 
+
+:SP_HUD_1642
+{1642} 059A:   return_false 
+
+:SP_HUD_1644
+{1644} return 
+
+:SP_HUD_1646
+{1646} cleo_call @SP_HUD_8206 0 24@ 
+{1659} if 
+{1663}   24@ == 1 
+{1670} jf @SP_HUD_1686 
+{1677} 0485:   return_true 
+{1679} jump @SP_HUD_1688 
+
+:SP_HUD_1686
+{1686} 059A:   return_false 
+
+:SP_HUD_1688
+{1688} return 
+
+:SP_HUD_1690
+{1690} if 
+{1694} gosub @SP_HUD_1382 
+{1701} jf @SP_HUD_1712 
+{1708} 0485:   return_true 
+{1710} return 
+
+:SP_HUD_1712
+{1712} if 
+{1716} gosub @SP_HUD_1426 
+{1723} jf @SP_HUD_1734 
+{1730} 0485:   return_true 
+{1732} return 
+
+:SP_HUD_1734
+{1734} if 
+{1738} gosub @SP_HUD_1470 
+{1745} jf @SP_HUD_1756 
+{1752} 0485:   return_true 
+{1754} return 
+
+:SP_HUD_1756
+{1756} if 
+{1760} gosub @SP_HUD_1514 
+{1767} jf @SP_HUD_1778 
+{1774} 0485:   return_true 
+{1776} return 
+
+:SP_HUD_1778
+{1778} if 
+{1782} gosub @SP_HUD_1558 
+{1789} jf @SP_HUD_1800 
+{1796} 0485:   return_true 
+{1798} return 
+
+:SP_HUD_1800
+{1800} if 
+{1804} gosub @SP_HUD_1602 
+{1811} jf @SP_HUD_1822 
+{1818} 0485:   return_true 
+{1820} return 
+
+:SP_HUD_1822
+{1822} if 
+{1826} gosub @SP_HUD_1646 
+{1833} jf @SP_HUD_1844 
+{1840} 0485:   return_true 
+{1842} return 
+
+:SP_HUD_1844
+{1844} 059A:   return_false 
+{1846} return 
+
+:SP_HUD_1848
+{1848} get_cleo_shared_var 2@ 1 
+{1855} get_cleo_shared_var 4@ 40 
+{1862} get_cleo_shared_var 1@ 0 
+{1869} return 
+{1871} 077E: get_active_interior_to 5@ 
+{1876} return 
+
+:SP_HUD_1878
+{1878} read_memory 6@ 12216169 4 0 
+{1892} if 
+{1896}   6@ == 0 
+{1903} jf @SP_HUD_1924 
+{1910} 7@ = 0 
+{1917} jump @SP_HUD_1931 
+
+:SP_HUD_1924
+{1924} 7@ = 1 
+
+:SP_HUD_1931
+{1931} return 
+{1933} read_memory 23@ 9873356 4 0 
+{1947} if or
+{1951}   23@ == 1 
+{1958}   23@ == 2 
+{1965} jf @SP_HUD_1986 
+{1972} 8@ = 1 
+{1979} jump @SP_HUD_1993 
+
+:SP_HUD_1986
+{1986} 8@ = 0 
+
+:SP_HUD_1993
+{1993} return 
+
+:SP_HUD_1995
+{1995} if 
+{1999} does_directory_exist "CLEO\SpiderJ16D" 
+{2018} jf @SP_HUD_2658 
+{2025} 0390: load_txd_dictionary 'SPHUD' 
+{2036} 038F: load_texture "ST1" as 11 // Load dictionary with 0390 first 
+{2045} 038F: load_texture "SPLHEALTH" as 10 // Load dictionary with 0390 first 
+{2060} 038F: load_texture "H_BAR1" as 16 // Load dictionary with 0390 first 
+{2072} 038F: load_texture "H_BAR" as 15 // Load dictionary with 0390 first 
+{2083} 038F: load_texture "H0" as 17 // Load dictionary with 0390 first 
+{2091} 038F: load_texture "H1" as 18 // Load dictionary with 0390 first 
+{2099} 038F: load_texture "H2" as 19 // Load dictionary with 0390 first 
+{2107} 038F: load_texture "H3" as 20 // Load dictionary with 0390 first 
+{2115} 038F: load_texture "H4" as 21 // Load dictionary with 0390 first 
+{2123} 038F: load_texture "H5" as 22 // Load dictionary with 0390 first 
+{2131} 038F: load_texture "H6" as 23 // Load dictionary with 0390 first 
+{2139} 038F: load_texture "H7" as 24 // Load dictionary with 0390 first 
+{2147} 038F: load_texture "H8" as 25 // Load dictionary with 0390 first 
+{2155} 038F: load_texture "H9" as 26 // Load dictionary with 0390 first 
+{2163} 038F: load_texture "H10" as 27 // Load dictionary with 0390 first 
+{2172} 038F: load_texture "H11" as 28 // Load dictionary with 0390 first 
+{2181} 038F: load_texture "H12" as 29 // Load dictionary with 0390 first 
+{2190} 038F: load_texture "A_BAR" as 35 // Load dictionary with 0390 first 
+{2201} 038F: load_texture "A_BARA" as 36 // Load dictionary with 0390 first 
+{2213} 038F: load_texture "A_BARB" as 37 // Load dictionary with 0390 first 
+{2225} 038F: load_texture "A_BARC" as 38 // Load dictionary with 0390 first 
+{2237} 038F: load_texture "A1" as 39 // Load dictionary with 0390 first 
+{2245} 038F: load_texture "A2" as 40 // Load dictionary with 0390 first 
+{2253} 038F: load_texture "A3" as 41 // Load dictionary with 0390 first 
+{2261} 038F: load_texture "A4" as 42 // Load dictionary with 0390 first 
+{2269} 038F: load_texture "A5" as 43 // Load dictionary with 0390 first 
+{2277} 038F: load_texture "A6" as 44 // Load dictionary with 0390 first 
+{2285} 038F: load_texture "A7" as 45 // Load dictionary with 0390 first 
+{2293} 038F: load_texture "A8" as 46 // Load dictionary with 0390 first 
+{2301} 038F: load_texture "A9" as 47 // Load dictionary with 0390 first 
+{2309} 038F: load_texture "A10" as 48 // Load dictionary with 0390 first 
+{2318} 038F: load_texture "WA1" as 49 // Load dictionary with 0390 first 
+{2327} 038F: load_texture "WA2" as 50 // Load dictionary with 0390 first 
+{2336} 038F: load_texture "WA3" as 51 // Load dictionary with 0390 first 
+{2345} 038F: load_texture "WA4" as 52 // Load dictionary with 0390 first 
+{2354} 038F: load_texture "WA5" as 53 // Load dictionary with 0390 first 
+{2363} 038F: load_texture "WA6" as 54 // Load dictionary with 0390 first 
+{2372} 038F: load_texture "WA7" as 55 // Load dictionary with 0390 first 
+{2381} 038F: load_texture "WA8" as 56 // Load dictionary with 0390 first 
+{2390} 038F: load_texture "P_WB" as 68 // Load dictionary with 0390 first 
+{2400} 038F: load_texture "P_HD" as 61 // Load dictionary with 0390 first 
+{2410} 038F: load_texture "P_BP" as 57 // Load dictionary with 0390 first 
+{2420} 038F: load_texture "P_SB" as 66 // Load dictionary with 0390 first 
+{2430} 038F: load_texture "P_NS" as 64 // Load dictionary with 0390 first 
+{2440} 038F: load_texture "P_EP" as 60 // Load dictionary with 0390 first 
+{2450} 038F: load_texture "P_RO" as 65 // Load dictionary with 0390 first 
+{2460} 038F: load_texture "P_BPJ" as 58 // Load dictionary with 0390 first 
+{2471} 038F: load_texture "P_LG" as 63 // Load dictionary with 0390 first 
+{2481} 038F: load_texture "P_IA" as 62 // Load dictionary with 0390 first 
+{2491} 038F: load_texture "P_DS" as 59 // Load dictionary with 0390 first 
+{2501} 038F: load_texture "P_SF" as 67 // Load dictionary with 0390 first 
+{2511} 038F: load_texture "P_QS" as 69 // Load dictionary with 0390 first 
+{2521} 038F: load_texture "P_EQ" as 70 // Load dictionary with 0390 first 
+{2531} 038F: load_texture "P_QD" as 71 // Load dictionary with 0390 first 
+{2541} 038F: load_texture "P_KR" as 72 // Load dictionary with 0390 first 
+{2551} 038F: load_texture "P_NULL" as 74 // Load dictionary with 0390 first 
+{2563} 038F: load_texture "C_B_1" as 75 // Load dictionary with 0390 first 
+{2574} 038F: load_texture "C_B_2" as 76 // Load dictionary with 0390 first 
+{2585} 038F: load_texture "C_B_3" as 77 // Load dictionary with 0390 first 
+{2596} 038F: load_texture "C_B_4" as 78 // Load dictionary with 0390 first 
+{2607} 038F: load_texture "C_B_5" as 79 // Load dictionary with 0390 first 
+{2618} 038F: load_texture "C_B_6" as 80 // Load dictionary with 0390 first 
+{2629} 038F: load_texture "C_B_7" as 81 // Load dictionary with 0390 first 
+{2640} 038F: load_texture "C_B_8" as 82 // Load dictionary with 0390 first 
+{2651} jump @SP_HUD_2749 
+
+:SP_HUD_2658
+{2658} print_string_now "~r~ERROR: 'CLEO\SpiderJ16D' folder not found!" 6000 
+{2710} TIMERA = 0 
+
+:SP_HUD_2717
+{2717} if 
+{2721}   5500 > TIMERA 
+{2729} jf @SP_HUD_2747 
+{2736} wait 0 
+{2740} jump @SP_HUD_2717 
+
+:SP_HUD_2747
+{2747} terminate_this_custom_script 
+
+:SP_HUD_2749
+{2749} return 
+
+:SP_HUD_2751
+{2751} gosub @SP_HUD_2996 
+{2758} gosub @SP_HUD_3616 
+{2765} 12@ = 300.0 
+{2775} 13@ = 93.33 
+{2785} if 
+{2789}   19 > 10@ 
+{2796} jf @SP_HUD_2848 
+{2803} 03F0: enable_text_draw 0 
+{2807} 03E3: set_texture_to_be_drawn_antialiased 1 
+{2811} 038D: draw_texture 15 position 105.0 45.0 size 12@ 13@ RGBA 155 30 30 255 
+{2841} jump @SP_HUD_2888 
+
+:SP_HUD_2848
+{2848} 03F0: enable_text_draw 0 
+{2852} 03E3: set_texture_to_be_drawn_antialiased 1 
+{2856} 038D: draw_texture 15 position 105.0 45.0 size 12@ 13@ RGBA 255 255 255 255 
+
+:SP_HUD_2888
+{2888} gosub @SP_HUD_3704 
+{2895} 11@ = 17 
+
+:SP_HUD_2902
+{2902} if 
+{2906}   29 >= 11@ 
+{2913} jf @SP_HUD_2994 
+{2920} if 
+{2924} 003B:   11@ == 10@ // (int) 
+{2932} jf @SP_HUD_2980 
+{2939} 03F0: enable_text_draw 0 
+{2943} 03E3: set_texture_to_be_drawn_antialiased 1 
+{2947} 038D: draw_texture 11@ position 105.0 45.0 size 12@ 13@ RGBA 255 255 255 255 
+
+:SP_HUD_2980
+{2980} 11@ += 1 
+{2987} jump @SP_HUD_2902 
+
+:SP_HUD_2994
+{2994} return 
+
+:SP_HUD_2996
+{2996} 9@ = Actor.Health(0@)
+{3004} 0093: 15@ = integer 9@ to_float 
+{3012} get_char_max_health 14@ 0@ 
+{3020} 0073: 15@ /= 14@ // (float) 
+{3028} 15@ *= 100.0 
+{3038} 0092: 9@ = float 15@ to_integer 
+{3046} if and
+{3050}   7.6923 > 15@ 
+{3060}   15@ >= 0.0 
+{3070} jf @SP_HUD_3091 
+{3077} 10@ = 17 
+{3084} jump @SP_HUD_3614 
+
+:SP_HUD_3091
+{3091} if and
+{3095}   15.3846 > 15@ 
+{3105}   15@ >= 7.6923 
+{3115} jf @SP_HUD_3136 
+{3122} 10@ = 18 
+{3129} jump @SP_HUD_3614 
+
+:SP_HUD_3136
+{3136} if and
+{3140}   23.0769 > 15@ 
+{3150}   15@ >= 15.3846 
+{3160} jf @SP_HUD_3181 
+{3167} 10@ = 19 
+{3174} jump @SP_HUD_3614 
+
+:SP_HUD_3181
+{3181} if and
+{3185}   30.7692 > 15@ 
+{3195}   15@ >= 23.0769 
+{3205} jf @SP_HUD_3226 
+{3212} 10@ = 20 
+{3219} jump @SP_HUD_3614 
+
+:SP_HUD_3226
+{3226} if and
+{3230}   38.4615 > 15@ 
+{3240}   15@ >= 30.7692 
+{3250} jf @SP_HUD_3271 
+{3257} 10@ = 21 
+{3264} jump @SP_HUD_3614 
+
+:SP_HUD_3271
+{3271} if and
+{3275}   46.1538 > 15@ 
+{3285}   15@ >= 38.4615 
+{3295} jf @SP_HUD_3316 
+{3302} 10@ = 22 
+{3309} jump @SP_HUD_3614 
+
+:SP_HUD_3316
+{3316} if and
+{3320}   53.8461 > 15@ 
+{3330}   15@ >= 46.1538 
+{3340} jf @SP_HUD_3361 
+{3347} 10@ = 23 
+{3354} jump @SP_HUD_3614 
+
+:SP_HUD_3361
+{3361} if and
+{3365}   61.5384 > 15@ 
+{3375}   15@ >= 53.8461 
+{3385} jf @SP_HUD_3406 
+{3392} 10@ = 24 
+{3399} jump @SP_HUD_3614 
+
+:SP_HUD_3406
+{3406} if and
+{3410}   69.2307 > 15@ 
+{3420}   15@ >= 61.5384 
+{3430} jf @SP_HUD_3451 
+{3437} 10@ = 25 
+{3444} jump @SP_HUD_3614 
+
+:SP_HUD_3451
+{3451} if and
+{3455}   76.923 > 15@ 
+{3465}   15@ >= 69.2307 
+{3475} jf @SP_HUD_3496 
+{3482} 10@ = 26 
+{3489} jump @SP_HUD_3614 
+
+:SP_HUD_3496
+{3496} if and
+{3500}   84.6153 > 15@ 
+{3510}   15@ >= 76.923 
+{3520} jf @SP_HUD_3541 
+{3527} 10@ = 27 
+{3534} jump @SP_HUD_3614 
+
+:SP_HUD_3541
+{3541} if and
+{3545}   92.3076 > 15@ 
+{3555}   15@ >= 84.6153 
+{3565} jf @SP_HUD_3586 
+{3572} 10@ = 28 
+{3579} jump @SP_HUD_3614 
+
+:SP_HUD_3586
+{3586} if 
+{3590}   15@ >= 92.3076 
+{3600} jf @SP_HUD_3614 
+{3607} 10@ = 29 
+
+:SP_HUD_3614
+{3614} return 
+
+:SP_HUD_3616
+{3616} if 
+{3620}   19 >= 10@ 
+{3627} jf @SP_HUD_3702 
+{3634} cleo_call @SP_HUD_8087 0 12@ 13@ 
+{3650} get_fixed_xy_aspect_ratio 12@ 13@ 12@ 13@ 
+{3664} 03F0: enable_text_draw 0 
+{3668} 03E3: set_texture_to_be_drawn_antialiased 1 
+{3672} 038D: draw_texture 10 position 320.0 224.0 size 12@ 13@ RGBA 155 30 30 255 
+
+:SP_HUD_3702
+{3702} return 
+
+:SP_HUD_3704
+{3704} 9@ = Actor.Health(0@)
+{3712} 0349: set_text_draw_font 1 
+{3716} 033F: set_text_draw_letter_size 0.24 1.17 
+{3728} 0343: set_text_draw_linewidth 640.0 
+{3735} if 
+{3739}   3 > 10@ 
+{3746} jf @SP_HUD_3784 
+{3753} 0340: set_text_draw_RGBA 155 30 30 255 
+{3765} 081C: draw_text_outline 1 RGBA 95 18 18 100 
+{3777} jump @SP_HUD_3811 
+
+:SP_HUD_3784
+{3784} 0340: set_text_draw_RGBA 215 225 235 255 
+{3798} 081C: draw_text_outline 1 RGBA 94 120 137 100 
+
+:SP_HUD_3811
+{3811} 03F0: enable_text_draw 0 
+{3815} 03E0: draw_text_behind_textures 1 
+{3819} 045A: draw_text_1number 23.5 25.0 GXT 'NUMBER' number 9@ 
+{3843} return 
+
+:SP_HUD_3845
+{3845} 12@ = 300.0 
+{3855} 13@ = 93.33 
+{3865} gosub @SP_HUD_4517 
+{3872} gosub @SP_HUD_3910 
+{3879} gosub @SP_HUD_4789 
+{3886} gosub @SP_HUD_5697 
+{3893} gosub @SP_HUD_5805 
+{3900} 03F0: enable_text_draw 0 
+{3904} 03F0: enable_text_draw 1 
+{3908} return 
+
+:SP_HUD_3910
+{3910} get_cleo_shared_var 9@ 33 
+{3917} 0871: init_jump_table 9@ total_jumps 10 default_jump 0 @SP_HUD_4515 jumps 1 @SP_HUD_4045 2 @SP_HUD_4092 3 @SP_HUD_4139 4 @SP_HUD_4186 5 @SP_HUD_4233 6 @SP_HUD_4280 7 @SP_HUD_4327 
+{3980} 0872: jump_table_jumps 8 @SP_HUD_4374 9 @SP_HUD_4421 10 @SP_HUD_4468 -1 @SP_HUD_4515 -1 @SP_HUD_4515 -1 @SP_HUD_4515 -1 @SP_HUD_4515 -1 @SP_HUD_4515 -1 @SP_HUD_4515 
+
+:SP_HUD_4045
+{4045} 03F0: enable_text_draw 0 
+{4049} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4053} 038D: draw_texture 39 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4085} jump @SP_HUD_4515 
+
+:SP_HUD_4092
+{4092} 03F0: enable_text_draw 0 
+{4096} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4100} 038D: draw_texture 40 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4132} jump @SP_HUD_4515 
+
+:SP_HUD_4139
+{4139} 03F0: enable_text_draw 0 
+{4143} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4147} 038D: draw_texture 41 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4179} jump @SP_HUD_4515 
+
+:SP_HUD_4186
+{4186} 03F0: enable_text_draw 0 
+{4190} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4194} 038D: draw_texture 42 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4226} jump @SP_HUD_4515 
+
+:SP_HUD_4233
+{4233} 03F0: enable_text_draw 0 
+{4237} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4241} 038D: draw_texture 43 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4273} jump @SP_HUD_4515 
+
+:SP_HUD_4280
+{4280} 03F0: enable_text_draw 0 
+{4284} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4288} 038D: draw_texture 44 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4320} jump @SP_HUD_4515 
+
+:SP_HUD_4327
+{4327} 03F0: enable_text_draw 0 
+{4331} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4335} 038D: draw_texture 45 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4367} jump @SP_HUD_4515 
+
+:SP_HUD_4374
+{4374} 03F0: enable_text_draw 0 
+{4378} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4382} 038D: draw_texture 46 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4414} jump @SP_HUD_4515 
+
+:SP_HUD_4421
+{4421} 03F0: enable_text_draw 0 
+{4425} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4429} 038D: draw_texture 47 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4461} jump @SP_HUD_4515 
+
+:SP_HUD_4468
+{4468} 03F0: enable_text_draw 0 
+{4472} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4476} 038D: draw_texture 48 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4508} jump @SP_HUD_4515 
+
+:SP_HUD_4515
+{4515} return 
+
+:SP_HUD_4517
+{4517} get_cleo_shared_var 9@ 32 
+{4524} if 
+{4528}   9@ == 1 
+{4535} jf @SP_HUD_4589 
+{4542} 03F0: enable_text_draw 0 
+{4546} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4550} 038D: draw_texture 36 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4582} jump @SP_HUD_4747 
+
+:SP_HUD_4589
+{4589} if or
+{4593}   9@ == 2 
+{4600}   9@ == 3 
+{4607}   9@ == 4 
+{4614}   9@ == 5 
+{4621}   9@ == 7 
+{4628} jf @SP_HUD_4682 
+{4635} 03F0: enable_text_draw 0 
+{4639} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4643} 038D: draw_texture 37 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4675} jump @SP_HUD_4747 
+
+:SP_HUD_4682
+{4682} if or
+{4686}   9@ == 6 
+{4693}   9@ == 8 
+{4700} jf @SP_HUD_4747 
+{4707} 03F0: enable_text_draw 0 
+{4711} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4715} 038D: draw_texture 38 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+
+:SP_HUD_4747
+{4747} 03F0: enable_text_draw 0 
+{4751} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4755} 038D: draw_texture 35 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4787} return 
+
+:SP_HUD_4789
+{4789} get_cleo_shared_var 9@ 32 
+{4796} 0871: init_jump_table 9@ total_jumps 8 default_jump 0 @SP_HUD_5300 jumps 1 @SP_HUD_4924 2 @SP_HUD_4971 3 @SP_HUD_5018 4 @SP_HUD_5065 5 @SP_HUD_5112 6 @SP_HUD_5159 7 @SP_HUD_5206 
+{4859} 0872: jump_table_jumps 8 @SP_HUD_5253 -1 @SP_HUD_5300 -1 @SP_HUD_5300 -1 @SP_HUD_5300 -1 @SP_HUD_5300 -1 @SP_HUD_5300 -1 @SP_HUD_5300 -1 @SP_HUD_5300 -1 @SP_HUD_5300 
+
+:SP_HUD_4924
+{4924} 03F0: enable_text_draw 0 
+{4928} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4932} 038D: draw_texture 49 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{4964} jump @SP_HUD_5300 
+
+:SP_HUD_4971
+{4971} 03F0: enable_text_draw 0 
+{4975} 03E3: set_texture_to_be_drawn_antialiased 1 
+{4979} 038D: draw_texture 50 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5011} jump @SP_HUD_5300 
+
+:SP_HUD_5018
+{5018} 03F0: enable_text_draw 0 
+{5022} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5026} 038D: draw_texture 51 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5058} jump @SP_HUD_5300 
+
+:SP_HUD_5065
+{5065} 03F0: enable_text_draw 0 
+{5069} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5073} 038D: draw_texture 52 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5105} jump @SP_HUD_5300 
+
+:SP_HUD_5112
+{5112} 03F0: enable_text_draw 0 
+{5116} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5120} 038D: draw_texture 53 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5152} jump @SP_HUD_5300 
+
+:SP_HUD_5159
+{5159} 03F0: enable_text_draw 0 
+{5163} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5167} 038D: draw_texture 54 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5199} jump @SP_HUD_5300 
+
+:SP_HUD_5206
+{5206} 03F0: enable_text_draw 0 
+{5210} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5214} 038D: draw_texture 55 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5246} jump @SP_HUD_5300 
+
+:SP_HUD_5253
+{5253} 03F0: enable_text_draw 0 
+{5257} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5261} 038D: draw_texture 56 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5293} jump @SP_HUD_5300 
+
+:SP_HUD_5300
+{5300} return 
+
+:SP_HUD_5302
+{5302} get_cleo_shared_var 9@ 35 
+{5309} 0093: 22@ = integer 9@ to_float 
+{5317} if 
+{5321}   7.0 > 22@ 
+{5331} jf @SP_HUD_5352 
+{5338} 10@ = 0 
+{5345} jump @SP_HUD_5695 
+
+:SP_HUD_5352
+{5352} if and
+{5356}   14.0 > 22@ 
+{5366}   22@ >= 7.0 
+{5376} jf @SP_HUD_5397 
+{5383} 10@ = 75 
+{5390} jump @SP_HUD_5695 
+
+:SP_HUD_5397
+{5397} if and
+{5401}   26.0 > 22@ 
+{5411}   22@ >= 14.0 
+{5421} jf @SP_HUD_5442 
+{5428} 10@ = 76 
+{5435} jump @SP_HUD_5695 
+
+:SP_HUD_5442
+{5442} if and
+{5446}   38.0 > 22@ 
+{5456}   22@ >= 26.0 
+{5466} jf @SP_HUD_5487 
+{5473} 10@ = 77 
+{5480} jump @SP_HUD_5695 
+
+:SP_HUD_5487
+{5487} if and
+{5491}   50.0 > 22@ 
+{5501}   22@ >= 38.0 
+{5511} jf @SP_HUD_5532 
+{5518} 10@ = 78 
+{5525} jump @SP_HUD_5695 
+
+:SP_HUD_5532
+{5532} if and
+{5536}   62.0 > 22@ 
+{5546}   22@ >= 50.0 
+{5556} jf @SP_HUD_5577 
+{5563} 10@ = 79 
+{5570} jump @SP_HUD_5695 
+
+:SP_HUD_5577
+{5577} if and
+{5581}   74.0 > 22@ 
+{5591}   22@ >= 62.0 
+{5601} jf @SP_HUD_5622 
+{5608} 10@ = 80 
+{5615} jump @SP_HUD_5695 
+
+:SP_HUD_5622
+{5622} if and
+{5626}   93.0 > 22@ 
+{5636}   22@ >= 74.0 
+{5646} jf @SP_HUD_5667 
+{5653} 10@ = 81 
+{5660} jump @SP_HUD_5695 
+
+:SP_HUD_5667
+{5667} if 
+{5671}   22@ >= 93.0 
+{5681} jf @SP_HUD_5695 
+{5688} 10@ = 82 
+
+:SP_HUD_5695
+{5695} return 
+
+:SP_HUD_5697
+{5697} gosub @SP_HUD_5302 
+{5704} 11@ = 75 
+
+:SP_HUD_5711
+{5711} if 
+{5715}   82 >= 11@ 
+{5722} jf @SP_HUD_5803 
+{5729} if 
+{5733} 003B:   11@ == 10@ // (int) 
+{5741} jf @SP_HUD_5789 
+{5748} 03F0: enable_text_draw 0 
+{5752} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5756} 038D: draw_texture 11@ position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 180 
+
+:SP_HUD_5789
+{5789} 11@ += 1 
+{5796} jump @SP_HUD_5711 
+
+:SP_HUD_5803
+{5803} return 
+
+:SP_HUD_5805
+{5805} get_cleo_shared_var 3@ 34 
+{5812} 0871: init_jump_table 3@ total_jumps 16 default_jump 1 @SP_HUD_6692 jumps 1 @SP_HUD_5940 2 @SP_HUD_5987 3 @SP_HUD_6034 4 @SP_HUD_6081 5 @SP_HUD_6128 6 @SP_HUD_6175 7 @SP_HUD_6222 
+{5875} 0872: jump_table_jumps 8 @SP_HUD_6269 9 @SP_HUD_6316 10 @SP_HUD_6363 11 @SP_HUD_6410 12 @SP_HUD_6457 13 @SP_HUD_6504 14 @SP_HUD_6551 15 @SP_HUD_6598 16 @SP_HUD_6645 
+
+:SP_HUD_5940
+{5940} 03F0: enable_text_draw 0 
+{5944} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5948} 038D: draw_texture 68 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{5980} jump @SP_HUD_6739 
+
+:SP_HUD_5987
+{5987} 03F0: enable_text_draw 0 
+{5991} 03E3: set_texture_to_be_drawn_antialiased 1 
+{5995} 038D: draw_texture 61 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6027} jump @SP_HUD_6739 
+
+:SP_HUD_6034
+{6034} 03F0: enable_text_draw 0 
+{6038} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6042} 038D: draw_texture 57 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6074} jump @SP_HUD_6739 
+
+:SP_HUD_6081
+{6081} 03F0: enable_text_draw 0 
+{6085} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6089} 038D: draw_texture 66 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6121} jump @SP_HUD_6739 
+
+:SP_HUD_6128
+{6128} 03F0: enable_text_draw 0 
+{6132} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6136} 038D: draw_texture 64 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6168} jump @SP_HUD_6739 
+
+:SP_HUD_6175
+{6175} 03F0: enable_text_draw 0 
+{6179} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6183} 038D: draw_texture 60 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6215} jump @SP_HUD_6739 
+
+:SP_HUD_6222
+{6222} 03F0: enable_text_draw 0 
+{6226} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6230} 038D: draw_texture 65 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6262} jump @SP_HUD_6739 
+
+:SP_HUD_6269
+{6269} 03F0: enable_text_draw 0 
+{6273} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6277} 038D: draw_texture 58 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6309} jump @SP_HUD_6739 
+
+:SP_HUD_6316
+{6316} 03F0: enable_text_draw 0 
+{6320} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6324} 038D: draw_texture 63 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6356} jump @SP_HUD_6739 
+
+:SP_HUD_6363
+{6363} 03F0: enable_text_draw 0 
+{6367} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6371} 038D: draw_texture 62 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6403} jump @SP_HUD_6739 
+
+:SP_HUD_6410
+{6410} 03F0: enable_text_draw 0 
+{6414} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6418} 038D: draw_texture 59 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6450} jump @SP_HUD_6739 
+
+:SP_HUD_6457
+{6457} 03F0: enable_text_draw 0 
+{6461} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6465} 038D: draw_texture 67 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6497} jump @SP_HUD_6739 
+
+:SP_HUD_6504
+{6504} 03F0: enable_text_draw 0 
+{6508} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6512} 038D: draw_texture 69 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6544} jump @SP_HUD_6739 
+
+:SP_HUD_6551
+{6551} 03F0: enable_text_draw 0 
+{6555} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6559} 038D: draw_texture 70 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6591} jump @SP_HUD_6739 
+
+:SP_HUD_6598
+{6598} 03F0: enable_text_draw 0 
+{6602} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6606} 038D: draw_texture 71 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6638} jump @SP_HUD_6739 
+
+:SP_HUD_6645
+{6645} 03F0: enable_text_draw 0 
+{6649} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6653} 038D: draw_texture 72 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6685} jump @SP_HUD_6739 
+
+:SP_HUD_6692
+{6692} 03F0: enable_text_draw 0 
+{6696} 03E3: set_texture_to_be_drawn_antialiased 1 
+{6700} 038D: draw_texture 74 position 535.0 50.0 size 12@ 13@ RGBA 255 255 255 255 
+{6732} jump @SP_HUD_6739 
+
+:SP_HUD_6739
+{6739} return 
+
+:SP_HUD_6741
+{6741} read_memory 21@ 12045792 4 0 
+{6755} if and
+{6759}   21@ > 0.0 
+{6769} 0965:   actor 0@ swimming 
+{6774} jf @SP_HUD_6837 
+{6781} gosub @SP_HUD_6839 
+{6788} cleo_call @SP_HUD_7901 10 50.0 436.0 21@ 60.0 2.0 1.0 150 200 255 120 
+
+:SP_HUD_6837
+{6837} return 
+
+:SP_HUD_6839
+{6839} 0653: 20@ = float_stat 225 
+{6847} 20@ *= 4.0 
+{6857} 0073: 21@ /= 20@ // (float) 
+{6865} 21@ *= 100.0 
+{6875} return 
+
+:SP_HUD_6877
+{6877} 04DD: 23@ = actor 0@ armour 
+{6885} 0093: 25@ = integer 23@ to_float 
+{6893} if 
+{6897}   25@ > 0.0 
+{6907} jf @SP_HUD_6970 
+{6914} gosub @SP_HUD_6972 
+{6921} cleo_call @SP_HUD_7901 10 50.0 440.0 25@ 60.0 2.0 1.0 255 255 255 120 
+
+:SP_HUD_6970
+{6970} return 
+
+:SP_HUD_6972
+{6972} 0945: get_player 0 max_armour_to 23@ 
+{6979} 0093: 26@ = integer 23@ to_float 
+{6987} 0073: 25@ /= 26@ // (float) 
+{6995} 25@ *= 100.0 
+{7005} return 
+
+:SP_HUD_7007
+{7007} 16@ = Player.Money(0)
+{7014} if 
+{7018}   16@ > -1 
+{7025} jf @SP_HUD_7050 
+{7032} 0340: set_text_draw_RGBA 0 255 0 120 
+{7043} jump @SP_HUD_7068 
+
+:SP_HUD_7050
+{7050} 0340: set_text_draw_RGBA 255 0 0 120 
+{7061} 16@ *= -1 
+
+:SP_HUD_7068
+{7068} gosub @SP_HUD_7077 
+{7075} return 
+
+:SP_HUD_7077
+{7077} 0349: set_text_draw_font 1 
+{7081} 033F: set_text_draw_letter_size 0.15 0.725 
+{7093} 0343: set_text_draw_linewidth 640.0 
+{7100} 0340: set_text_draw_RGBA 17 242 198 200 
+{7113} 081C: draw_text_outline 1 RGBA 0 0 0 100 
+{7125} 03E0: draw_text_behind_textures 1 
+{7129} 045A: draw_text_1number 120.0 435.0 GXT 'AUICASH' number 16@ 
+{7153} return 
+
+:SP_HUD_7155
+{7155} 00BF: 17@ = current_time_hours, 18@ = current_time_minutes 
+{7163} if 
+{7167}   10 > 18@ 
+{7174} jf @SP_HUD_7195 
+{7181} gosub @SP_HUD_7204 
+{7188} jump @SP_HUD_7202 
+
+:SP_HUD_7195
+{7195} gosub @SP_HUD_7286 
+
+:SP_HUD_7202
+{7202} return 
+
+:SP_HUD_7204
+{7204} 0349: set_text_draw_font 1 
+{7208} 033F: set_text_draw_letter_size 0.15 0.725 
+{7220} 0343: set_text_draw_linewidth 640.0 
+{7227} 0340: set_text_draw_RGBA 255 255 255 140 
+{7241} 081C: draw_text_outline 1 RGBA 0 0 0 100 
+{7253} 03E0: draw_text_behind_textures 1 
+{7257} 045B: draw_text_2numbers 95.0 435.0 GXT 'TIME_0' numbers 17@ 18@ 
+{7284} return 
+
+:SP_HUD_7286
+{7286} 0349: set_text_draw_font 1 
+{7290} 033F: set_text_draw_letter_size 0.15 0.725 
+{7302} 0343: set_text_draw_linewidth 640.0 
+{7309} 0340: set_text_draw_RGBA 255 255 255 140 
+{7323} 081C: draw_text_outline 1 RGBA 0 0 0 100 
+{7335} 03E0: draw_text_behind_textures 1 
+{7339} 045B: draw_text_2numbers 95.0 435.0 GXT 'TIME' numbers 17@ 18@ 
+{7366} return 
+
+:SP_HUD_7368
+{7368} 19@ = Player.WantedLevel(0)
+{7375} if 
+{7379}   19@ > 0 
+{7386} jf @SP_HUD_7495 
+{7393} 23@ = 0 
+{7400} 22@ = 430.0 
+
+:SP_HUD_7410
+{7410} if 
+{7414} 001D:   19@ > 23@ // (int) 
+{7422} jf @SP_HUD_7495 
+{7429} 03F0: enable_text_draw 0 
+{7433} 03E3: set_texture_to_be_drawn_antialiased 1 
+{7437} 038D: draw_texture 11 position 629.0 22@ size 8.5 8.5 RGBA 255 255 255 210 
+{7471} 22@ -= 12.0 
+{7481} 23@ += 1 
+{7488} jump @SP_HUD_7410 
+
+:SP_HUD_7495
+{7495} return 
+
+:SP_HUD_7497
+{7497} 12@ = 300.0 
+{7507} 13@ = 93.33 
+{7517} 03F0: enable_text_draw 0 
+{7521} 03E3: set_texture_to_be_drawn_antialiased 1 
+{7525} 038D: draw_texture 16 position 105.0 45.0 size 12@ 13@ RGBA 255 255 255 255 
+{7557} return 
+{7559} terminate_this_custom_script 
+
+:SP_HUD_7561
+{7561} cleo_call @SP_HUD_8087 0 3@ 4@ 
+{7577} 0087: 5@ = 3@ // (float) 
+{7585} 0073: 5@ /= 4@ // (float) 
+{7593} 0@ = 16.0 
+{7603} 1@ = 9.0 
+{7613} 0087: 2@ = 0@ // (float) 
+{7621} 0073: 2@ /= 1@ // (float) 
+{7629} if 
+{7633} 0045:   5@ == 2@ // (float) 
+{7641} jf @SP_HUD_7670 
+{7648} 6@ = 1 
+{7655} cleo_return 1 6@ 
+{7663} jump @SP_HUD_7894 
+
+:SP_HUD_7670
+{7670} 0@ = 4.0 
+{7680} 1@ = 3.0 
+{7690} 0087: 2@ = 0@ // (float) 
+{7698} 0073: 2@ /= 1@ // (float) 
+{7706} if 
+{7710} 0045:   5@ == 2@ // (float) 
+{7718} jf @SP_HUD_7747 
+{7725} 6@ = 2 
+{7732} cleo_return 1 6@ 
+{7740} jump @SP_HUD_7894 
+
+:SP_HUD_7747
+{7747} 0@ = 16.0 
+{7757} 1@ = 10.0 
+{7767} 0087: 2@ = 0@ // (float) 
+{7775} 0073: 2@ /= 1@ // (float) 
+{7783} if 
+{7787} 0045:   5@ == 2@ // (float) 
+{7795} jf @SP_HUD_7824 
+{7802} 6@ = 3 
+{7809} cleo_return 1 6@ 
+{7817} jump @SP_HUD_7894 
+
+:SP_HUD_7824
+{7824} 0@ = 5.0 
+{7834} 1@ = 4.0 
+{7844} 0087: 2@ = 0@ // (float) 
+{7852} 0073: 2@ /= 1@ // (float) 
+{7860} if 
+{7864} 0045:   5@ == 2@ // (float) 
+{7872} jf @SP_HUD_7894 
+{7879} 6@ = 4 
+{7886} cleo_return 1 6@ 
+
+:SP_HUD_7894
+{7894} cleo_return 1 0 
+
+:SP_HUD_7901
+{7901} 10@ = 100.0 
+{7911} 0073: 10@ /= 3@ // (float) 
+{7919} 0073: 2@ /= 10@ // (float) 
+{7927} 0087: 11@ = 3@ // (float) 
+{7935} 0087: 12@ = 4@ // (float) 
+{7943} 005B: 11@ += 5@ // (float) 
+{7951} 005B: 12@ += 5@ // (float) 
+{7959} 038E: draw_box_position 0@ 1@ size 11@ 12@ RGBA 0 0 0 9@ 
+{7982} 038E: draw_box_position 0@ 1@ size 3@ 4@ RGBA 200 200 200 9@ 
+{8008} 0087: 13@ = 2@ // (float) 
+{8016} 13@ /= 2.0 
+{8026} 3@ /= 2.0 
+{8036} 005B: 0@ += 13@ // (float) 
+{8044} 0063: 0@ -= 3@ // (float) 
+{8052} 038E: draw_box_position 0@ 1@ size 2@ 4@ RGBA 6@ 7@ 8@ 9@ 
+{8078} 03F0: enable_text_draw 0 
+{8082} cleo_return 0 
+
+:SP_HUD_8087
+{8087} get_current_resolution 0@ 1@ 
+{8095} 0093: 2@ = integer 0@ to_float 
+{8103} 0093: 3@ = integer 1@ to_float 
+{8111} cleo_return 2 2@ 3@ 
+
+:SP_HUD_8122
+{8122} get_label_pointer 1@ @SP_HUD_8823 
+{8132} write_memory 1@ 4 0@ 0 
+{8144} cleo_return 0 
+
+:SP_HUD_8149
+{8149} get_label_pointer 0@ @SP_HUD_8823 
+{8159} read_memory 0@ 0@ 4 0 
+{8171} cleo_return 1 0@ 
+
+:SP_HUD_8179
+{8179} get_label_pointer 1@ @SP_HUD_8827 
+{8189} write_memory 1@ 4 0@ 0 
+{8201} cleo_return 0 
+
+:SP_HUD_8206
+{8206} get_label_pointer 0@ @SP_HUD_8831 
+{8216} read_memory 0@ 0@ 4 0 
+{8228} cleo_return 1 0@ 
+
+:SP_HUD_8236
+{8236} get_label_pointer 1@ @SP_HUD_8831 
+{8246} write_memory 1@ 4 0@ 0 
+{8258} cleo_return 0 
+
+:SP_HUD_8263
+{8263} get_label_pointer 0@ @SP_HUD_8831 
+{8273} read_memory 0@ 0@ 4 0 
+{8285} cleo_return 1 0@ 
+
+:SP_HUD_8293
+{8293} get_label_pointer 1@ @SP_HUD_8835 
+{8303} write_memory 1@ 4 0@ 0 
+{8315} cleo_return 0 
+
+:SP_HUD_8320
+{8320} get_label_pointer 0@ @SP_HUD_8835 
+{8330} read_memory 0@ 0@ 4 0 
+{8342} cleo_return 1 0@ 
+
+:SP_HUD_8350
+{8350} get_label_pointer 1@ @SP_HUD_8839 
+{8360} write_memory 1@ 4 0@ 0 
+{8372} cleo_return 0 
+
+:SP_HUD_8377
+{8377} get_label_pointer 0@ @SP_HUD_8839 
+{8387} read_memory 0@ 0@ 4 0 
+{8399} cleo_return 1 0@ 
+
+:SP_HUD_8407
+{8407} get_label_pointer 1@ @SP_HUD_8843 
+{8417} write_memory 1@ 4 0@ 0 
+{8429} cleo_return 0 
+
+:SP_HUD_8434
+{8434} get_label_pointer 0@ @SP_HUD_8843 
+{8444} read_memory 0@ 0@ 4 0 
+{8456} cleo_return 1 0@ 
+
+:SP_HUD_8464
+{8464} get_label_pointer 1@ @SP_HUD_8847 
+{8474} write_memory 1@ 4 0@ 0 
+{8486} cleo_return 0 
+
+:SP_HUD_8491
+{8491} get_label_pointer 0@ @SP_HUD_8847 
+{8501} read_memory 0@ 0@ 4 0 
+{8513} cleo_return 1 0@ 
+
+:SP_HUD_8521
+{8521} get_label_pointer 1@ @SP_HUD_8851 
+{8531} write_memory 1@ 4 0@ 0 
+{8543} cleo_return 0 
+
+:SP_HUD_8548
+{8548} get_label_pointer 0@ @SP_HUD_8851 
+{8558} read_memory 0@ 0@ 4 0 
+{8570} cleo_return 1 0@ 
+
+:SP_HUD_8578
+{8578} get_label_pointer 1@ @SP_HUD_8855 
+{8588} write_memory 1@ 4 0@ 0 
+{8600} cleo_return 0 
+
+:SP_HUD_8605
+{8605} get_label_pointer 0@ @SP_HUD_8855 
+{8615} read_memory 0@ 0@ 4 0 
+{8627} cleo_return 1 0@ 
+
+:SP_HUD_8635
+{8635} get_label_pointer 4@ @SP_HUD_8807 
+{8645} 0085: 5@ = 4@ // (int) 
+{8653} write_memory 5@ 4 0@ 0 
+{8665} 0085: 6@ = 4@ // (int) 
+{8673} 6@ += 4 
+{8680} write_memory 6@ 4 1@ 0 
+{8692} 0085: 7@ = 4@ // (int) 
+{8700} 7@ += 8 
+{8707} write_memory 7@ 4 2@ 0 
+{8719} 0085: 8@ = 4@ // (int) 
+{8727} 8@ += 12 
+{8734} write_memory 8@ 4 3@ 0 
+{8746} write_memory 5780674 4 7@ 1 
+{8760} write_memory 5780692 4 5@ 1 
+{8774} write_memory 5780726 4 8@ 1 
+{8788} write_memory 5780736 4 6@ 1 
+{8802} cleo_return 0 
+
+:SP_HUD_8807
+{8807} 0000: NOP 
+hex
+{8809}  20 42 00 00 D0 42 00 00 BC 42 00 00 98 42
+end
+
+:SP_HUD_8823
+{8823} 0000: NOP 
+{8825} 0000: NOP 
+
+:SP_HUD_8827
+{8827} 0000: NOP 
+{8829} 0000: NOP 
+
+:SP_HUD_8831
+{8831} 0000: NOP 
+{8833} 0000: NOP 
+
+:SP_HUD_8835
+{8835} 0000: NOP 
+{8837} 0000: NOP 
+
+:SP_HUD_8839
+{8839} 0000: NOP 
+{8841} 0000: NOP 
+
+:SP_HUD_8843
+{8843} 0000: NOP 
+{8845} 0000: NOP 
+
+:SP_HUD_8847
+{8847} 0000: NOP 
+{8849} 0000: NOP 
+
+:SP_HUD_8851
+{8851} 0000: NOP 
+{8853} 0000: NOP 
+
+:SP_HUD_8855
+{8855} 0000: NOP 
+{8857} 0000: NOP 
